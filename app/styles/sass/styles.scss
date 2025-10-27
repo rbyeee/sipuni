@@ -1,0 +1,23 @@
+@import 'variables';
+
+.btn {
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 16px;
+
+  &_primary {
+    color: #fff;
+    background-color: $primary-color;
+  }
+
+  &_transparent {
+    color: #2E2E33;
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+a {
+  text-decoration: none;
+}

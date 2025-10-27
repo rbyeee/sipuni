@@ -1,0 +1,44 @@
+@import 'variables';
+
+.header {
+  position: relative;
+
+  &-navbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &__link {
+      padding: 14px 24px;
+      color: $dark-color;
+      transition: all 0.4s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__buttons {
+    gap: 8px;
+  }
+
+  &-picture {
+    pointer-events: none;
+    z-index: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.wrapper-header {
+  padding: 16px 26px;
+}
