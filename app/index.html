@@ -3,7 +3,8 @@
 <!--#include virtual="/parts/header.html" -->
 
 <main class="main">
-  <section class="section index index_offset">
+  
+  <section class="index index_offset">
     <div class="wrapper wrapper__default">
       <div class="index__container">
         <div class="index__man">
@@ -76,6 +77,129 @@
       </div>
     </div>
   </section>
+
+
+  <div class="main-container">
+
+    <aside class="side-menu">
+      <nav class="side-nav">
+        <ul class="side-nav__list">
+          <li class="side-nav__item">
+            <a href="#section1" class="side-nav__link active">Раздел 1</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="#section2" class="side-nav__link">Раздел 2</a>
+          </li>
+
+          <li class="side-nav__item">
+            <a href="#chronology" class="side-nav__link">Раздел 5</a>
+          </li>
+
+          <li class="side-nav__item">
+            <a href="#section3" class="side-nav__link">Раздел 3</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="#section4" class="side-nav__link">Раздел 4</a>
+          </li>
+
+        </ul>
+      </nav>
+    </aside>
+
+  <!-- <!-- <section class="catalog catalog_offset"> -->
+    
+
+    <div class="wrapper wrapper_large">
+      <div class="catalog-container">
+        <section id="section1" class="section">
+          <h2 class="section__title">Раздел 1</h2>
+          <div class="section__content">...</div>
+        </section>
+
+        <section id="section2" class="section">
+          <h2 class="section__title">Раздел 2</h2>
+          <div class="section__content">...</div>
+        </section>
+
+        <section class="chronology-section" id="chronology">
+          <div class="chronology-container">
+              <!-- Закрепленная левая часть -->
+              <div class="chronology-sticky">
+                  <div class="sticky-content">
+                <h2 class="chronology-title" id="chronology-heading" data-side-title="Хронология">Хронология</h2>
+                      <div class="image-container">
+                          <div class="image-frame">
+                              <img src="/images/dist/k1.png" alt="Этап 1" class="step-image active" data-step="1">
+                              <img src="/images/dist/k2.png" alt="Этап 2" class="step-image" data-step="2">
+                              <img src="/images/dist/k3.png" alt="Этап 3" class="step-image" data-step="3">
+                              <img src="/images/dist/k4.png" alt="Этап 4" class="step-image" data-step="4">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Скроллящаяся правая часть с этапами -->
+              <div class="chronology-scroll">
+                  <div class="steps-container">
+                      <div class="step" data-step="1">
+                          <div class="step-bullet active">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Создадим по звонку контакт/сделку</h3>
+                              <p class="step-description">Автоматически создаем контакты и сделки в CRM на основе входящих звонков</p>
+                          </div>
+                      </div>
+      
+                      <div class="step" data-step="2">
+                          <div class="step-bullet">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Сохраним запись звонков в CRM</h3>
+                              <p class="step-description">Все разговоры автоматически сохраняются и привязываются к соответствующим контактам</p>
+                          </div>
+                      </div>
+      
+                      <div class="step" data-step="3">
+                          <div class="step-bullet">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Переведем звонок на ответственного</h3>
+                              <p class="step-description">Интеллектуальная маршрутизация звонков на нужного менеджера</p>
+                          </div>
+                      </div>
+      
+                      <div class="step" data-step="4">
+                          <div class="step-bullet">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Распределим звонки, используя данные из CRM</h3>
+                              <p class="step-description">Используем историю взаимодействий для оптимального распределения вызовов</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+        <section id="section3" class="section">
+          <h2 class="section__title">Раздел 3</h2>
+          <div class="section__content">...</div>
+        </section>
+
+        <section id="section4" class="section">
+          <h2 class="section__title">Раздел 4</h2>
+          <div class="section__content">...</div>
+        </section>
+
+
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <!--#include virtual="/parts/footer.html" -->
