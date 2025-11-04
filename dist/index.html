@@ -21,14 +21,236 @@
 </head>
 
 <body>
+<header class="header">
+  <picture  class="header-picture">
+    <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
+    <img src="/images/dist/ellipse.png" alt="ellipse" />
+  </picture>
 
-	<div style="max-width: 700px; margin: auto">
+  <div class="wrapper wrapper-header">
+    <div class="header-wrapper">
+      <a href="#" class="header-logo">
+        <img src="/images/dist/logo.svg" alt="Логотип" />
+      </a>
+      <nav class="header-navbar">
+        <a href="#" class="header-navbar__link">Тарифы</a>
+        <a href="#" class="header-navbar__link">Партнерка</a>
+        <a href="#" class="header-navbar__link">Интеграции</a>
+        <a href="#" class="header-navbar__link">Звонки</a>
+        <a href="#" class="header-navbar__link">Контакты</a>
+      </nav>
 
-		<img src="images/dist/preview.jpg" alt="Start HTML5 Template" style="width: 100%"><br><br>
-		<h2 class="heading">Welcome to startup HTML template OptimizedHTML 5!</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam reprehenderit nulla alias expedita a qui, pariatur doloremque ipsa fugit laboriosam odio iure recusandae laborum delectus praesentium magni reiciendis voluptatem. Sed.</p>
+      <div class="header__buttons">
+        <button class="btn btn_primary">Регистрация</button>
+        <button class="btn btn_transparent">Войти</button>
+      </div>
+    </div>
+  </div>
+</header>
 
-	</div>
 
+<main class="main">
+  
+  <section class="index index_offset">
+    <div class="wrapper wrapper__default">
+      <div class="index__container">
+        <div class="index__man">
+          <picture class="header-picture">
+            <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
+            <img src="/images/dist/man.svg" alt="man" />
+          </picture>
+        </div>
+        <h1 class="index__title">
+          Телефония,<br />
+          где общаться<br />
+          с клиентами — <span>кайф</span>
+        </h1>
+      </div>
+      <div class="index__image-line">
+        <picture class="header-picture">
+          <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
+          <img src="/images/dist/main.png" alt="man" />
+        </picture>
+      </div>
+
+      <div class="index-list">
+        <div class="index-list-top">
+          <div class="index-list__item"><span>Бесперебойная связь</span></div>
+          <div class="index-list__item">
+            <span>Гибкое распределение звонков</span>
+          </div>
+        </div>
+
+        <div class="index-list__item">
+          <span>Надежная интеграция с amoCRM и Битрикс24</span>
+        </div>
+      </div>
+
+      <div class="index__button">
+        <a href="#" class="btn btn_primary btn--left">
+          Подключить бесплатно
+          <span class="color-gray">Три дня на тест</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wrapper wrapper__default">
+      <div class="index-content">
+        <div class="index-content-width">
+          <div class="index-content-item">
+            <div class="index__label">#1 в amoCRM</div>
+            <div class="index__description">
+              Если нужна телефония для amoCRM, клиенты обычно выбирают Сипуни
+            </div>
+          </div>
+        </div>
+        <div class="index-content-width">
+          <div class="index-content-item">
+            <div class="index__label">18 лет на рынке</div>
+            <div class="index__description">
+              Помогаем бизнесу еще со времен, когда рингтоны покупали по смс
+            </div>
+          </div>
+        </div>
+
+        <div class="index-content-width">
+          <div class="index-content-item">
+            <div class="index__label">Российское ПО</div>
+            <div class="index__description">
+              Никуда не денемся, влюбимся и женимся © Сипуни
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="main-container">
+
+    <aside class="side-menu">
+      <nav class="side-nav">
+        <ul class="side-nav__list">
+          <li class="side-nav__item">
+            <a href="#section1" class="side-nav__link active">Раздел 1</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="#section2" class="side-nav__link">Раздел 2</a>
+          </li>
+
+          <li class="side-nav__item">
+            <a href="#chronology" class="side-nav__link">Раздел 5</a>
+          </li>
+
+          <li class="side-nav__item">
+            <a href="#section3" class="side-nav__link">Раздел 3</a>
+          </li>
+          <li class="side-nav__item">
+            <a href="#section4" class="side-nav__link">Раздел 4</a>
+          </li>
+
+        </ul>
+      </nav>
+    </aside>
+
+  <!-- <!-- <section class="catalog catalog_offset"> -->
+    
+
+    <div class="wrapper wrapper_large">
+      <div class="catalog-container">
+        <section id="section1" class="section">
+          <h2 class="section__title">Раздел 1</h2>
+          <div class="section__content">...</div>
+        </section>
+
+        <section id="section2" class="section">
+          <h2 class="section__title">Раздел 2</h2>
+          <div class="section__content">...</div>
+        </section>
+
+        <section class="chronology-section" id="chronology">
+          <div class="chronology-container">
+              <!-- Закрепленная левая часть -->
+              <div class="chronology-sticky">
+                  <div class="sticky-content">
+                <h2 class="chronology-title" id="chronology-heading" data-side-title="Хронология">Хронология</h2>
+                      <div class="image-container">
+                          <div class="image-frame">
+                              <img src="/images/dist/k1.png" alt="Этап 1" class="step-image active" data-step="1">
+                              <img src="/images/dist/k2.png" alt="Этап 2" class="step-image" data-step="2">
+                              <img src="/images/dist/k3.png" alt="Этап 3" class="step-image" data-step="3">
+                              <img src="/images/dist/k4.png" alt="Этап 4" class="step-image" data-step="4">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Скроллящаяся правая часть с этапами -->
+              <div class="chronology-scroll">
+                  <div class="steps-container">
+                      <div class="step" data-step="1">
+                          <div class="step-bullet active">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Создадим по звонку контакт/сделку</h3>
+                              <p class="step-description">Автоматически создаем контакты и сделки в CRM на основе входящих звонков</p>
+                          </div>
+                      </div>
+      
+                      <div class="step" data-step="2">
+                          <div class="step-bullet">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Сохраним запись звонков в CRM</h3>
+                              <p class="step-description">Все разговоры автоматически сохраняются и привязываются к соответствующим контактам</p>
+                          </div>
+                      </div>
+      
+                      <div class="step" data-step="3">
+                          <div class="step-bullet">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Переведем звонок на ответственного</h3>
+                              <p class="step-description">Интеллектуальная маршрутизация звонков на нужного менеджера</p>
+                          </div>
+                      </div>
+      
+                      <div class="step" data-step="4">
+                          <div class="step-bullet">
+                              <div class="bullet-inner"></div>
+                          </div>
+                          <div class="step-content">
+                              <h3 class="step-title">Распределим звонки, используя данные из CRM</h3>
+                              <p class="step-description">Используем историю взаимодействий для оптимального распределения вызовов</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+        <section id="section3" class="section">
+          <h2 class="section__title">Раздел 3</h2>
+          <div class="section__content">...</div>
+        </section>
+
+        <section id="section4" class="section">
+          <h2 class="section__title">Раздел 4</h2>
+          <div class="section__content">...</div>
+        </section>
+
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 </body>
 </html>

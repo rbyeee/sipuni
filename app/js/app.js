@@ -1,99 +1,13 @@
-// // Import vendor jQuery plugin example
-// import '~/app/libs/mmenu/dist/mmenu.js'
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const menuLinks = document.querySelectorAll(".side-nav__link");
-//   const sections = document.querySelectorAll(".section");
-
-//   const observerOptions = {
-//     root: null,
-//     rootMargin: "-20% 0px -70% 0px", // Настройка зоны срабатывания
-//     threshold: 0,
-//   };
-
-//   const observer = new IntersectionObserver((entries) => {
-//     entries.forEach((entry) => {
-//       if (entry.isIntersecting) {
-//         const sectionId = entry.target.getAttribute("id");
-//         const correspondingLink = document.querySelector(
-//           `.side-nav__link[href="#${sectionId}"]`
-//         );
-
-//         // Убираем активный класс у всех
-//         menuLinks.forEach((link) => link.classList.remove("active"));
-//         // Добавляем текущему
-//         correspondingLink.classList.add("active");
-//       }
-//     });
-//   }, observerOptions);
-
-//   // Наблюдаем за всеми секциями
-//   sections.forEach((section) => {
-//     observer.observe(section);
-//   });
-
-//   const steps = document.querySelectorAll(".step");
-//   const stepContents = document.querySelectorAll(".step__content");
-//   const stepBullets = document.querySelectorAll(".step__bullet");
-//   const images = document.querySelectorAll(".image-frame__img");
-
-//   // Функция активации этапа
-//   function activateStep(stepNumber) {
-//     // Деактивируем все
-//     stepContents.forEach((content) => content.classList.remove("active"));
-//     stepBullets.forEach((bullet) => bullet.classList.remove("active"));
-//     images.forEach((img) => img.classList.remove("active"));
-
-//     // Активируем выбранный
-//     const targetStep = document.querySelector(`[data-step="${stepNumber}"]`);
-//     const targetContent = targetStep.querySelector(".step__content");
-//     const targetBullet = targetStep.querySelector(".step__bullet");
-//     const targetImage = document.querySelector(
-//       `.image-frame__img:nth-child(${stepNumber})`
-//     );
-
-//     targetContent.classList.add("active");
-//     targetBullet.classList.add("active");
-//     if (targetImage) targetImage.classList.add("active");
-//   }
-
-//   // Клик по этапу
-//   steps.forEach((step) => {
-//     step.addEventListener("click", () => {
-//       const stepNumber = step.getAttribute("data-step");
-//       activateStep(stepNumber);
-//     });
-//   });
-
-//   // ScrollMagic для автоматической смены при скролле
-//   const controller = new ScrollMagic.Controller();
-
-//   const pinScene = new ScrollMagic.Scene({
-//     triggerElement: "#chronology",
-//     triggerHook: 0,
-//     duration: "100%", // На сколько пикселей закреплять
-//   })
-//     .setPin(".chronology__image")
-//     .addTo(controller);
-
-//   steps.forEach((step, index) => {
-//     const stepNumber = index + 1;
-
-//     new ScrollMagic.Scene({
-//       triggerElement: step,
-//       triggerHook: 0.2,
-//       duration: step.offsetHeight,
-//     })
-//       .on("enter", function () {
-//         activateStep(stepNumber);
-//       })
-//       .addTo(controller);
-//   });
-
-//   // Инициализация первого этапа
-//   activateStep(1);
-// });
 document.addEventListener("DOMContentLoaded", () => {
+
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 50) {
+      header.classList.add('header--active');
+    } else {
+      header.classList.remove('header--active');
+    }
+  });
   // Инициализируем контроллер
   const controller = new ScrollMagic.Controller();
 
@@ -103,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Функция активации этапа
   function activateStep(stepNumber) {
-    console.log("Activating step:", stepNumber);
-
     // Деактивируем все
     steps.forEach((step) => step.classList.remove("active"));
     images.forEach((img) => img.classList.remove("active"));
@@ -270,4 +182,64 @@ document.addEventListener("DOMContentLoaded", () => {
       targets.forEach((t) => io.observe(t));
     }
   }
+
+ (() => {
+   const items = Array.from(document.querySelectorAll('.cat-1-item'));
+   if (!items.length) return;
+ 
+   let lastActive = null;
+   let ticking = false;
+ 
+   const setActive = (el) => {
+     if (lastActive === el) return;
+     if (lastActive) lastActive.classList.remove('is-active');
+     if (el) el.classList.add('is-active');
+     lastActive = el;
+   };
+ 
+   const computeClosestToCenter = () => {
+     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+     const viewportCenter = viewportHeight / 2;
+ 
+     let closestElement = null;
+     let smallestDistance = Infinity;
+ 
+     for (const el of items) {
+       const rect = el.getBoundingClientRect();
+       // Рассматриваем элементы, которые хотя бы частично видимы (+ небольшой запас)
+       const margin = 48;
+       if (rect.bottom < -margin || rect.top > viewportHeight + margin) continue;
+ 
+       const elementCenter = rect.top + rect.height / 2;
+       const distance = Math.abs(elementCenter - viewportCenter);
+       if (distance < smallestDistance) {
+         smallestDistance = distance;
+         closestElement = el;
+       }
+     }
+ 
+     setActive(closestElement);
+   };
+ 
+   const onScrollOrResize = () => {
+     if (ticking) return;
+     ticking = true;
+     requestAnimationFrame(() => {
+       computeClosestToCenter();
+       ticking = false;
+     });
+   };
+ 
+   // Слушатели с passive для плавности
+   window.addEventListener('scroll', onScrollOrResize, { passive: true });
+   window.addEventListener('resize', onScrollOrResize, { passive: true });
+ 
+   // Начальная активация
+   computeClosestToCenter();
+ 
+   // уважение настройки "уменьшить анимацию"
+   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+     document.body.classList.add('reduce-motion');
+   }
+ })();
 });
