@@ -6,16 +6,20 @@
     align-items: center;
     position: relative;
     justify-content: center;
+    position: relative;
+    left: 12px;
   }
 
   &__man {
     position: absolute;
-    left: 0;
+    left: 159px;
+    top: 4px;
   }
 
   &__image-line {
     position: absolute;
-    right: 0;
+    right: -44px;
+    top: 33px;
   }
 
   &__title {
@@ -31,7 +35,7 @@
   }
 
   &_offset {
-    padding-top: 160px;
+    padding-top: 140px;
     padding-bottom: 40px;
   }
 
@@ -39,13 +43,15 @@
     width: 100%;
     margin: 0 auto;
     max-width: 490px;
-    gap: 10px;
     display: flex;
     flex-direction: column;
     position: relative;
 
     justify-content: center;
     align-items: center;
+    position: relative;
+    left: 24px;
+    margin-top: 19px;
 
     &-top {
       display: flex;
@@ -59,6 +65,8 @@
 
       position: relative;
       text-align: center;
+
+
 
       span {
         position: relative;
@@ -76,7 +84,6 @@
         }
       }
 
-
       &:last-child {
         width: 100%;
       }
@@ -88,13 +95,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    left: 8px;
   }
 
   &-content {
-    margin-top: 60px;
+    margin-top: 79px;
     background: #f9f9f9;
     border-radius: 800px;
-    padding: 59px 90px;
+    padding: 54px 79px;
     display: flex;
     gap: 120px;
 
@@ -125,22 +134,19 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 14px;
+  gap: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.side-nav__item {
-  margin-bottom: 10px;
-}
-
 .side-nav__link {
   font-size: 22px;
   display: block;
-  padding: 10px 0px;
   border-radius: 5px;
   text-decoration: none;
+  line-height: 1.1;
   color: #757575;
   transition: all 0.3s ease;
 }
@@ -162,6 +168,8 @@
 .section__title {
   margin-top: 0;
   padding-top: 0;
+  font-weight: 600;
+  font-size: 32px;
 }
 
 // 
@@ -320,17 +328,29 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 78px;
 }
 
 .side-menu {
   position: sticky;
   top: 90px;
   height: 100vh;
-  width: 330px;
+  width: 354px;
 }
 
 .wrapper_large {
-  width: calc(100% - 330px);
+  width: calc(100% - 354px);
+}
+
+.section-right-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  img {
+    top: 3px;
+    position: relative;
+  }
 }
 
 .cat-1-item {
@@ -340,9 +360,11 @@
   display: flex;
   align-items: center;
   gap: 24px;
+  transition: all 0.4s ease;
 
   &.is-active {
     background-color: #F4F2FF;
+    transform: scale(1.05);
   }
 }
 
@@ -352,34 +374,48 @@
   gap: 78px;
 }
 
+.section__description {
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #2e2e33;
+}
+
 .section-middle {
-  width: calc(100% - 244px);
+  width: calc(100% - 271px);
+  padding-right: 12px;
 }
 
 .section-right {
-  width: 244px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 271px;
 }
 
 .cat-1-title {
   font-weight: 400;
   font-size: 22px;
   line-height: 1.2;
+  margin-bottom: 45px;
   color: #2e2e33;
 }
 
+
 .cat-1-description {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.2;
   color: #2e2e33;
-  letter-spacing: -0.02em;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+  max-width: 360px;
 }
 
 .section-col {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .cat-1-item-reverse {
@@ -391,4 +427,70 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.section-right-item {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #707485;
+}
+
+#section1 {
+  .section-right {
+    padding-top: 180px;
+  }
+
+  &.section-offset {
+    padding-top: 0;
+  }
+}
+
+.section-offset {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+// statistics
+.statistics__item {
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 16px;
+}
+
+.statistics__label {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #2e2e33;
+}
+
+.statistics__label {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #2e2e33;
+  margin-bottom: 36px;
+}
+
+.statistics__desc {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #2e2e33;
+}
+
+.statistics__container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  margin-top: 48px;
+  margin-bottom: -20px;
+}
+
+.statistics__width {
+  padding: 0 10px;
+  margin-bottom: 20px;
+  width: 50%;
 }
