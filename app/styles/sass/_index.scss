@@ -161,9 +161,6 @@
 
 /* пространство для будущих доработок позиционирования меню — пока не требуется */
 
-.section {
-  min-height: 100vh;
-}
 
 .section__title {
   margin-top: 0;
@@ -176,26 +173,37 @@
 .chronology-section {
   background: #fff;
   position: relative;
+
+  &.is-pinned,
+  &[style*="position: fixed"] {
+    top: 90px !important;
+  }
 }
 
 .chronology-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Закрепленная левая часть */
 .chronology-sticky {
   position: relative;
-  height: 100vh;
+  // height: 100vh;
+  padding-right: 12px;
+  width: calc(100% - 271px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
   background: #fff;
+  gap: 78px;
 }
 
 .sticky-content {
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -220,9 +228,6 @@
 }
 
 .step-image {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -230,31 +235,80 @@
   transition: opacity 0.5s ease;
 }
 
-.step-image.active {
+.step-image.is-active {
   opacity: 1;
 }
 
 /* Скроллящаяся правая часть */
 .chronology-scroll {
+  width: 271px;
   position: relative;
 }
 
 .steps-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .step {
   display: flex;
   align-items: flex-start;
-  gap: 30px;
-  padding: 24px 40px;
-  margin: 32px 0;
+  gap: 16px;
   opacity: 0.5;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+
+  // По умолчанию этапы свернуты - показываем только заголовок
+  .step-description {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    transition: all 0.4s ease;
+  }
 }
 
-.step.active {
+// Активный этап - полностью развернут
+.step.is-active {
   opacity: 1;
+
+  .step-description {
+    max-height: 500px; // Достаточно большое значение для контента
+    opacity: 1;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  .step-bullet {
+    opacity: 1; // Лампочка горит
+  }
+
+  .step-title {
+    color: #846df2; // Фиолетовый цвет для активного заголовка
+  }
+}
+
+// Этапы, которые были активны, но теперь не активны - полностью скрыты
+.step.active-hidden {
+  opacity: 0.3;
+
+  .step-description {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .step-bullet {
+    opacity: 0.2; // Лампочка почти потухла
+  }
+
+  .step-title {
+    color: #757575; // Серый цвет для неактивного заголовка
+  }
 }
 
 .step-bullet {
@@ -265,25 +319,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   flex-shrink: 0;
+  opacity: 0.3; // По умолчанию лампочка тусклая
 }
 
-.step.active .step-bullet {
-  border-color: #007bff;
-  transform: scale(1.2);
+.step.is-active .step-bullet {
+  border-color: #846df2;
+  transform: scale(1.1);
+  opacity: 1; // Лампочка горит ярко
+}
+
+.step.active-hidden .step-bullet {
+  opacity: 0.2; // Лампочка почти потухла
+  border-color: #dee2e6;
 }
 
 .bullet-inner {
   width: 12px;
   height: 12px;
-  background: #007bff;
+  background: #846df2;
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
-.step.active .bullet-inner {
+.step.is-active .bullet-inner {
   opacity: 1;
 }
 
@@ -292,28 +353,20 @@
 }
 
 .step-title {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  color: #212529;
-  transition: color 0.3s ease;
-}
-
-.step.active .step-title {
-  color: #007bff;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #2e2e33;
+  margin-bottom: 0;
+  transition: color 0.4s ease;
 }
 
 .step-description {
   color: #6c757d;
   line-height: 1.6;
-  margin: 0;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease 0.2s;
-}
-
-.step.active .step-description {
-  opacity: 1;
-  transform: translateY(0);
+  font-size: 16px;
+  font-weight: 300;
+  // Анимация через max-height (определена в .step)
 }
 
 .test {
@@ -446,6 +499,7 @@
   }
 }
 
+
 .section-offset {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -493,4 +547,122 @@
   padding: 0 10px;
   margin-bottom: 20px;
   width: 50%;
+}
+
+#section2 {
+  &.section-offset {
+    padding-bottom: 120px;
+  }
+}
+
+.catalog-r-bg-line {
+  position: absolute;
+  right: 20px;
+  top: -196px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.catalog-r-bg-line-3 {
+  position: absolute;
+  z-index: 3;
+  right: 291px;
+  top: 101px;
+}
+
+.bg-line-main {
+  padding: 0 34px;
+  max-width: 1440px;
+  width: 100%;
+  position: relative;
+}
+
+.count__content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.count__width {
+  width: 33.3%;
+}
+
+.count__item {
+  background: #f9f9f9;
+  padding: 24px;
+  border: 1.76px solid #e8e8ef;
+  border-radius: 16px;
+}
+
+.count-label {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #846df2;
+  margin-bottom: 16px;
+}
+
+.cold-old-price {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  text-decoration: line-through;
+  color: #757575;
+}
+
+.count-old-price {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #2e2e33;
+}
+
+.count-row {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.count-under {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 125%;
+  color: #757575;
+}
+
+.br {
+  background-color: #e8e8ef;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  height: 1px;
+}
+
+.count__col {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.count__list {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  img {
+    position: relative;
+    top: 3px;
+  }
+}
+
+.count-bottom-content {
+  .btn {
+    width: 100%;
+  }
+}
+
+.count-top-content {
+  margin-bottom: 24px;
 }
