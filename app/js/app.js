@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector(".header");
     if (window.scrollY > 50) {
-      header.classList.add('header--active');
+      header.classList.add("header--active");
     } else {
-      header.classList.remove('header--active');
+      header.classList.remove("header--active");
     }
   });
   // Инициализируем контроллер
@@ -60,9 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function calcDurationPx() {
     // Учитываем высоту шапки при расчете доступной высоты
     // Добавляем дополнительное пространство для последнего элемента (примерно 50% от базовой длительности)
-    const baseDuration = ((window.innerHeight - HEADER_HEIGHT) * SECTION_DURATION_VH) / 100;
+    const baseDuration =
+      ((window.innerHeight - HEADER_HEIGHT) * SECTION_DURATION_VH) / 100;
     // Добавляем дополнительное пространство, чтобы последний элемент не пропадал
-    return baseDuration + (baseDuration * 0.5);
+    return baseDuration + baseDuration * 0.5;
   }
 
   const pinScene = new ScrollMagic.Scene({
@@ -79,24 +79,27 @@ document.addEventListener("DOMContentLoaded", () => {
       // При закреплении устанавливаем top равный высоте шапки
       requestAnimationFrame(() => {
         if (chronologySection) {
-          chronologySection.style.top = HEADER_HEIGHT + 'px';
+          chronologySection.style.top = HEADER_HEIGHT + "px";
         }
       });
     })
     .on("update", () => {
       // Постоянно обновляем позицию при закреплении, чтобы она всегда была на HEADER_HEIGHT
-      if (chronologySection && window.getComputedStyle(chronologySection).position === 'fixed') {
-        chronologySection.style.top = HEADER_HEIGHT + 'px';
+      if (
+        chronologySection &&
+        window.getComputedStyle(chronologySection).position === "fixed"
+      ) {
+        chronologySection.style.top = HEADER_HEIGHT + "px";
       }
     })
     .on("progress", (e) => {
       const total = steps.length;
       if (!total) return;
-      
+
       // Улучшенная логика: последний элемент получает больше времени
       // Делим прогресс: первые 70% для первых элементов, последние 30% для последнего
       const lastElementThreshold = 0.7;
-      
+
       let index;
       if (e.progress < lastElementThreshold) {
         // Для первых (total - 1) элементов равномерно распределяем время
@@ -106,13 +109,13 @@ document.addEventListener("DOMContentLoaded", () => {
         // Последний элемент остается активным на оставшиеся 30% прогресса
         index = total - 1;
       }
-      
+
       activateStep(index + 1);
     })
     .on("leave", () => {
       // При откреплении убираем top
       if (chronologySection) {
-        chronologySection.style.removeProperty('top');
+        chronologySection.style.removeProperty("top");
       }
     });
 
@@ -125,11 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
     step.addEventListener("click", function () {
       const stepNumber = Number(this.getAttribute("data-step"));
       const total = steps.length;
-      
+
       // Улучшенная логика расчета позиции скролла
       const lastElementThreshold = 0.7;
       const otherElementsRatio = lastElementThreshold / (total - 1);
-      
+
       let targetProgress;
       if (stepNumber < total) {
         // Для первых элементов
@@ -138,11 +141,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Для последнего элемента
         targetProgress = lastElementThreshold + 0.15; // Немного после порога
       }
-      
+
       // Вычисляем позицию скролла на основе прогресса
       const sceneStart = chronologySection.offsetTop - HEADER_HEIGHT;
-      const targetTop = sceneStart + (calcDurationPx() * targetProgress);
-      
+      const targetTop = sceneStart + calcDurationPx() * targetProgress;
+
       window.scrollTo({ top: targetTop, behavior: "smooth" });
       activateStep(stepNumber);
     });
@@ -154,47 +157,51 @@ document.addEventListener("DOMContentLoaded", () => {
   activateStep(1);
 
   // ===== Side Menu (auto from headings with data-side-title) =====
-  const headings = Array.from(document.querySelectorAll('[data-side-title]'));
-  const sideNavList = document.getElementById('sideNavList');
+  const headings = Array.from(document.querySelectorAll("[data-side-title]"));
+  const sideNavList = document.getElementById("sideNavList");
 
   function slugify(text) {
     return text
       .toString()
       .trim()
       .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9\-а-яё]/g, '')
-      .replace(/-+/g, '-')
-      .replace(/^-|-$/g, '');
+      .replace(/\s+/g, "-")
+      .replace(/[^a-z0-9\-а-яё]/g, "")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
   }
 
   if (sideNavList && headings.length) {
     headings.forEach((h) => {
       if (!h.id) {
-        const generatedId = slugify(h.getAttribute('data-side-title') || h.textContent || 'section');
-        h.id = generatedId || `section-${Math.random().toString(36).slice(2, 8)}`;
+        const generatedId = slugify(
+          h.getAttribute("data-side-title") || h.textContent || "section"
+        );
+        h.id =
+          generatedId || `section-${Math.random().toString(36).slice(2, 8)}`;
       }
-      const li = document.createElement('li');
-      li.className = 'side-nav__item';
-      const a = document.createElement('a');
-      a.className = 'side-nav__link';
+      const li = document.createElement("li");
+      li.className = "side-nav__item";
+      const a = document.createElement("a");
+      a.className = "side-nav__link";
       a.href = `#${h.id}`;
-      a.textContent = h.getAttribute('data-side-title') || h.textContent || '';
+      a.textContent = h.getAttribute("data-side-title") || h.textContent || "";
       li.appendChild(a);
       sideNavList.appendChild(li);
     });
 
-    const links = Array.from(sideNavList.querySelectorAll('.side-nav__link'));
+    const links = Array.from(sideNavList.querySelectorAll(".side-nav__link"));
 
     // Smooth scroll
     links.forEach((link) => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
-        const id = link.getAttribute('href').slice(1);
+        const id = link.getAttribute("href").slice(1);
         const target = document.getElementById(id);
         if (target) {
-          const top = target.getBoundingClientRect().top + window.pageYOffset - 20;
-          window.scrollTo({ top, behavior: 'smooth' });
+          const top =
+            target.getBoundingClientRect().top + window.pageYOffset - 20;
+          window.scrollTo({ top, behavior: "smooth" });
         }
       });
     });
@@ -205,15 +212,17 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            links.forEach((l) => l.classList.remove('active'));
-            const active = sideNavList.querySelector(`.side-nav__link[href="#${id}"]`);
-            if (active) active.classList.add('active');
+            links.forEach((l) => l.classList.remove("active"));
+            const active = sideNavList.querySelector(
+              `.side-nav__link[href="#${id}"]`
+            );
+            if (active) active.classList.add("active");
           }
         });
       },
       {
         root: null,
-        rootMargin: '0% 0px -55% 0px',
+        rootMargin: "0% 0px -55% 0px",
         threshold: 0,
       }
     );
@@ -221,23 +230,24 @@ document.addEventListener("DOMContentLoaded", () => {
     headings.forEach((h) => observer.observe(h));
   } else {
     // Fallback: use existing static menu links
-    const menuLinks = Array.from(document.querySelectorAll('.side-nav__link'));
+    const menuLinks = Array.from(document.querySelectorAll(".side-nav__link"));
     if (menuLinks.length) {
       const targets = menuLinks
-        .map((l) => (l.getAttribute('href') || '').trim())
-        .filter((h) => h.startsWith('#'))
+        .map((l) => (l.getAttribute("href") || "").trim())
+        .filter((h) => h.startsWith("#"))
         .map((h) => document.querySelector(h))
         .filter(Boolean);
 
       menuLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-          const href = link.getAttribute('href') || '';
-          if (href.startsWith('#')) {
+        link.addEventListener("click", (e) => {
+          const href = link.getAttribute("href") || "";
+          if (href.startsWith("#")) {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-              const top = target.getBoundingClientRect().top + window.pageYOffset - 20;
-              window.scrollTo({ top, behavior: 'smooth' });
+              const top =
+                target.getBoundingClientRect().top + window.pageYOffset - 20;
+              window.scrollTo({ top, behavior: "smooth" });
             }
           }
         });
@@ -249,74 +259,81 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!entry.isIntersecting) return;
             const id = entry.target.id;
             if (!id) return;
-            menuLinks.forEach((l) => l.classList.remove('active'));
-            const active = document.querySelector(`.side-nav__link[href="#${id}"]`);
-            if (active) active.classList.add('active');
+            menuLinks.forEach((l) => l.classList.remove("active"));
+            const active = document.querySelector(
+              `.side-nav__link[href="#${id}"]`
+            );
+            if (active) active.classList.add("active");
           });
         },
-        { root: null, rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+        { root: null, rootMargin: "-35% 0px -55% 0px", threshold: 0 }
       );
       targets.forEach((t) => io.observe(t));
     }
   }
 
- (() => {
-   const items = Array.from(document.querySelectorAll('.cat-1-item'));
-   if (!items.length) return;
- 
-   let lastActive = null;
-   let ticking = false;
- 
-   const setActive = (el) => {
-     if (lastActive === el) return;
-     if (lastActive) lastActive.classList.remove('is-active');
-     if (el) el.classList.add('is-active');
-     lastActive = el;
-   };
- 
-  const computeClosestToCenter = () => {
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const viewportCenter = viewportHeight / 2;
+  (() => {
+    const items = Array.from(document.querySelectorAll(".cat-1-item"));
+    if (!items.length) return;
 
-    let closestElement = null;
-    let smallestDistance = Infinity;
+    let lastActive = null;
+    let ticking = false;
 
-    for (const el of items) {
-      const rect = el.getBoundingClientRect();
-      // Рассматриваем элементы, которые хотя бы частично видимы (+ небольшой запас)
-      const margin = 48;
-      if (rect.bottom < -margin || rect.top > viewportHeight + margin) continue;
+    const setActive = (el) => {
+      if (lastActive === el) return;
+      if (lastActive) lastActive.classList.remove("is-active");
+      if (el) el.classList.add("is-active");
+      lastActive = el;
+    };
 
-      const elementCenter = rect.top + rect.height / 2;
-      const distance = Math.abs(elementCenter - viewportCenter);
-      if (distance < smallestDistance) {
-        smallestDistance = distance;
-        closestElement = el;
+    const computeClosestToCenter = () => {
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+      const viewportCenter = viewportHeight / 2;
+
+      let closestElement = null;
+      let smallestDistance = Infinity;
+
+      for (const el of items) {
+        const rect = el.getBoundingClientRect();
+        // Рассматриваем элементы, которые хотя бы частично видимы (+ небольшой запас)
+        const margin = 48;
+        if (rect.bottom < -margin || rect.top > viewportHeight + margin)
+          continue;
+
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elementCenter - viewportCenter);
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          closestElement = el;
+        }
       }
-    }
 
-    setActive(closestElement);
-  };
- 
-   const onScrollOrResize = () => {
-     if (ticking) return;
-     ticking = true;
-     requestAnimationFrame(() => {
-       computeClosestToCenter();
-       ticking = false;
-     });
-   };
- 
-   // Слушатели с passive для плавности
-   window.addEventListener('scroll', onScrollOrResize, { passive: true });
-   window.addEventListener('resize', onScrollOrResize, { passive: true });
- 
-   // Начальная активация
-   computeClosestToCenter();
- 
-   // уважение настройки "уменьшить анимацию"
-   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-     document.body.classList.add('reduce-motion');
-   }
- })();
+      setActive(closestElement);
+    };
+
+    const onScrollOrResize = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        computeClosestToCenter();
+        ticking = false;
+      });
+    };
+
+    // Слушатели с passive для плавности
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize, { passive: true });
+
+    // Начальная активация
+    computeClosestToCenter();
+
+    // уважение настройки "уменьшить анимацию"
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.body.classList.add("reduce-motion");
+    }
+  })();
 });

@@ -580,10 +580,12 @@
 .count__content {
   display: flex;
   align-items: flex-start;
+  margin: 0 -12px;
 }
 
 .count__width {
   width: 33.3%;
+  padding: 0 12px;
 }
 
 .count__item {
@@ -651,6 +653,7 @@
   display: flex;
   align-items: flex-start;
   gap: 5px;
+
   img {
     position: relative;
     top: 3px;
@@ -665,4 +668,101 @@
 
 .count-top-content {
   margin-bottom: 24px;
+}
+
+.section-col-medium {
+  max-width: 676px;
+  width: 100%;
+}
+
+.count-label-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .count-label {
+    margin-bottom: 0;
+  }
+
+  margin-bottom: 16px;
+}
+
+.count-bandge {
+  background-color: #846DF2;
+  border-radius: 80px;
+  padding: 5px 12px;
+  color: #fff;
+  display: inline-flex;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.count-active {
+  background: linear-gradient(58deg, #846df2 0%, #a390ff 100%);
+  color: #fff;
+
+  .count-label {
+    color: #fff;
+  }
+
+  .count-under {
+    color: #fff;
+  }
+}
+
+.client__top {
+  margin-bottom: 40px;
+}
+
+.client-container {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 -10px;
+}
+
+.client-width {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.client__item {
+  background: #f9f9f9;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.client__image {
+  margin-bottom: 24px;
+}
+
+.client__label {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #2e2e33;
+  margin-bottom: 16px;
+}
+
+.client__description {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #2e2e33;
+  margin-bottom: 16px;
+}
+
+.client__col {
+  margin: 0;
+  padding: 0;
+}
+
+.client__list {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
