@@ -57,3 +57,10 @@ a {
   position: relative;
   width: 100%;
 }
+
+.tab {
+  display: none;
+  &.active {
+    display: block;
+  }
+}

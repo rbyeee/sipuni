@@ -336,4 +336,104 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("reduce-motion");
     }
   })();
+
+  // ===== Slider Section6 with Swiper.js =====
+  (() => {
+    const sliderSwiper = document.querySelector(".slider-swiper");
+    if (!sliderSwiper) return;
+
+    // Проверяем, что Swiper загружен
+    if (typeof Swiper === "undefined") {
+      console.warn("Swiper.js не загружен");
+      return;
+    }
+
+    const swiper = new Swiper(".slider-swiper", {
+      // Центрирование слайдов
+      centeredSlides: true,
+      
+      // Количество видимых слайдов
+      slidesPerView: "auto",
+      
+      // Отступ между слайдами
+      spaceBetween: 20,
+      
+      // Эффект перехода
+      effect: "slide",
+      
+      // Скорость анимации
+      speed: 600,
+      
+      // Циклическая прокрутка
+      loop: true,
+      
+      // Навигация
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      
+      // События для добавления кастомных классов
+      on: {
+        slideChange: function () {
+          // Обновляем классы для визуального эффекта
+          updateCardClasses(this);
+        },
+        init: function () {
+          // Инициализация классов при загрузке
+          updateCardClasses(this);
+        },
+      },
+    });
+
+    // Функция для обновления классов карточек
+    function updateCardClasses(swiperInstance) {
+      const slides = swiperInstance.slides;
+      const activeIndex = swiperInstance.realIndex;
+      const visibleSlides = swiperInstance.visibleSlides || [];
+      const total = swiperInstance.slides.length;
+
+      slides.forEach((slide) => {
+        const card = slide.querySelector(".slider-card");
+        if (!card) return;
+
+        // Получаем реальный индекс слайда
+        const slideIndex = parseInt(slide.getAttribute("data-swiper-slide-index") || slide.swiperSlideIndex || "0");
+
+        // Удаляем все классы позиций
+        card.classList.remove(
+          "slider-card-active",
+          "slider-card-prev",
+          "slider-card-next",
+          "slider-card-back-left",
+          "slider-card-back-right"
+        );
+
+        // Определяем позицию относительно активного слайда
+        let diff = slideIndex - activeIndex;
+        
+        // Обрабатываем циклический переход для loop режима
+        if (swiperInstance.params.loop) {
+          if (diff > total / 2) {
+            diff = diff - total;
+          } else if (diff < -total / 2) {
+            diff = diff + total;
+          }
+        }
+
+        // Добавляем соответствующий класс
+        if (diff === 0) {
+          card.classList.add("slider-card-active");
+        } else if (diff === -1) {
+          card.classList.add("slider-card-prev");
+        } else if (diff === 1) {
+          card.classList.add("slider-card-next");
+        } else if (diff < -1) {
+          card.classList.add("slider-card-back-left");
+        } else if (diff > 1) {
+          card.classList.add("slider-card-back-right");
+        }
+      });
+    }
+  })();
 });
