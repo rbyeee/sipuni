@@ -7,8 +7,11 @@
 
 <script>
 $(document).ready(function() {
-  $(".count__col").matchHeight();
-  });
-  </script>
+  // Инициализация matchHeight при загрузке страницы
+  if (typeof $.fn.matchHeight !== 'undefined') {
+    $(".count__col").matchHeight();
+  }
+});
+</script>
 </body>
 </html>

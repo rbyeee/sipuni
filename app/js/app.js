@@ -337,91 +337,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })();
 
-  // ===== Slider Section6 with Swiper.js =====
+  // ===== Custom Slider Section6 =====
   (() => {
-    const sliderSwiper = document.querySelector(".slider-swiper");
-    if (!sliderSwiper) return;
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    const prevButton = document.getElementById("sliderPrev");
+    const nextButton = document.getElementById("sliderNext");
 
-    // Проверяем, что Swiper загружен
-    if (typeof Swiper === "undefined") {
-      console.warn("Swiper.js не загружен");
-      return;
-    }
+    if (!sliderWrapper || !prevButton || !nextButton) return;
 
-    const swiper = new Swiper(".slider-swiper", {
-      // Центрирование слайдов
-      centeredSlides: true,
-      
-      // Количество видимых слайдов
-      slidesPerView: "auto",
-      
-      // Отступ между слайдами
-      spaceBetween: 20,
-      
-      // Эффект перехода
-      effect: "slide",
-      
-      // Скорость анимации
-      speed: 600,
-      
-      // Циклическая прокрутка
-      loop: true,
-      
-      // Навигация
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      
-      // События для добавления кастомных классов
-      on: {
-        slideChange: function () {
-          // Обновляем классы для визуального эффекта
-          updateCardClasses(this);
-        },
-        init: function () {
-          // Инициализация классов при загрузке
-          updateCardClasses(this);
-        },
-      },
-    });
+    const cards = Array.from(sliderWrapper.querySelectorAll(".slider-card"));
+    let currentIndex = 1; // Индекс активной карточки (data-index="1")
+    let isAnimating = false;
+
+    // Находим минимальный и максимальный индекс
+    const indices = cards.map((card) =>
+      parseInt(card.getAttribute("data-index"))
+    );
+    const minIndex = Math.min(...indices);
+    const maxIndex = Math.max(...indices);
 
     // Функция для обновления классов карточек
-    function updateCardClasses(swiperInstance) {
-      const slides = swiperInstance.slides;
-      const activeIndex = swiperInstance.realIndex;
-      const visibleSlides = swiperInstance.visibleSlides || [];
-      const total = swiperInstance.slides.length;
+    function updateCards() {
+      cards.forEach((card) => {
+        const cardIndex = parseInt(card.getAttribute("data-index"));
+        const diff = cardIndex - currentIndex;
 
-      slides.forEach((slide) => {
-        const card = slide.querySelector(".slider-card");
-        if (!card) return;
-
-        // Получаем реальный индекс слайда
-        const slideIndex = parseInt(slide.getAttribute("data-swiper-slide-index") || slide.swiperSlideIndex || "0");
-
-        // Удаляем все классы позиций
+        // Удаляем все классы состояний
         card.classList.remove(
           "slider-card-active",
           "slider-card-prev",
           "slider-card-next",
           "slider-card-back-left",
-          "slider-card-back-right"
+          "slider-card-back-right",
+          "slider-card-exit-left",
+          "slider-card-exit-right",
+          "slider-card-enter-right"
         );
 
-        // Определяем позицию относительно активного слайда
-        let diff = slideIndex - activeIndex;
-        
-        // Обрабатываем циклический переход для loop режима
-        if (swiperInstance.params.loop) {
-          if (diff > total / 2) {
-            diff = diff - total;
-          } else if (diff < -total / 2) {
-            diff = diff + total;
-          }
-        }
+        // Убираем инлайн стили
+        card.style.transform = "";
+        card.style.opacity = "";
 
-        // Добавляем соответствующий класс
+        // Добавляем соответствующий класс в зависимости от позиции
         if (diff === 0) {
           card.classList.add("slider-card-active");
         } else if (diff === -1) {
@@ -434,6 +391,153 @@ document.addEventListener("DOMContentLoaded", () => {
           card.classList.add("slider-card-back-right");
         }
       });
+
+      // Обновляем состояние кнопок
+      prevButton.disabled = currentIndex <= minIndex;
+      nextButton.disabled = currentIndex >= maxIndex;
     }
+
+    // Функция для перехода к следующей карточке
+    function nextSlide() {
+      if (isAnimating || currentIndex >= maxIndex) return;
+
+      isAnimating = true;
+      const activeCard = cards.find(
+        (card) => parseInt(card.getAttribute("data-index")) === currentIndex
+      );
+      const nextCard = cards.find(
+        (card) => parseInt(card.getAttribute("data-index")) === currentIndex + 1
+      );
+
+      if (activeCard && nextCard) {
+        // Сначала убираем класс active у текущей карточки
+        activeCard.classList.remove("slider-card-active");
+
+        // Небольшая задержка для плавности
+        requestAnimationFrame(() => {
+          // Добавляем класс ухода
+          activeCard.classList.add("slider-card-exit-left");
+
+          // Убираем класс next у следующей карточки
+          nextCard.classList.remove("slider-card-next");
+
+          // Добавляем класс active с небольшой задержкой для плавности
+          requestAnimationFrame(() => {
+            nextCard.classList.add("slider-card-active");
+          });
+        });
+
+        // После завершения анимации обновляем все позиции
+        setTimeout(() => {
+          currentIndex++;
+          updateCards();
+          isAnimating = false;
+        }, 1000); // Время анимации из CSS
+      } else {
+        isAnimating = false;
+      }
+    }
+
+    // Функция для перехода к предыдущей карточке
+    function prevSlide() {
+      if (isAnimating || currentIndex <= minIndex) return;
+
+      isAnimating = true;
+      const activeCard = cards.find(
+        (card) => parseInt(card.getAttribute("data-index")) === currentIndex
+      );
+      const prevCard = cards.find(
+        (card) => parseInt(card.getAttribute("data-index")) === currentIndex - 1
+      );
+
+      if (activeCard && prevCard) {
+        // Сначала убираем класс active у текущей карточки
+        activeCard.classList.remove("slider-card-active");
+
+        // Небольшая задержка для плавности
+        requestAnimationFrame(() => {
+          // Добавляем класс ухода
+          activeCard.classList.add("slider-card-exit-right");
+
+          // Убираем класс prev у предыдущей карточки
+          prevCard.classList.remove("slider-card-prev");
+
+          // Добавляем класс active с небольшой задержкой для плавности
+          requestAnimationFrame(() => {
+            prevCard.classList.add("slider-card-active");
+          });
+        });
+
+        setTimeout(() => {
+          currentIndex--;
+          updateCards();
+          isAnimating = false;
+        }, 1000);
+      } else {
+        isAnimating = false;
+      }
+    }
+
+    // Обработчики событий
+    nextButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      nextSlide();
+    });
+
+    prevButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      prevSlide();
+    });
+
+    // Инициализация
+    updateCards();
+  })();
+
+  // ===== Universal Tabs (Section3, Section5, etc.) =====
+  (() => {
+    // Находим все контейнеры с табами
+    const tabsContainers = document.querySelectorAll(".rate-tabs");
+
+    if (!tabsContainers.length) return;
+
+    tabsContainers.forEach((container) => {
+      // Находим табы и контент внутри этого контейнера
+      const tabLinks = container.querySelectorAll(".rate-tabs__link");
+
+      // Находим родительскую секцию для поиска контента табов
+      const section = container.closest("section");
+      if (!section) return;
+
+      tabLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const targetTab = link.getAttribute("data-tab");
+          if (!targetTab) return;
+
+          // Убираем active у всех табов в этом контейнере
+          tabLinks.forEach((l) => l.classList.remove("active"));
+
+          // Убираем active у всех контентов табов в этой секции
+          const allTabContents = section.querySelectorAll(
+            ".tab[data-tab-content]"
+          );
+          allTabContents.forEach((content) =>
+            content.classList.remove("active")
+          );
+
+          // Добавляем active к выбранному табу
+          link.classList.add("active");
+
+          // Находим и активируем соответствующий контент в этой секции
+          const targetContent = section.querySelector(
+            `.tab[data-tab-content="${targetTab}"]`
+          );
+          if (targetContent) {
+            targetContent.classList.add("active");
+          }
+        });
+      });
+    });
   })();
 });
