@@ -1,256 +1,2685 @@
-
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- <base href="/"> -->
 
-<head>
+    <title>OptimizedHTML 5</title>
+    <meta name="description" content="Startup HTML template OptimizedHTML 5" />
 
-	<meta charset="utf-8">
-	<!-- <base href="/"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-	<title>OptimizedHTML 5</title>
-	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+    <link rel="icon" href="images/favicon.png" />
+    <meta property="og:image" content="images/dist/preview.jpg" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/app.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
 
-	<link rel="icon" href="images/favicon.png">
-	<meta property="og:image" content="images/dist/preview.jpg">
+  <body>
+    <header class="header">
+      <div class="wrapper wrapper-header">
+        <div class="header-wrapper">
+          <a href="#" class="header-logo">
+            <img src="./images/dist/logo.svg" alt="Логотип" />
+          </a>
+          <nav class="header-navbar">
+            <a href="#" class="header-navbar__link">Номера</a>
+            <a href="#" class="header-navbar__link">Интеграции</a>
+            <a href="#" class="header-navbar__link">Тарифы</a>
+            <a href="#" class="header-navbar__link">Партнерам</a>
+            <a href="#" class="header-navbar__link">О компании</a>
+          </nav>
 
-	<link rel="stylesheet" href="css/app.min.css">
-	<script src="js/app.min.js" defer></script>
-
-</head>
-
-<body>
-<header class="header">
-  <picture  class="header-picture">
-    <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
-    <img src="/images/dist/ellipse.png" alt="ellipse" />
-  </picture>
-
-  <div class="wrapper wrapper-header">
-    <div class="header-wrapper">
-      <a href="#" class="header-logo">
-        <img src="/images/dist/logo.svg" alt="Логотип" />
-      </a>
-      <nav class="header-navbar">
-        <a href="#" class="header-navbar__link">Тарифы</a>
-        <a href="#" class="header-navbar__link">Партнерка</a>
-        <a href="#" class="header-navbar__link">Интеграции</a>
-        <a href="#" class="header-navbar__link">Звонки</a>
-        <a href="#" class="header-navbar__link">Контакты</a>
-      </nav>
-
-      <div class="header__buttons">
-        <button class="btn btn_primary">Регистрация</button>
-        <button class="btn btn_transparent">Войти</button>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-<main class="main">
-  
-  <section class="index index_offset">
-    <div class="wrapper wrapper__default">
-      <div class="index__container">
-        <div class="index__man">
-          <picture class="header-picture">
-            <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
-            <img src="/images/dist/man.svg" alt="man" />
-          </picture>
-        </div>
-        <h1 class="index__title">
-          Телефония,<br />
-          где общаться<br />
-          с клиентами — <span>кайф</span>
-        </h1>
-      </div>
-      <div class="index__image-line">
-        <picture class="header-picture">
-          <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
-          <img src="/images/dist/main.png" alt="man" />
-        </picture>
-      </div>
-
-      <div class="index-list">
-        <div class="index-list-top">
-          <div class="index-list__item"><span>Бесперебойная связь</span></div>
-          <div class="index-list__item">
-            <span>Гибкое распределение звонков</span>
+          <div class="header__buttons">
+            <button class="btn btn_primary">Регистрация</button>
+            <button class="btn btn_transparent">Войти</button>
           </div>
         </div>
-
-        <div class="index-list__item">
-          <span>Надежная интеграция с amoCRM и Битрикс24</span>
-        </div>
       </div>
+    </header>
 
-      <div class="index__button">
-        <a href="#" class="btn btn_primary btn--left">
-          Подключить бесплатно
-          <span class="color-gray">Три дня на тест</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="wrapper wrapper__default">
-      <div class="index-content">
-        <div class="index-content-width">
-          <div class="index-content-item">
-            <div class="index__label">#1 в amoCRM</div>
-            <div class="index__description">
-              Если нужна телефония для amoCRM, клиенты обычно выбирают Сипуни
+    <main class="main">
+      <picture class="header-picture">
+        <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
+        <img src="./images/dist/ellipse.png" alt="ellipse" />
+      </picture>
+      <section class="index index_offset">
+        <div class="wrapper wrapper__default">
+          <div class="index__container">
+            <div class="index__man">
+              <picture class="header-picture">
+                <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
+                <img src="./images/dist/man.svg" alt="man" />
+              </picture>
             </div>
+            <h1 class="index__title">
+              Телефония,<br />
+              где общаться<br />
+              с клиентами — <span>кайф</span>
+            </h1>
           </div>
-        </div>
-        <div class="index-content-width">
-          <div class="index-content-item">
-            <div class="index__label">18 лет на рынке</div>
-            <div class="index__description">
-              Помогаем бизнесу еще со времен, когда рингтоны покупали по смс
-            </div>
+          <div class="index__image-line">
+            <picture>
+              <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
+              <img src="./images/dist/main.png" alt="man" />
+            </picture>
           </div>
-        </div>
 
-        <div class="index-content-width">
-          <div class="index-content-item">
-            <div class="index__label">Российское ПО</div>
-            <div class="index__description">
-              Никуда не денемся, влюбимся и женимся © Сипуни
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <div class="main-container">
-
-    <aside class="side-menu">
-      <nav class="side-nav">
-        <ul class="side-nav__list">
-          <li class="side-nav__item">
-            <a href="#section1" class="side-nav__link active">Раздел 1</a>
-          </li>
-          <li class="side-nav__item">
-            <a href="#section2" class="side-nav__link">Раздел 2</a>
-          </li>
-
-          <li class="side-nav__item">
-            <a href="#chronology" class="side-nav__link">Раздел 5</a>
-          </li>
-
-          <li class="side-nav__item">
-            <a href="#section3" class="side-nav__link">Раздел 3</a>
-          </li>
-          <li class="side-nav__item">
-            <a href="#section4" class="side-nav__link">Раздел 4</a>
-          </li>
-
-        </ul>
-      </nav>
-    </aside>
-
-  <!-- <!-- <section class="catalog catalog_offset"> -->
-    
-
-    <div class="wrapper wrapper_large">
-      <div class="catalog-container">
-        <section id="section1" class="section">
-          <h2 class="section__title">Раздел 1</h2>
-          <div class="section__content">...</div>
-        </section>
-
-        <section id="section2" class="section">
-          <h2 class="section__title">Раздел 2</h2>
-          <div class="section__content">...</div>
-        </section>
-
-        <section class="chronology-section" id="chronology">
-          <div class="chronology-container">
-              <!-- Закрепленная левая часть -->
-              <div class="chronology-sticky">
-                  <div class="sticky-content">
-                <h2 class="chronology-title" id="chronology-heading" data-side-title="Хронология">Хронология</h2>
-                      <div class="image-container">
-                          <div class="image-frame">
-                              <img src="/images/dist/k1.png" alt="Этап 1" class="step-image active" data-step="1">
-                              <img src="/images/dist/k2.png" alt="Этап 2" class="step-image" data-step="2">
-                              <img src="/images/dist/k3.png" alt="Этап 3" class="step-image" data-step="3">
-                              <img src="/images/dist/k4.png" alt="Этап 4" class="step-image" data-step="4">
-                          </div>
-                      </div>
-                  </div>
+          <div class="index-list">
+            <div class="index-list-top">
+              <div class="index-list__item">
+                <span>Бесперебойная связь</span>
               </div>
-      
-              <!-- Скроллящаяся правая часть с этапами -->
-              <div class="chronology-scroll">
-                  <div class="steps-container">
-                      <div class="step" data-step="1">
-                          <div class="step-bullet active">
-                              <div class="bullet-inner"></div>
-                          </div>
-                          <div class="step-content">
-                              <h3 class="step-title">Создадим по звонку контакт/сделку</h3>
-                              <p class="step-description">Автоматически создаем контакты и сделки в CRM на основе входящих звонков</p>
-                          </div>
-                      </div>
-      
-                      <div class="step" data-step="2">
-                          <div class="step-bullet">
-                              <div class="bullet-inner"></div>
-                          </div>
-                          <div class="step-content">
-                              <h3 class="step-title">Сохраним запись звонков в CRM</h3>
-                              <p class="step-description">Все разговоры автоматически сохраняются и привязываются к соответствующим контактам</p>
-                          </div>
-                      </div>
-      
-                      <div class="step" data-step="3">
-                          <div class="step-bullet">
-                              <div class="bullet-inner"></div>
-                          </div>
-                          <div class="step-content">
-                              <h3 class="step-title">Переведем звонок на ответственного</h3>
-                              <p class="step-description">Интеллектуальная маршрутизация звонков на нужного менеджера</p>
-                          </div>
-                      </div>
-      
-                      <div class="step" data-step="4">
-                          <div class="step-bullet">
-                              <div class="bullet-inner"></div>
-                          </div>
-                          <div class="step-content">
-                              <h3 class="step-title">Распределим звонки, используя данные из CRM</h3>
-                              <p class="step-description">Используем историю взаимодействий для оптимального распределения вызовов</p>
-                          </div>
-                      </div>
-                  </div>
+              <div class="index-list__item">
+                <span>Гибкое распределение звонков</span>
               </div>
+            </div>
+
+            <div class="index-list__item">
+              <span>Надежная интеграция с amoCRM и Битрикс24</span>
+            </div>
           </div>
+
+          <div class="index__button">
+            <a href="#" class="btn btn_primary btn--left">
+              Подключить бесплатно
+              <span class="color-gray">Три дня на тест</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="wrapper wrapper__default">
+          <div class="index-content">
+            <div class="index-content-width">
+              <div class="index-content-item">
+                <div class="index__label">#1 в amoCRM</div>
+                <div class="index__description">
+                  Если нужна телефония для amoCRM, клиенты обычно выбирают
+                  Сипуни
+                </div>
+              </div>
+            </div>
+            <div class="index-content-width">
+              <div class="index-content-item">
+                <div class="index__label">18 лет на рынке</div>
+                <div class="index__description">
+                  Помогаем бизнесу еще со времен, когда рингтоны покупали по смс
+                </div>
+              </div>
+            </div>
+
+            <div class="index-content-width">
+              <div class="index-content-item">
+                <div class="index__label">Российское ПО</div>
+                <div class="index__description">
+                  Никуда не денемся, влюбимся и женимся © Сипуни
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-        <section id="section3" class="section">
-          <h2 class="section__title">Раздел 3</h2>
-          <div class="section__content">...</div>
-        </section>
+      <div class="main-container">
+        <!-- <div class="catalog-r-bg-line">
+      <img src="./images/dist/main-2.svg" alt="" />
+    </div> -->
+        <aside class="side-menu">
+          <nav class="side-nav">
+            <ul class="side-nav__list">
+              <li class="side-nav__item">
+                <a href="#section1" class="side-nav__link active"
+                  >Виртуальная АТС</a
+                >
+              </li>
+              <li class="side-nav__item">
+                <a href="#section2" class="side-nav__link">Статистика</a>
+              </li>
+              <li class="side-nav__item">
+                <a href="#chronology" class="side-nav__link"
+                  >Интеграция с amoCRM и Битрикс</a
+                >
+              </li>
+              <li class="side-nav__item">
+                <a href="#section3" class="side-nav__link">Тарифы на АТС</a>
+              </li>
+              <li class="side-nav__item">
+                <a href="#section4" class="side-nav__link"
+                  >Номера и сим-карты</a
+                >
+              </li>
+              <li class="side-nav__item">
+                <a href="#section5" class="side-nav__link">Тарифы на связь</a>
+              </li>
+              <li class="side-nav__item">
+                <a href="#section6" class="side-nav__link">Поддержка</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
 
-        <section id="section4" class="section">
-          <h2 class="section__title">Раздел 4</h2>
-          <div class="section__content">...</div>
-        </section>
+        <div class="wrapper wrapper_large">
+          <div class="catalog-container">
+            <section
+              id="section1"
+              class="section section-offset section-wrapper"
+            >
+              <div class="section-middle">
+                <div class="section-col">
+                  <h2 class="section__title">Распределим и сохраним звонки</h2>
+                  <div class="section__description">
+                    В Сипуни ооочень гибкие настройки распределения звонков. Как
+                    вам удобно, так и будет
+                  </div>
+                </div>
 
+                <div class="cat-1-container">
+                  <div class="cat-1-item">
+                    <picture class="cat-1-image">
+                      <source
+                        srcset="mdn-logo-wide.png"
+                        media="(max-width: 600px)"
+                      />
+                      <img src="./images/dist/k1.png" alt="cat-1-1" />
+                    </picture>
+                    <div class="cat-1-content">
+                      <h3 class="cat-1-title">
+                        Если клиенты звонят в нерабочее время
+                      </h3>
+                      <div class="cat-1-description">
+                        Программа минимум: проиграем от вас аудиосообщение. Если
+                        есть интеграция с CRM, поставим менеджеру задачу на
+                        перезвон
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cat-1-item cat-1-item-reverse">
+                    <picture class="cat-1-image">
+                      <source
+                        srcset="mdn-logo-wide.png"
+                        media="(max-width: 600px)"
+                      />
+                      <img src="./images/dist/k2.png" alt="cat-1-1" />
+                    </picture>
+                    <div class="cat-1-content">
+                      <h3 class="cat-1-title">
+                        Если у вас единый номер и клиенты из разных регионов
+                      </h3>
+                      <div class="cat-1-description">
+                        Переведем звонок на менеджера из региона клиента. Он не
+                        назовет парадную подъездом лучше знает специфику
+                        местного рынка
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cat-1-item">
+                    <picture class="cat-1-image">
+                      <source
+                        srcset="mdn-logo-wide.png"
+                        media="(max-width: 600px)"
+                      />
+                      <img src="./images/dist/k3.png" alt="cat-1-1" />
+                    </picture>
+                    <div class="cat-1-content">
+                      <h3 class="cat-1-title">
+                        Если звонят менеджеру, который сейчас занят
+                      </h3>
+                      <div class="cat-1-description">
+                        Поможем распределить нагрузку по отделу. Если занят один
+                        менеджер, направим звонок другому автоматически
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cat-1-item cat-1-item-reverse">
+                    <picture class="cat-1-image">
+                      <source
+                        srcset="mdn-logo-wide.png"
+                        media="(max-width: 600px)"
+                      />
+                      <img src="./images/dist/k4.png" alt="cat-1-1" />
+                    </picture>
+                    <div class="cat-1-content">
+                      <h3 class="cat-1-title">
+                        Если все отделы разговаривают с единого номера
+                      </h3>
+                      <div class="cat-1-description">
+                        В Сипуни можно собрать голосовое меню. Клиент сам
+                        выберет по какому вопросу хочет с вами пообщаться
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-right">
+                <div class="section-right-item">
+                  <img src="./images/dist/s1.svg" alt="" />
+                  <p>
+                    Виртуальная АТС, телефония, IP-телефония, ВАТС — это одно и
+                    то же. Что бы вы ни искали, Сипуни подходит
+                  </p>
+                </div>
+                <div class="section-right-item">
+                  <img src="./images/dist/s1.svg" alt="" />
+                  <p>
+                    Сохраняем все звонки и в Сипуни, и в CRM. Если в работе CRM
+                    сбой, звонки все равно сохранятся
+                  </p>
+                </div>
+              </div>
+            </section>
 
+            <section id="section2" class="section statistics section-offset">
+              <div class="section-middle">
+                <h2 class="section__title">
+                  Соберем статистику, чтобы сложные<br />
+                  решения давались проще
+                </h2>
+
+                <div class="statistics__container">
+                  <div class="statistics__width">
+                    <div class="statistics__item">
+                      <div class="statistics__label">
+                        Как часто менеджеры дозваниваются
+                      </div>
+                      <div class="statistics__desc">
+                        Вы увидите сколько менеджеры звонят и как часто им
+                        отвечают. Если менеджер все время слушает гудки,
+                        возможно, проблема в базе
+                      </div>
+                    </div>
+                  </div>
+                  <div class="statistics__width">
+                    <div class="statistics__item">
+                      <img src="./images/dist/st1.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="statistics__width">
+                    <div class="statistics__item">
+                      <div class="statistics__label">
+                        Как часто менеджеры дозваниваются
+                      </div>
+                      <div class="statistics__desc">
+                        Вы увидите сколько менеджеры звонят и как часто им
+                        отвечают. Если менеджер все время слушает гудки,
+                        возможно, проблема в базе
+                      </div>
+                    </div>
+                  </div>
+                  <div class="statistics__width">
+                    <div class="statistics__item">
+                      <div class="statistics__label">
+                        Как часто менеджеры дозваниваются
+                      </div>
+                      <div class="statistics__desc">
+                        Вы увидите сколько менеджеры звонят и как часто им
+                        отвечают. Если менеджер все время слушает гудки,
+                        возможно, проблема в базе
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="chronology-section" id="chronology">
+              <div class="catalog-r-bg-line-3">
+                <img src="./images/dist/main-3.svg" alt="" />
+              </div>
+
+              <div class="catalog-r-bg-line">
+                <img src="./images/dist/main-2.svg" alt="" />
+              </div>
+
+              <div class="catalog-r-bg-line-4">
+                <img src="./images/dist/main-4.svg" alt="" />
+              </div>
+
+              <div class="chronology-container">
+                <div class="chronology-sticky">
+                  <div class="sticky-content">
+                    <div class="section-col">
+                      <h2
+                        class="section__title"
+                        id="chronology-heading"
+                        data-side-title="Хронология"
+                      >
+                        Отлично поладим с вашей CRM
+                      </h2>
+                      <div class="section__description">
+                        Готовые интеграции Сипуни с amoCRM и Битрикс24.
+                        Управиться с настройкой — 20 минут
+                      </div>
+                    </div>
+                    <div class="image-container">
+                      <div class="image-frame">
+                        <img
+                          src="./images/dist/crm.jpg"
+                          alt="Этап 1"
+                          class="step-image is-active"
+                          data-step="1"
+                        />
+                        <img
+                          src="./images/dist/k2.png"
+                          alt="Этап 2"
+                          class="step-image"
+                          data-step="2"
+                        />
+                        <img
+                          src="./images/dist/k3.png"
+                          alt="Этап 3"
+                          class="step-image"
+                          data-step="3"
+                        />
+                        <img
+                          src="./images/dist/k4.png"
+                          alt="Этап 4"
+                          class="step-image"
+                          data-step="4"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="chronology-scroll">
+                  <div class="steps-container">
+                    <div class="step" data-step="1">
+                      <div class="step-bullet-inner">
+                        <img src="./images/dist/bull1.svg" alt="" />
+                        <img src="./images/dist/bull2.svg" alt="" />
+                        <img src="./images/dist/bull3.svg" alt="" />
+                      </div>
+                      <div class="step-content">
+                        <h3 class="step-title">
+                          Создадим по звонку контакт/сделку
+                        </h3>
+                        <p class="step-description">
+                          Переведем звонок на ответственного Переведем
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                      <div class="step-bullet-inner">
+                        <img src="./images/dist/bull1.svg" alt="" />
+                        <img src="./images/dist/bull2.svg" alt="" />
+                        <img src="./images/dist/bull3.svg" alt="" />
+                      </div>
+                      <div class="step-content">
+                        <h3 class="step-title">
+                          Сохраним запись звонков в CRM
+                        </h3>
+                        <p class="step-description">
+                          Переведем звонок на ответственного Переведем
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="step" data-step="3">
+                      <div class="step-bullet-inner">
+                        <img src="./images/dist/bull1.svg" alt="" />
+                        <img src="./images/dist/bull2.svg" alt="" />
+                        <img src="./images/dist/bull3.svg" alt="" />
+                      </div>
+                      <div class="step-content">
+                        <h3 class="step-title">
+                          Переведем звонок на ответственного
+                        </h3>
+                        <p class="step-description">
+                          Переведем звонок на ответственного Переведем
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="step" data-step="4">
+                      <div class="step-bullet-inner">
+                        <img src="./images/dist/bull1.svg" alt="" />
+                        <img src="./images/dist/bull2.svg" alt="" />
+                        <img src="./images/dist/bull3.svg" alt="" />
+                      </div>
+                      <div class="step-content">
+                        <h3 class="step-title">
+                          Распределим звонки, используя данные из CRM
+                        </h3>
+                        <p class="step-description">
+                          Переведем звонок на ответственного Переведем
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="section3" class="section count section-offset">
+              <div class="count-wrap">
+                <div class="count-col">
+                  <div class="section-col section-col-medium">
+                    <h2 class="section__title">
+                      Сколько стоит виртуальная АТС
+                    </h2>
+                    <div class="section__description">
+                      Это цены за телефонию. В тарифы на АТС не входят услуги
+                      связи: стоимость номеров, абонентская плата и плата
+                      за звонки
+                    </div>
+                  </div>
+                  <div class="rate-tabs">
+                    <a href="#" class="rate-tabs__link" data-tab="mounth"
+                      >Месяц</a
+                    >
+                    <a href="#" class="rate-tabs__link active" data-tab="year"
+                      >Год</a
+                    >
+                  </div>
+                </div>
+                <div class="count-box-right">
+                  <div class="section-right">
+                    <div class="section-right-item">
+                      <img src="./images/dist/s1.svg" alt="" />
+                      <div class="section-right-item__col">
+                        <p>
+                          Если у вас уже есть номер, его можно подключить
+                          к Сипуни. На возможности АТС это никак не повлияет.
+                        </p>
+                        <p>
+                          Просто за телефонию <br />
+                          будете платить нам,<br />
+                          за связь — своему <br />
+                          оператору
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab" data-tab-content="mounth">
+                <div class="count__content">
+                  <div class="count__width">
+                    <div class="count__item">
+                      <div class="count-top-content">
+                        <div class="count-label">Базовый</div>
+
+                        <div class="count-old-price">320 ₽</div>
+
+                        <div class="count-row">
+                          <div class="count-new-price">300 ₽</div>
+                          <div class="count-text">в месяц</div>
+                        </div>
+                        <div class="count-under">за 1 пользоваетеля</div>
+
+                        <div class="hr"></div>
+
+                        <ul class="count__col">
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Стоимость минуты <strong>1.87₽</strong>
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Хранение записей разговоров 3 месяца </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Базовая интеграция с amoCRM и Битрикс24
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Многоканальная линия </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Статистика по звонкам </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#757575"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Поддержка 24/7 </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="count-bottom-content">
+                        <a href="#" class="btn btn_white"> Попробовать </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="count__width">
+                    <div class="count__item count-active">
+                      <div class="count-top-content">
+                        <div class="count-label-row">
+                          <div class="count-label">Расширенный</div>
+                          <div class="count-bandge">Популярный</div>
+                        </div>
+
+                        <div class="count-old-price">720 ₽</div>
+
+                        <div class="count-row">
+                          <div class="count-new-price">600 ₽</div>
+                          <div class="count-text">в месяц</div>
+                        </div>
+                        <div class="count-under">за 1 пользоваетеля</div>
+
+                        <div class="hr"></div>
+
+                        <ul class="count__col">
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Стоимость минуты <strong>1.50₽</strong>
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Хранение записей разговоров 1 год </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Профессиональная интеграция с amoCRM и Битрикс24
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Многоканальная линия </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Статистика по звонкам </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Поддержка 24/7 </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Автообзвон </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Интеграция с сервисами коллтрекинга </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Расширенная статистика </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="count-bottom-content">
+                        <a href="#" class="btn btn_white"> Попробовать </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="count__width">
+                    <div class="count__item">
+                      <div class="count-top-content">
+                        <div class="count-label">Профессиональный</div>
+
+                        <div class="count-old-price">1080 ₽</div>
+
+                        <div class="count-row">
+                          <div class="count-new-price">900 ₽</div>
+                          <div class="count-text">в месяц</div>
+                        </div>
+                        <div class="count-under">за 1 пользоваетеля</div>
+
+                        <div class="hr"></div>
+
+                        <ul class="count__col">
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Стоимость минуты <strong>1.50₽</strong>
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Неограниченное хранение записей разговоров
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Профессиональная интеграция с amoCRM и Битрикс24
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Многоканальная линия </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Статистика по звонкам </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Поддержка 24/7 </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Автообзвон </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Интеграция с сервисами коллтрекинга </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Расширенная статистика </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Ограничение доступа к сервисам по IP-адресам
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> TLS и SRTP-шифрование трафика до АТС </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Интеграция с речевой аналитикой </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="count-bottom-content">
+                        <a href="#" class="btn btn_white"> Попробовать </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab active" data-tab-content="year">
+                <div class="count__content">
+                  <div class="count__width">
+                    <div class="count__item">
+                      <div class="count-top-content">
+                        <div class="count-label">Базовый</div>
+
+                        <div class="count-old-price">360 ₽</div>
+
+                        <div class="count-row">
+                          <div class="count-new-price">300 ₽</div>
+                          <div class="count-text">в месяц</div>
+                        </div>
+                        <div class="count-under">за 1 пользоваетеля</div>
+
+                        <div class="hr"></div>
+
+                        <ul class="count__col">
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Стоимость минуты <strong>1.87₽</strong>
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Хранение записей разговоров 3 месяца </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Базовая интеграция с amoCRM и Битрикс24
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Многоканальная линия </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Статистика по звонкам </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#757575"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Поддержка 24/7 </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="count-bottom-content">
+                        <a href="#" class="btn btn_white"> Попробовать </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="count__width">
+                    <div class="count__item count-active">
+                      <div class="count-top-content">
+                        <div class="count-label-row">
+                          <div class="count-label">Расширенный</div>
+                          <div class="count-bandge">Популярный</div>
+                        </div>
+
+                        <div class="count-old-price">720 ₽</div>
+
+                        <div class="count-row">
+                          <div class="count-new-price">600 ₽</div>
+                          <div class="count-text">в месяц</div>
+                        </div>
+                        <div class="count-under">за 1 пользоваетеля</div>
+
+                        <div class="hr"></div>
+
+                        <ul class="count__col">
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Стоимость минуты <strong>1.50₽</strong>
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Хранение записей разговоров 1 год </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Профессиональная интеграция с amoCRM и Битрикс24
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Многоканальная линия </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Статистика по звонкам </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Поддержка 24/7 </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Автообзвон </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Интеграция с сервисами коллтрекинга </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#fff"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#fff"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Расширенная статистика </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="count-bottom-content">
+                        <a href="#" class="btn btn_white"> Попробовать </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="count__width">
+                    <div class="count__item">
+                      <div class="count-top-content">
+                        <div class="count-label">Профессиональный</div>
+
+                        <div class="count-old-price">1080 ₽</div>
+
+                        <div class="count-row">
+                          <div class="count-new-price">900 ₽</div>
+                          <div class="count-text">в месяц</div>
+                        </div>
+                        <div class="count-under">за 1 пользоваетеля</div>
+
+                        <div class="hr"></div>
+
+                        <ul class="count__col">
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Стоимость минуты <strong>1.50₽</strong>
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Неограниченное хранение записей разговоров
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Профессиональная интеграция с amoCRM и Битрикс24
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Многоканальная линия </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Статистика по звонкам </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Поддержка 24/7 </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Автообзвон </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Интеграция с сервисами коллтрекинга </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Расширенная статистика </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>
+                              Ограничение доступа к сервисам по IP-адресам
+                            </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> TLS и SRTP-шифрование трафика до АТС </span>
+                          </li>
+                          <li class="count__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span> Интеграция с речевой аналитикой </span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="count-bottom-content">
+                        <a href="#" class="btn btn_white"> Попробовать </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="section4"
+              class="section client section-offset section-wrapper"
+            >
+              <div class="section-middle">
+                <div class="section-col section-col-medium">
+                  <h2 class="section__title">
+                    Передадим голос клиента, а не карканье, бульканье и хрипение
+                  </h2>
+                  <div class="section__description">
+                    Сипуни — это не только АТС, но и связь. Наши номера и
+                    сим-карты работают одинаково хорошо по всей России
+                  </div>
+                </div>
+                <div class="client-container">
+                  <div class="client-width">
+                    <div class="client__item">
+                      <div class="client__top">
+                        <div class="client__image">
+                          <img src="./images/dist/cl1.png" alt="" />
+                        </div>
+                        <div class="client__label">Многоканальные номера</div>
+
+                        <div class="client__description">
+                          Вирутальный номер, с которого могут звонить сколько
+                          угодно менеджеров
+                        </div>
+
+                        <ul class="client__col">
+                          <li class="client__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>Мобильные</span>
+                          </li>
+                          <li class="client__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>Федеральные 8 800 и 8 804</span>
+                          </li>
+                          <li class="client__list">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                x="0.5"
+                                y="0.5"
+                                width="19"
+                                height="19"
+                                rx="9.5"
+                                stroke="#707485"
+                              />
+                              <path
+                                d="M6 10.2727L8.94643 13L14 7"
+                                stroke="#757575"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+
+                            <span>Городские любых регионов</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="client__bottom">
+                        <a href="#" class="btn btn_primary"> Купить номер </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="client-width">
+                    <div class="client__item">
+                      <div class="client__top">
+                        <div class="client__image">
+                          <img src="./images/dist/cl2.png" alt="" />
+                        </div>
+
+                        <div class="client__label">Сим-карты</div>
+
+                        <div class="client__description">
+                          <p>
+                            Идеальное решение, если менеджеры работают в полях.
+                            Или рядом с важным заводом.
+                          </p>
+                          <p>
+                            Стабильный интернет не нужен. Если есть связь,
+                            звонки уходят, приходят, записываются и попадают
+                            в CRM.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="client__bottom">
+                        <a href="#" class="btn btn_primary">
+                          Купить сим-карту
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-right">
+                <div class="section-right-item">
+                  <img src="./images/dist/s1.svg" alt="" />
+                  <p>
+                    Чтобы купить номер или симку не нужно никуда идти. Выбор
+                    номера, документы — всё онлайн
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="section5"
+              class="section rate section-offset section-wrapper"
+            >
+              <div class="section-large">
+                <div class="section-col section-col-medium">
+                  <h2 class="section__title">
+                    Сколько стоят многоканальные номера и сим-карты Сипуни
+                  </h2>
+                  <div class="section__description">
+                    Стоят как везде, а суеты меньше. Выбираете любые номера и по
+                    всем вопросам приходите к нам, а не к десяти разным
+                    операторам
+                  </div>
+                </div>
+                <div class="rate-tabs">
+                  <a href="#" class="rate-tabs__link active" data-tab="numbers"
+                    >Многоканальные номера</a
+                  >
+                  <a href="#" class="rate-tabs__link" data-tab="sim"
+                    >Сим-карты</a
+                  >
+                </div>
+                <div class="tab active" data-tab-content="numbers">
+                  <div class="rate__container">
+                    <div class="rate__width">
+                      <div class="rate__item">
+                        <div class="rate__label">Мобильные</div>
+                        <div class="rate__row">
+                          <div class="rate__block">
+                            <div class="rate__txt">Подключение: 1500 ₽</div>
+                            <div class="rate__badge">Разовый платеж</div>
+                          </div>
+                          <div class="rate__block">
+                            <div class="rate__txt">
+                              Абонентская плата: 500 ₽
+                            </div>
+                            <div class="rate__badge">Регулярный платеж</div>
+                          </div>
+                        </div>
+
+                        <div class="hr"></div>
+                        <div class="rate-container">
+                          <div class="rate-header">
+                            <h3>Исходящий звонок</h3>
+                            <p>Цена звонка зависит от тарифа АТС</p>
+                          </div>
+
+                          <div class="tariffs">
+                            <div class="tariff">
+                              <div class="tariff-name">Базовый</div>
+                              <div class="tariff-price">
+                                1.87 <span class="tariff-period">₽/мин</span>
+                              </div>
+                            </div>
+
+                            <div class="tariff highlight">
+                              <div class="tariff-name">Расширенный</div>
+                              <div class="tariff-price">
+                                1.50 <span class="tariff-period">₽/мин</span>
+                              </div>
+                            </div>
+
+                            <div class="tariff">
+                              <div class="tariff-name">Профессиональный</div>
+                              <div class="tariff-price">
+                                1.40 <span class="tariff-period">₽/мин</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rate__width">
+                      <div class="rate__item">
+                        <div class="rate__label">Городские</div>
+                        <div class="rate__row">
+                          <div class="rate__block">
+                            <div class="rate__txt">Подключение: 1500 ₽</div>
+                            <div class="rate__badge">Разовый</div>
+                          </div>
+                          <div class="rate__block">
+                            <div class="rate__txt">
+                              Абонентская плата: 500 ₽
+                            </div>
+                            <div class="rate__badge">Регулярный</div>
+                          </div>
+                        </div>
+                        <div class="hr"></div>
+
+                        <div class="rate__desc">
+                          Стоимость звонков зависит от того, куда вы звоните.
+                          Все города и цены — <a href="#">в таблице</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rate__width">
+                      <div class="rate__item">
+                        <div class="rate__label">8 800 и 8 804</div>
+                        <div class="rate__row">
+                          <div class="rate__block">
+                            <div class="rate__txt">Подключение: 3000 ₽</div>
+                            <div class="rate__badge">Разовый</div>
+                          </div>
+                          <div class="rate__block">
+                            <div class="rate__txt">
+                              Абонентская плата: 2000 ₽
+                            </div>
+                            <div class="rate__badge">Регулярный</div>
+                          </div>
+                        </div>
+                        <div class="hr"></div>
+
+                        <div class="rate__desc">
+                          Стоимость звонков зависит от того, куда вы звоните.
+                          Все города и цены — <a href="#">в таблице</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab" data-tab-content="sim">
+                  <div class="rate__container rate__container-m">
+                    <div class="rate__width">
+                      <div class="rate__item rate__item-m">
+                        <div class="rate__label">Бизнес-гигант</div>
+                        <div class="rate__under">5000 мин., 300 СМС,</div>
+                        <div class="hr"></div>
+
+                        <div class="rate__price">2170 ₽/мес</div>
+                      </div>
+                    </div>
+                    <div class="rate__width">
+                      <div class="rate__item rate__item-m">
+                        <div class="rate__label">Профи</div>
+                        <div class="rate__under">1300 мин., 100 СМС, 35 ГБ</div>
+                        <div class="hr"></div>
+
+                        <div class="rate__price">1390 ₽/мес</div>
+                      </div>
+                    </div>
+                    <div class="rate__width">
+                      <div class="rate__item rate__item-m">
+                        <div class="rate__label">Тертый калач</div>
+                        <div class="rate__under">700 мин., 100 СМС, 35 ГБ</div>
+                        <div class="hr"></div>
+
+                        <div class="rate__price">1090 ₽/мес</div>
+                      </div>
+                    </div>
+                    <div class="rate__width">
+                      <div class="rate__item rate__item-m">
+                        <div class="rate__label">Трудоголик</div>
+                        <div class="rate__under">35 ГБ, без СМС и минут</div>
+                        <div class="hr"></div>
+
+                        <div class="rate__price">800 ₽/мес</div>
+                      </div>
+                    </div>
+                    <div class="rate__width">
+                      <div class="rate__item rate__item-m">
+                        <div class="rate__label">Прагматик</div>
+                        <div class="rate__under">
+                          Без интернета, СМС и минут
+                        </div>
+                        <div class="hr"></div>
+
+                        <div class="rate__price">450 ₽/мес</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-right">
+                <div class="section-right-item trigger-rate-1">
+                  <img src="./images/dist/s1.svg" alt="" />
+                  <p>Если уже есть номер, можно продолжить пользоваться им.</p>
+                </div>
+                <div class="section-right-item">
+                  <img src="./images/dist/s1.svg" alt="" />
+                  <p>
+                    8800 — для клиента звонок бесплатный из любой точки России.
+                    Отлично подходит для федерального бизнеса и горячей линии.
+                  </p>
+                </div>
+                <div class="section-right-item">
+                  <img src="./images/dist/s1.svg" alt="" />
+                  <p>
+                    8804 — дешевле Клиенты бесплатно звонят только внутри
+                    региона, удобно для компаний, работающих локально.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="section6"
+              class="section section-offset section-wrapper"
+            >
+              <div class="section-middle">
+                <div class="section-col">
+                  <h2 class="section__title">Поддержка</h2>
+                  <div class="section__description">
+                    Мы всегда готовы помочь вам с любыми вопросами
+                  </div>
+                </div>
+
+                <div class="slider-container">
+                  <div class="custom-slider">
+                    <div class="slider-wrapper">
+                      <!-- Карточки на заднем плане слева -->
+                      <div
+                        class="slider-card slider-card-back-left"
+                        data-index="-2"
+                      >
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка -2</h3>
+                            <p>Задний план</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="slider-card slider-card-back-left"
+                        data-index="-1"
+                      >
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка -1</h3>
+                            <p>Задний план</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Основные карточки -->
+                      <div class="slider-card slider-card-prev" data-index="0">
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 1</h3>
+                            <p>Это первая карточка слайдера</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="slider-card slider-card-active"
+                        data-index="1"
+                      >
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 2</h3>
+                            <p>Это вторая карточка слайдера</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slider-card slider-card-next" data-index="2">
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 3</h3>
+                            <p>Это третья карточка слайдера</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slider-card slider-card-next" data-index="3">
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 4</h3>
+                            <p>Это четвертая карточка слайдера</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="slider-card slider-card-next" data-index="4">
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 5</h3>
+                            <p>Это пятая карточка слайдера</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Карточки на заднем плане справа -->
+                      <div
+                        class="slider-card slider-card-back-right"
+                        data-index="5"
+                      >
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 6</h3>
+                            <p>Задний план</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="slider-card slider-card-back-right"
+                        data-index="6"
+                      >
+                        <div class="slider-card-content">
+                          <div>
+                            <h3>Карточка 7</h3>
+                            <p>Задний план</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="slider-controls">
+                      <button
+                        class="slider-arrow slider-arrow-left"
+                        id="sliderPrev"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M15 18L9 12L15 6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="slider-arrow slider-arrow-right"
+                        id="sliderNext"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9 18L15 12L9 6"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </main>
 
-</main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/db/jq.js"></script>
+    <script src="./js/db/jquery.matchHeight-min.js"></script>
+    <script src="./js/app.min.js"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-</body>
+    <script>
+      $(document).ready(function () {
+        // Инициализация matchHeight при загрузке страницы
+        if (typeof $.fn.matchHeight !== "undefined") {
+          $(".count__col").matchHeight();
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -15,22 +15,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const chronologySection = document.querySelector("#chronology");
 
   let previousActiveStep = 1; // Отслеживаем предыдущий активный этап
+  let previousProgress = -1; // Отслеживаем предыдущий прогресс для определения направления скролла (-1 для первого вызова)
 
   // Функция активации этапа
-  function activateStep(stepNumber) {
-    // Убираем классы у всех этапов
+  function activateStep(stepNumber, isScrollingDown = null) {
+    // Находим элемент, который теряет is-active
+    const previousStepElement = document.querySelector(
+      `.step[data-step="${previousActiveStep}"]`
+    );
+
+    // Определяем, нужно ли добавлять класс step-down-active
+    // Добавляем только при скролле сверху вниз
+    const shouldAddStepDownActive = previousActiveStep !== stepNumber && previousActiveStep > 0 && isScrollingDown === true && previousStepElement;
+
+    // Определяем, нужно ли удалять класс step-down-active
+    // Удаляем при скролле снизу вверх
+    const shouldRemoveStepDownActive = previousActiveStep !== stepNumber && isScrollingDown === false;
+
+    // Сначала добавляем класс step-down-active предыдущему элементу, если нужно
+    // ДО того как удалим is-active
+    if (shouldAddStepDownActive) {
+      previousStepElement.classList.add("step-down-active");
+    }
+
+    // Убираем классы is-active и active-hidden у всех этапов
     steps.forEach((step) => {
       step.classList.remove("is-active", "active-hidden");
     });
     images.forEach((img) => img.classList.remove("is-active"));
 
+    // Если скроллим вверх, удаляем step-down-active у текущего активного шага
+    if (shouldRemoveStepDownActive) {
+      const currentStepElement = document.querySelector(
+        `.step[data-step="${stepNumber}"]`
+      );
+      if (currentStepElement) {
+        currentStepElement.classList.remove("step-down-active");
+      }
+    }
+
     // Если переходим на другой этап, предыдущий получает класс active-hidden
     if (previousActiveStep !== stepNumber && previousActiveStep > 0) {
-      const previousStep = document.querySelector(
-        `.step[data-step="${previousActiveStep}"]`
-      );
-      if (previousStep) {
-        previousStep.classList.add("active-hidden");
+      if (previousStepElement) {
+        previousStepElement.classList.add("active-hidden");
       }
     }
 
@@ -96,6 +123,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const total = steps.length;
       if (!total) return;
 
+      // Определяем направление скролла
+      // Если previousProgress === -1, это первый вызов, считаем что скролл вниз
+      const isScrollingDown = previousProgress === -1 ? true : e.progress > previousProgress;
+      previousProgress = e.progress;
+
       // Улучшенная логика: последний элемент получает больше времени
       // Делим прогресс: первые 70% для первых элементов, последние 30% для последнего
       const lastElementThreshold = 0.7;
@@ -110,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         index = total - 1;
       }
 
-      activateStep(index + 1);
+      activateStep(index + 1, isScrollingDown);
     })
     .on("leave", () => {
       // При откреплении убираем top
@@ -496,6 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== Universal Tabs (Section3, Section5, etc.) =====
   (() => {
     // Находим все контейнеры с табами
+    const rate1 = document.querySelector(".trigger-rate-1");
     const tabsContainers = document.querySelectorAll(".rate-tabs");
 
     if (!tabsContainers.length) return;
@@ -514,6 +547,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const targetTab = link.getAttribute("data-tab");
           if (!targetTab) return;
+
+          if (targetTab === "sim") {
+            rate1.classList.add("active");
+          } else if (targetTab === "numbers") {
+            rate1.classList.remove("active");
+          }
 
           // Убираем active у всех табов в этом контейнере
           tabLinks.forEach((l) => l.classList.remove("active"));

@@ -64,3 +64,33 @@ a {
     display: block;
   }
 }
+
+.trigger-rate-1 {
+  display: none;
+  &.active {
+    display: flex;
+  }
+}
+
+.count-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.count-col {
+  max-width: 678px;
+  width: 100%;
+}
+
+.count-box-right {
+  .section-right-item {
+    display: flex;
+  }
+}
+
+#section4 {
+  .section-right {
+    padding-top: 242px;
+  }
+}
