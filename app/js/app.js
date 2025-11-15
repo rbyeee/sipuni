@@ -26,11 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Определяем, нужно ли добавлять класс step-down-active
     // Добавляем только при скролле сверху вниз
-    const shouldAddStepDownActive = previousActiveStep !== stepNumber && previousActiveStep > 0 && isScrollingDown === true && previousStepElement;
+    const shouldAddStepDownActive =
+      previousActiveStep !== stepNumber &&
+      previousActiveStep > 0 &&
+      isScrollingDown === true &&
+      previousStepElement;
 
     // Определяем, нужно ли удалять класс step-down-active
     // Удаляем при скролле снизу вверх
-    const shouldRemoveStepDownActive = previousActiveStep !== stepNumber && isScrollingDown === false;
+    const shouldRemoveStepDownActive =
+      previousActiveStep !== stepNumber && isScrollingDown === false;
 
     // Сначала добавляем класс step-down-active предыдущему элементу, если нужно
     // ДО того как удалим is-active
@@ -125,7 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Определяем направление скролла
       // Если previousProgress === -1, это первый вызов, считаем что скролл вниз
-      const isScrollingDown = previousProgress === -1 ? true : e.progress > previousProgress;
+      const isScrollingDown =
+        previousProgress === -1 ? true : e.progress > previousProgress;
       previousProgress = e.progress;
 
       // Улучшенная логика: последний элемент получает больше времени
@@ -525,58 +531,112 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCards();
   })();
 
-  // ===== Universal Tabs (Section3, Section5, etc.) =====
-  (() => {
-    // Находим все контейнеры с табами
-    const rate1 = document.querySelector(".trigger-rate-1");
-    const tabsContainers = document.querySelectorAll(".rate-tabs");
+  function initStatisticsRotation() {
+    const container = document.querySelector(".statistics__container");
+    const items = container.querySelectorAll(".statistics__item");
+    const videoItem = container.querySelector(".statistics__item-video");
+    const videoImages = videoItem.querySelectorAll("img");
 
-    if (!tabsContainers.length) return;
+    // Получаем только элементы без video (фильтруем массив)
+    const regularItems = Array.from(items).filter(
+      (item) => !item.classList.contains("statistics__item-video")
+    );
 
-    tabsContainers.forEach((container) => {
-      // Находим табы и контент внутри этого контейнера
-      const tabLinks = container.querySelectorAll(".rate-tabs__link");
+    let currentIndex = 0;
+    let rotationInterval = null;
 
-      // Находим родительскую секцию для поиска контента табов
-      const section = container.closest("section");
-      if (!section) return;
+    function showImage(index) {
+      // Сначала скрываем все изображения
+      videoImages.forEach((img) => {
+        img.style.display = "none";
+      });
 
-      tabLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
+      // Показываем нужное изображение
+      if (videoImages[index]) {
+        videoImages[index].style.display = "block";
+      }
+    }
 
-          const targetTab = link.getAttribute("data-tab");
-          if (!targetTab) return;
+    function switchToIndex(index) {
+      // Проверяем валидность индекса
+      if (index < 0 || index >= regularItems.length) return;
 
-          if (targetTab === "sim") {
-            rate1.classList.add("active");
-          } else if (targetTab === "numbers") {
-            rate1.classList.remove("active");
-          }
+      // Убираем активный класс у всех
+      items.forEach((item) => item.classList.remove("statistics__item-active"));
 
-          // Убираем active у всех табов в этом контейнере
-          tabLinks.forEach((l) => l.classList.remove("active"));
+      // Добавляем активный класс выбранному элементу
+      if (regularItems[index]) {
+        regularItems[index].classList.add("statistics__item-active");
+      }
 
-          // Убираем active у всех контентов табов в этой секции
-          const allTabContents = section.querySelectorAll(
-            ".tab[data-tab-content]"
-          );
-          allTabContents.forEach((content) =>
-            content.classList.remove("active")
-          );
+      // Показываем соответствующую картинку
+      showImage(index);
 
-          // Добавляем active к выбранному табу
-          link.classList.add("active");
+      // Обновляем текущий индекс
+      currentIndex = index;
+    }
 
-          // Находим и активируем соответствующий контент в этой секции
-          const targetContent = section.querySelector(
-            `.tab[data-tab-content="${targetTab}"]`
-          );
-          if (targetContent) {
-            targetContent.classList.add("active");
-          }
-        });
+    function rotateItems() {
+      // Увеличиваем индекс для следующего шага
+      currentIndex = (currentIndex + 1) % regularItems.length;
+
+      // Переключаем на следующий элемент
+      switchToIndex(currentIndex);
+    }
+
+    function startRotation() {
+      // Очищаем предыдущий интервал, если есть
+      if (rotationInterval) {
+        clearInterval(rotationInterval);
+      }
+      // Запускаем ротацию каждые 5 секунд
+      rotationInterval = setInterval(rotateItems, 5000);
+    }
+
+    // Добавляем обработчики кликов на каждую карточку
+    regularItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        switchToIndex(index);
+        // Перезапускаем автоматическую ротацию после клика
+        startRotation();
       });
     });
-  })();
+
+    // Инициализация
+    showImage(0);
+    switchToIndex(0);
+    startRotation();
+  }
+
+  initStatisticsRotation();
+
+  const swiper = new Swiper(".statistics-swiper", {
+    loop: true,
+
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+  const swiperCount = new Swiper(".count-swiper", {
+    slidesPerView: 3,
+    spaceBetween: 24,
+    pagination: {
+      el: ".swiper-pagination",
+    },
+
+    breakpoints: {
+      1280: {
+        slidesPerView: 3,
+      },
+      990: {
+        slidesPerView: 2,
+      },
+      550: {
+        slidesPerView: 2,
+      },
+      320: {
+        slidesPerView: 1,
+      },
+    },
+  });
 });

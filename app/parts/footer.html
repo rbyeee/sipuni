@@ -7,10 +7,52 @@
 
 <script>
 $(document).ready(function() {
-  // Инициализация matchHeight при загрузке страницы
-  if (typeof $.fn.matchHeight !== 'undefined') {
     $(".count__col").matchHeight();
-  }
+    $(".rate__item").matchHeight();
+    if($(window).width > 800) {
+      $(".statistics__item").matchHeight();
+    }
+
+      // Находим все контейнеры с табами
+    const $rate1 = $(".trigger-rate-1");
+    const $tabsContainers = $(".rate-tabs");
+
+    if (!$tabsContainers.length) return;
+
+    $tabsContainers.each(function() {
+        const $container = $(this);
+        const $tabLinks = $container.find(".rate-tabs__link");
+
+        const $section = $container.closest("section");
+        if (!$section.length) return;
+
+        $tabLinks.on("click", function(e) {
+            e.preventDefault();
+
+            const $link = $(this);
+            const targetTab = $link.attr("data-tab");
+            if (!targetTab) return;
+
+            setTimeout(() => {
+              $(".count__col").matchHeight();
+              $(".rate__item ").matchHeight();
+            })
+            
+            if (targetTab === "sim") {
+                $rate1.addClass("active");
+            } else if (targetTab === "numbers") {
+                $rate1.removeClass("active");
+            }
+
+            $tabLinks.removeClass("active");
+
+            $section.find(".tab[data-tab-content]").removeClass("active");
+
+            $link.addClass("active");
+
+            $section.find(`.tab[data-tab-content="${targetTab}"]`).addClass("active");
+        });
+    });
 });
 </script>
 </body>
