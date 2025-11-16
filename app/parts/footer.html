@@ -13,7 +13,18 @@ $(document).ready(function() {
       $(".statistics__item").matchHeight();
     }
 
-      // Находим все контейнеры с табами
+    $(".header-burger").on("click", function(e){
+      e.preventDefault();
+
+      $(".header-mobile").addClass("is-active")
+    })
+
+    $(".header-mobile-close").on("click", function(e) {
+       e.preventDefault();
+
+      $(".header-mobile").removeClass("is-active")
+    })
+
     const $rate1 = $(".trigger-rate-1");
     const $tabsContainers = $(".rate-tabs");
 

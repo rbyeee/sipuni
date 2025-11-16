@@ -639,4 +639,127 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
+
+  // ===== Mobile Header Dropdown =====
+  (() => {
+    const arrows = document.querySelectorAll(".header-mobile-arrow");
+    
+    arrows.forEach((arrow) => {
+      arrow.addEventListener("click", function(e) {
+        e.preventDefault();
+        
+        // Находим родительский элемент header-mobile__drop
+        const dropContainer = this.closest(".header-mobile__drop");
+        if (!dropContainer) return;
+        
+        // Находим колонку внутри этого контейнера
+        const column = dropContainer.querySelector(".header-mobile-collumn");
+        if (!column) return;
+        
+        // Переключаем состояние
+        const isOpen = column.classList.contains("is-open");
+        
+        if (isOpen) {
+          // Закрываем
+          column.classList.remove("is-open");
+          this.classList.remove("active");
+        } else {
+          // Открываем
+          column.classList.add("is-open");
+          this.classList.add("active");
+        }
+      });
+    });
+  })();
+
+  // ===== Copy Email to Clipboard =====
+  (() => {
+    const row = document.querySelector(".header-mobile__under-row");
+    if (!row) return;
+
+    const emailLink = row.querySelector("a[href^='mailto:']");
+    const copyButton = row.querySelector("a[href='#']");
+    
+    if (!emailLink || !copyButton) return;
+
+    // Обработчик для кнопки копирования
+    copyButton.addEventListener("click", async function(e) {
+      e.preventDefault();
+      
+      const email = emailLink.textContent.trim();
+      
+      try {
+        // Используем современный Clipboard API
+        await navigator.clipboard.writeText(email);
+        
+        // Визуальная обратная связь
+        this.classList.add("copied");
+        setTimeout(() => {
+          this.classList.remove("copied");
+        }, 2000);
+      } catch (err) {
+        // Fallback для старых браузеров
+        const textArea = document.createElement("textarea");
+        textArea.value = email;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand("copy");
+          this.classList.add("copied");
+          setTimeout(() => {
+            this.classList.remove("copied");
+          }, 2000);
+        } catch (err) {
+          console.error("Не удалось скопировать email:", err);
+        }
+        document.body.removeChild(textArea);
+      }
+    });
+  })();
+
+  // ===== Chronology Mobile Accordion =====
+  (() => {
+    const accordionItems = document.querySelectorAll(".chronology-mobile__item");
+    
+    accordionItems.forEach((item) => {
+      const label = item.querySelector(".chronology-mobile__label");
+      const content = item.querySelector(".chronology-mobile__content");
+      
+      if (!label || !content) return;
+
+      label.addEventListener("click", function(e) {
+        e.preventDefault();
+        
+        const isOpen = content.classList.contains("is-open");
+        
+        // Закрываем все остальные элементы
+        accordionItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            const otherContent = otherItem.querySelector(".chronology-mobile__content");
+            const otherLabel = otherItem.querySelector(".chronology-mobile__label");
+            if (otherContent) {
+              otherContent.classList.remove("is-open");
+            }
+            if (otherLabel) {
+              otherLabel.classList.remove("is-active");
+            }
+            otherItem.classList.remove("active");
+          }
+        });
+        
+        // Переключаем текущий элемент
+        if (isOpen) {
+          content.classList.remove("is-open");
+          label.classList.remove("is-active");
+          item.classList.remove("active");
+        } else {
+          content.classList.add("is-open");
+          label.classList.add("is-active");
+          item.classList.add("active");
+        }
+      });
+    });
+  })();
 });
