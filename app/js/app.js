@@ -612,6 +612,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const swiper = new Swiper(".statistics-swiper", {
     loop: true,
+    spaceBetween: 24,
 
     pagination: {
       el: ".swiper-pagination",
@@ -633,9 +634,11 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       550: {
         slidesPerView: 2,
+        autoHeight: true,
       },
       320: {
         slidesPerView: 1,
+        autoHeight: true,
       },
     },
   });
@@ -643,22 +646,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== Mobile Header Dropdown =====
   (() => {
     const arrows = document.querySelectorAll(".header-mobile-arrow");
-    
+
     arrows.forEach((arrow) => {
-      arrow.addEventListener("click", function(e) {
+      arrow.addEventListener("click", function (e) {
         e.preventDefault();
-        
+
         // Находим родительский элемент header-mobile__drop
         const dropContainer = this.closest(".header-mobile__drop");
         if (!dropContainer) return;
-        
+
         // Находим колонку внутри этого контейнера
         const column = dropContainer.querySelector(".header-mobile-collumn");
         if (!column) return;
-        
+
         // Переключаем состояние
         const isOpen = column.classList.contains("is-open");
-        
+
         if (isOpen) {
           // Закрываем
           column.classList.remove("is-open");
@@ -679,19 +682,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const emailLink = row.querySelector("a[href^='mailto:']");
     const copyButton = row.querySelector("a[href='#']");
-    
+
     if (!emailLink || !copyButton) return;
 
     // Обработчик для кнопки копирования
-    copyButton.addEventListener("click", async function(e) {
+    copyButton.addEventListener("click", async function (e) {
       e.preventDefault();
-      
+
       const email = emailLink.textContent.trim();
-      
+
       try {
         // Используем современный Clipboard API
         await navigator.clipboard.writeText(email);
-        
+
         // Визуальная обратная связь
         this.classList.add("copied");
         setTimeout(() => {
@@ -721,24 +724,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Chronology Mobile Accordion =====
   (() => {
-    const accordionItems = document.querySelectorAll(".chronology-mobile__item");
-    
+    const accordionItems = document.querySelectorAll(
+      ".chronology-mobile__item"
+    );
+
     accordionItems.forEach((item) => {
       const label = item.querySelector(".chronology-mobile__label");
       const content = item.querySelector(".chronology-mobile__content");
-      
+
       if (!label || !content) return;
 
-      label.addEventListener("click", function(e) {
+      label.addEventListener("click", function (e) {
         e.preventDefault();
-        
+
         const isOpen = content.classList.contains("is-open");
-        
+
         // Закрываем все остальные элементы
         accordionItems.forEach((otherItem) => {
           if (otherItem !== item) {
-            const otherContent = otherItem.querySelector(".chronology-mobile__content");
-            const otherLabel = otherItem.querySelector(".chronology-mobile__label");
+            const otherContent = otherItem.querySelector(
+              ".chronology-mobile__content"
+            );
+            const otherLabel = otherItem.querySelector(
+              ".chronology-mobile__label"
+            );
             if (otherContent) {
               otherContent.classList.remove("is-open");
             }
@@ -748,7 +757,7 @@ document.addEventListener("DOMContentLoaded", () => {
             otherItem.classList.remove("active");
           }
         });
-        
+
         // Переключаем текущий элемент
         if (isOpen) {
           content.classList.remove("is-open");

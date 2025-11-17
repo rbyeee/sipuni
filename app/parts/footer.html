@@ -7,7 +7,9 @@
 
 <script>
 $(document).ready(function() {
-    $(".count__col").matchHeight();
+    if($(window).width > 600) {
+      $(".count__col").matchHeight();
+    }
     $(".rate__item").matchHeight();
     if($(window).width > 800) {
       $(".statistics__item").matchHeight();

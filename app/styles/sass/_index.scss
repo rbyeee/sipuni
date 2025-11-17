@@ -12,8 +12,8 @@
 
   &__man {
     position: absolute;
-    left: 159px;
-    top: 4px;
+    left: 7px;
+    top: 2px;
   }
 
   &__image-line {
@@ -1721,7 +1721,7 @@
   }
 
   .index__man {
-    left: 121px;
+    left: 4px;
     top: 74px;
 
     img {
@@ -1812,8 +1812,25 @@
   }
 
   .index__man {
-    left: 91px;
-    top: 73px;
+    left: auto;
+    top: auto;
+  }
+
+  .index-wide {
+    top: auto;
+    right: auto;
+  }
+
+  .index_offset {
+    padding-top: 70px;
+  }
+
+  .index-image-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 30px;
   }
 
   .statistics-swiper {
@@ -1871,6 +1888,19 @@
     padding: 7px 16px;
     font-size: 14px;
   }
+
+  .index__man {
+    position: relative;
+  }
+
+  .index-wide {
+    position: relative;
+  }
+
+  .index__container {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 750px) {
@@ -1885,6 +1915,12 @@
 
   .index__title {
     font-size: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .index-content-width {
+    max-width: max-content;
   }
 }
 
@@ -1917,6 +1953,122 @@
 
   .tariff-price {
     padding-top: 0;
+  }
+}
+
+.index-picture-mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+
+  .index__title {
+    font-size: 40px;
+    text-align: left;
+    line-height: 1.1;
+  }
+
+  .index-list-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .index-list__item {
+    text-align: left;
+  }
+
+  .index-list {
+    padding-left: 20px;
+    left: 0;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .index-list-top {
+    gap: 3px;
+  }
+
+  .index-picture-mobile {
+    display: block;
+  }
+
+  .header-picture {
+    right: 0;
+    top: 0;
+    transform: translateX(0);
+  }
+
+  .index__man {
+    img {
+      max-width: 151px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .index__container {
+    left: auto;
+  }
+
+  .index__button {
+    margin-top: 15px;
+  }
+
+  .index__label {
+    font-size: 16px;
+  }
+
+  .index-content {
+    gap: 6px;
+  }
+
+
+  .main-container {
+    margin-top: 40px;
+  }
+
+  .index-wide {
+    top: -19px;
+    right: 11px;
+  }
+
+  .index-image-row {
+    margin-bottom: 25px;
+  }
+
+  .index-picture-mobile {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .cat-1-item {
+    flex-direction: column;
+  }
+
+  .cat-1-item.is-active {
+    transform: scale(1);
+  }
+
+  #section2 {
+    .section__title {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .statistics__image {
+    margin-bottom: 55px;
+  }
+
+  .chronology-mobile__label img {
+    top: 6px;
+    position: relative;
   }
 }
 
