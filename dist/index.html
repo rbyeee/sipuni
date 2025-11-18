@@ -21,7 +21,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <script src="js/app.min.js" defer></script>
   </head>
 
   <body></body>
@@ -31,7 +30,7 @@
   <div class="wrapper wrapper-header">
     <div class="header-wrapper">
       <a href="#" class="header-logo">
-        <img src="/images/dist/logo.svg" alt="Логотип" />
+        <img src="./images/dist/logo.svg" alt="Логотип" />
       </a>
       <nav class="header-navbar">
         <a href="#" class="header-navbar__link">Номера</a>
@@ -153,21 +152,24 @@
 
 <main class="main">
   <picture class="header-picture">
-    <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
-    <img src="/images/dist/ellipse.png" alt="ellipse" />
+    <source srcset="./images/dist/ellipse2.png" media="(max-width: 600px)" />
+    <img src="./images/dist/ellipse.png" alt="ellipse" />
   </picture>
   <section class="index index_offset">
+    <div class="index-picture-mobile">
+      <img src="./images/dist/ellipse3.png" alt="" />
+    </div>
     <div class="wrapper wrapper__default">
       <div class="index__container">
-        <div class="index__man">
-          <picture class="header-picture">
-            <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
-            <img src="/images/dist/man.svg" alt="man" />
-          </picture>
+        <div class="index-image-row">
+          <div class="index__man">
+            <img src="./images/dist/man.svg" alt="man" />
+          </div>
+          <div class="index-wide">
+            <img src="./images/dist/widge-2.svg" alt="" />
+          </div>
         </div>
-        <div class="index-wide">
-          <img src="./images/dist/widge-2.svg" alt="" />
-        </div>
+
         <h1 class="index__title">
           Телефония,<br />
           где общаться<br />
@@ -177,7 +179,7 @@
       <div class="index__image-line">
         <picture>
           <source srcset="mdn-logo-wide.png" media="(max-width: 600px)" />
-          <img src="/images/dist/main.png" alt="man" />
+          <img src="./images/dist/main.png" alt="man" />
         </picture>
       </div>
 
@@ -301,11 +303,7 @@
             <div class="cat-1-container">
               <div class="cat-1-item">
                 <picture class="cat-1-image">
-                  <source
-                    srcset="mdn-logo-wide.png"
-                    media="(max-width: 600px)"
-                  />
-                  <img src="/images/dist/k1.png" alt="cat-1-1" />
+                  <img src="./images/dist/k1.png" alt="cat-1-1" />
                 </picture>
                 <div class="cat-1-content">
                   <h3 class="cat-1-title">
@@ -319,11 +317,7 @@
               </div>
               <div class="cat-1-item cat-1-item-reverse">
                 <picture class="cat-1-image">
-                  <source
-                    srcset="mdn-logo-wide.png"
-                    media="(max-width: 600px)"
-                  />
-                  <img src="/images/dist/k2.png" alt="cat-1-1" />
+                  <img src="./images/dist/k2.png" alt="cat-1-1" />
                 </picture>
                 <div class="cat-1-content">
                   <h3 class="cat-1-title">
@@ -338,11 +332,7 @@
               </div>
               <div class="cat-1-item">
                 <picture class="cat-1-image">
-                  <source
-                    srcset="mdn-logo-wide.png"
-                    media="(max-width: 600px)"
-                  />
-                  <img src="/images/dist/k3.png" alt="cat-1-1" />
+                  <img src="./images/dist/k3.png" alt="cat-1-1" />
                 </picture>
                 <div class="cat-1-content">
                   <h3 class="cat-1-title">
@@ -356,11 +346,7 @@
               </div>
               <div class="cat-1-item cat-1-item-reverse">
                 <picture class="cat-1-image">
-                  <source
-                    srcset="mdn-logo-wide.png"
-                    media="(max-width: 600px)"
-                  />
-                  <img src="/images/dist/k4.png" alt="cat-1-1" />
+                  <img src="./images/dist/k4.png" alt="cat-1-1" />
                 </picture>
                 <div class="cat-1-content">
                   <h3 class="cat-1-title">
@@ -376,14 +362,14 @@
           </div>
           <div class="section-right">
             <div class="section-right-item">
-              <img src="/images/dist/s1.svg" alt="" />
+              <img src="./images/dist/s1.svg" alt="" />
               <p>
                 Виртуальная АТС, телефония, IP-телефония, ВАТС — это одно и то
                 же. Что бы вы ни искали, Сипуни подходит
               </p>
             </div>
             <div class="section-right-item">
-              <img src="/images/dist/s1.svg" alt="" />
+              <img src="./images/dist/s1.svg" alt="" />
               <p>
                 Сохраняем все звонки и в Сипуни, и в CRM. Если в работе CRM
                 сбой, звонки все равно сохранятся
@@ -441,9 +427,9 @@
               </div>
               <div class="statistics__width">
                 <div class="statistics__item statistics__item-video">
-                  <img src="/images/dist/st1.png" alt="" />
-                  <img src="/images/dist/st1.png" alt="" />
-                  <img src="/images/dist/st1.png" alt="" />
+                  <img src="./images/dist/st1.png" alt="" />
+                  <img src="./images/dist/st1.png" alt="" />
+                  <img src="./images/dist/st1.png" alt="" />
                 </div>
               </div>
               <div class="statistics__width">
@@ -523,7 +509,7 @@
                   <div class="swiper-slide">
                     <div class="statistics__item">
                       <div class="statistics__image">
-                        <img src="/images/dist/st1.png" alt="" />
+                        <img src="./images/dist/st1.png" alt="" />
                       </div>
                       <div class="statistics__row">
                         <div class="statistics__label">
@@ -540,7 +526,7 @@
                   <div class="swiper-slide">
                     <div class="statistics__item">
                       <div class="statistics__image">
-                        <img src="/images/dist/st1.png" alt="" />
+                        <img src="./images/dist/st1.png" alt="" />
                       </div>
                       <div class="statistics__row">
                         <div class="statistics__label">
@@ -557,7 +543,7 @@
                   <div class="swiper-slide">
                     <div class="statistics__item">
                       <div class="statistics__image">
-                        <img src="/images/dist/st1.png" alt="" />
+                        <img src="./images/dist/st1.png" alt="" />
                       </div>
                       <div class="statistics__row">
                         <div class="statistics__label">
@@ -616,25 +602,25 @@
                 <div class="image-container">
                   <div class="image-frame">
                     <img
-                      src="/images/dist/crm.jpg"
+                      src="./images/dist/crm.jpg"
                       alt="Этап 1"
                       class="step-image is-active"
                       data-step="1"
                     />
                     <img
-                      src="/images/dist/k2.png"
+                      src="./images/dist/k2.png"
                       alt="Этап 2"
                       class="step-image"
                       data-step="2"
                     />
                     <img
-                      src="/images/dist/k3.png"
+                      src="./images/dist/k3.png"
                       alt="Этап 3"
                       class="step-image"
                       data-step="3"
                     />
                     <img
-                      src="/images/dist/k4.png"
+                      src="./images/dist/k4.png"
                       alt="Этап 4"
                       class="step-image"
                       data-step="4"
@@ -798,7 +784,7 @@
             <div class="count-box-right">
               <div class="section-right">
                 <div class="section-right-item">
-                  <img src="/images/dist/s1.svg" alt="" />
+                  <img src="./images/dist/s1.svg" alt="" />
                   <div class="section-right-item__col">
                     <p>
                       Если у вас уже есть номер, его можно подключить к Сипуни.
@@ -2623,7 +2609,7 @@
           </div>
           <div class="section-right">
             <div class="section-right-item">
-              <img src="/images/dist/s1.svg" alt="" />
+              <img src="./images/dist/s1.svg" alt="" />
               <p>
                 Чтобы купить номер или симку не нужно никуда идти. Выбор номера,
                 документы — всё онлайн
@@ -2815,18 +2801,18 @@
           </div>
           <div class="section-right">
             <div class="section-right-item trigger-rate-1">
-              <img src="/images/dist/s1.svg" alt="" />
+              <img src="./images/dist/s1.svg" alt="" />
               <p>Если уже есть номер, можно продолжить пользоваться им.</p>
             </div>
             <div class="section-right-item">
-              <img src="/images/dist/s1.svg" alt="" />
+              <img src="./images/dist/s1.svg" alt="" />
               <p>
                 8800 — для клиента звонок бесплатный из любой точки России.
                 Отлично подходит для федерального бизнеса и горячей линии.
               </p>
             </div>
             <div class="section-right-item">
-              <img src="/images/dist/s1.svg" alt="" />
+              <img src="./images/dist/s1.svg" alt="" />
               <p>
                 8804 — дешевле Клиенты бесплатно звонят только внутри региона,
                 удобно для компаний, работающих локально.
@@ -2990,15 +2976,18 @@
 </main>
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../js/db/jq.js"></script>
-<script src="../js/db/jquery.matchHeight-min.js"></script>
+<script src="./js/db/jq.js"></script>
+<script src="./js/db/jquery.matchHeight-min.js"></script>
+<script src="./js/app.min.js" defer></script>
 
 <script>
 $(document).ready(function() {
-    $(".count__col").matchHeight();
+    if($(window).width > 600) {
+      $(".count__col").matchHeight();
+    }
     $(".rate__item").matchHeight();
     if($(window).width > 800) {
       $(".statistics__item").matchHeight();

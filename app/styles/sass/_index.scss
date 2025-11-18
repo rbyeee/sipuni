@@ -845,6 +845,12 @@
     border-radius: 8px;
     color: #757575;
 
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #2e2e33;
+    }
+
     &.active {
       background: #f2f2f2;
       color: #2e2e33;

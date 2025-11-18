@@ -11,12 +11,19 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   &_white {
     color: #846df2;
     background-color: #fff;
     border: 1px solid #846df2;
+
+    &:hover {
+      background-color: #846df2;
+      color: #fff;
+    }
   }
+
   &_primary {
     color: #fff;
     background-color: $primary-color;
@@ -25,6 +32,23 @@
   &_transparent {
     color: #2E2E33;
     background-color: rgba(255, 255, 255, 0);
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 9px;
+      bottom: 17px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      svg {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
 
   &--left {
@@ -35,11 +59,28 @@
     padding: 6px 28px;
     line-height: 1;
     gap: 6px;
+
     span {
       font-size: 14px;
     }
   }
 
+  transition: all 0.2s ease;
+
+  &:hover {
+    &.btn_primary {
+      background-color: lighten($primary-color, 5);
+    }
+  }
+}
+
+.count-active {
+  .btn_white {
+    &:hover {
+      color: #fff;
+      background-color: lighten($primary-color,10);
+    }
+  }
 }
 
 .color-gray {
@@ -60,6 +101,7 @@ a {
 
 .tab {
   display: none;
+
   &.active {
     display: block;
   }
@@ -67,6 +109,7 @@ a {
 
 .trigger-rate-1 {
   display: none;
+
   &.active {
     display: flex;
   }
