@@ -6,67 +6,105 @@
 <script src="../js/db/jquery.matchHeight-min.js"></script>
 
 <script>
-$(document).ready(function() {
-    if($(window).width > 600) {
-      $(".count__col").matchHeight();
-    }
-    $(".rate__item").matchHeight();
-    if($(window).width > 800) {
-      $(".statistics__item").matchHeight();
-    }
+  let swiperCount = null;
 
-    $(".header-burger").on("click", function(e){
-      e.preventDefault();
+  function initSwiper() {
+      const swiperElement = document.querySelector('.count-swiper');
+      if (swiperElement && !swiperElement.swiper) {
+          swiperCount = new Swiper(".count-swiper", {
+              slidesPerView: 3,
+              spaceBetween: 24,
+              observer: true,
+              observeParents: true,
+              pagination: {
+                  el: ".swiper-pagination",
+              },
+              breakpoints: {
+                  1280: {
+                      slidesPerView: 3,
+                  },
+                  990: {
+                      slidesPerView: 2,
+                  },
+                  550: {
+                      slidesPerView: 2,
+                      autoHeight: true,
+                  },
+                  320: {
+                      slidesPerView: 1,
+                      autoHeight: true,
+                  },
+              },
+          });
+      }
+  }
 
-      $(".header-mobile").addClass("is-active")
-    })
 
-    $(".header-mobile-close").on("click", function(e) {
-       e.preventDefault();
+  $(document).ready(function() {
+    initSwiper();
+      if($(window).width() > 600) {
+        $(".count__col").matchHeight();
+      }
+      $(".rate__item").matchHeight();
+      if($(window).width() > 800) {
+        $(".statistics__item").matchHeight();
+      }
 
-      $(".header-mobile").removeClass("is-active")
-    })
+      $(".header-burger").on("click", function(e){
+        e.preventDefault();
 
-    const $rate1 = $(".trigger-rate-1");
-    const $tabsContainers = $(".rate-tabs");
+        $(".header-mobile").addClass("is-active")
+      })
 
-    if (!$tabsContainers.length) return;
+      $(".header-mobile-close").on("click", function(e) {
+        e.preventDefault();
 
-    $tabsContainers.each(function() {
-        const $container = $(this);
-        const $tabLinks = $container.find(".rate-tabs__link");
+        $(".header-mobile").removeClass("is-active")
+      })
 
-        const $section = $container.closest("section");
-        if (!$section.length) return;
 
-        $tabLinks.on("click", function(e) {
-            e.preventDefault();
+      const $rate1 = $(".trigger-rate-1");
+      const $tabsContainers = $(".rate-tabs");
 
-            const $link = $(this);
-            const targetTab = $link.attr("data-tab");
-            if (!targetTab) return;
+      if (!$tabsContainers.length) return;
 
-            setTimeout(() => {
-              $(".count__col").matchHeight();
-              $(".rate__item ").matchHeight();
-            })
-            
-            if (targetTab === "sim") {
-                $rate1.addClass("active");
-            } else if (targetTab === "numbers") {
-                $rate1.removeClass("active");
-            }
+      $tabsContainers.each(function() {
+          const $container = $(this);
+          const $tabLinks = $container.find(".rate-tabs__link");
 
-            $tabLinks.removeClass("active");
+          const $section = $container.closest("section");
+          if (!$section.length) return;
+          $tabLinks.on("click", function(e) {
+              e.preventDefault();
 
-            $section.find(".tab[data-tab-content]").removeClass("active");
+              const $link = $(this);
+              const targetTab = $link.attr("data-tab");
+              if (!targetTab) return;
 
-            $link.addClass("active");
+              setTimeout(() => {
 
-            $section.find(`.tab[data-tab-content="${targetTab}"]`).addClass("active");
-        });
-    });
-});
+                initSwiper();
+
+                $(".count__col").matchHeight();
+                $(".rate__item ").matchHeight();
+              }, 100)
+              
+              if (targetTab === "sim") {
+                  $rate1.addClass("active");
+              } else if (targetTab === "numbers") {
+                  $rate1.removeClass("active");
+              }
+
+              $tabLinks.removeClass("active");
+
+              $section.find(".tab[data-tab-content]").removeClass("active");
+
+              $link.addClass("active");
+
+              $section.find(`.tab[data-tab-content="${targetTab}"]`).addClass("active");
+          });
+      });
+  });
 </script>
 </body>
 </html>

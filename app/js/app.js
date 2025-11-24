@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     steps.forEach((step) => {
       step.classList.remove("is-active", "active-hidden");
     });
-    images.forEach((img) => img.classList.remove("is-active"));
+    images.forEach((img) => {
+      img.classList.remove("is-active");
+    });
 
     // Если скроллим вверх, удаляем step-down-active у текущего активного шага
     if (shouldRemoveStepDownActive) {
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (activeStep) {
       activeStep.classList.add("is-active");
+
       activeStep.classList.remove("active-hidden"); // Убираем active-hidden если был
     }
     if (activeImage) activeImage.classList.add("is-active");
@@ -85,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 1) Пин всей секции на фиксированные 100vh и переключение шагов по прогрессу
-  const SECTION_DURATION_VH = 100;
+  const SECTION_DURATION_VH = 200;
   const HEADER_HEIGHT = 90; // Высота фиксированной шапки
 
   function calcDurationPx() {
@@ -616,30 +619,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     pagination: {
       el: ".swiper-pagination",
-    },
-  });
-  const swiperCount = new Swiper(".count-swiper", {
-    slidesPerView: 3,
-    spaceBetween: 24,
-    pagination: {
-      el: ".swiper-pagination",
-    },
-
-    breakpoints: {
-      1280: {
-        slidesPerView: 3,
-      },
-      990: {
-        slidesPerView: 2,
-      },
-      550: {
-        slidesPerView: 2,
-        autoHeight: true,
-      },
-      320: {
-        slidesPerView: 1,
-        autoHeight: true,
-      },
     },
   });
 
