@@ -2003,6 +2003,19 @@
   .tariff-price {
     padding-top: 0;
   }
+
+  .rate-header {
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: auto;
+    text-align: right;
+    max-width: 145px;
+    width: 100%;
+  }
+  .rate__width:first-child .rate__item {
+    padding-bottom: 24px;
+  }
 }
 
 .index-picture-mobile {
