@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Инициализируем контроллер
   const controller = new ScrollMagic.Controller();
 
-  const steps = document.querySelectorAll(".step");
-  const images = document.querySelectorAll(".step-image");
+  const steps = document?.querySelectorAll(".step");
+  const images = document?.querySelectorAll(".step-image");
   const chronologySection = document.querySelector("#chronology");
 
   let previousActiveStep = 1; // Отслеживаем предыдущий активный этап
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
   activateStep(1);
 
   // ===== Side Menu (auto from headings with data-side-title) =====
-  const headings = Array.from(document.querySelectorAll("[data-side-title]"));
+  const headings = Array.from(document?.querySelectorAll("[data-side-title]"));
   const sideNavList = document.getElementById("sideNavList");
 
   function slugify(text) {
@@ -271,8 +271,8 @@ document.addEventListener("DOMContentLoaded", () => {
     headings.forEach((h) => observer.observe(h));
   } else {
     // Fallback: use existing static menu links
-    const menuLinks = Array.from(document.querySelectorAll(".side-nav__link"));
-    if (menuLinks.length) {
+    const menuLinks = Array.from(document?.querySelectorAll(".side-nav__link"));
+    if (menuLinks && menuLinks?.length) {
       const targets = menuLinks
         .map((l) => (l.getAttribute("href") || "").trim())
         .filter((h) => h.startsWith("#"))
@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   (() => {
-    const items = Array.from(document.querySelectorAll(".cat-1-item"));
+    const items = Array.from(document?.querySelectorAll(".cat-1-item"));
     if (!items.length) return;
 
     let lastActive = null;
@@ -534,15 +534,16 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCards();
   })();
 
+  const container = document?.querySelector(".statistics__container");
+
   function initStatisticsRotation() {
-    const container = document.querySelector(".statistics__container");
-    const items = container.querySelectorAll(".statistics__item");
-    const videoItem = container.querySelector(".statistics__item-video");
-    const videoImages = videoItem.querySelectorAll("img");
+    const items = container?.querySelectorAll(".statistics__item");
+    const videoItem = container?.querySelector(".statistics__item-video");
+    const videoImages = videoItem?.querySelectorAll("img");
 
     // Получаем только элементы без video (фильтруем массив)
-    const regularItems = Array.from(items).filter(
-      (item) => !item.classList.contains("statistics__item-video")
+    const regularItems = Array?.from(items)?.filter(
+      (item) => !item?.classList?.contains("statistics__item-video")
     );
 
     let currentIndex = 0;
@@ -562,14 +563,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function switchToIndex(index) {
       // Проверяем валидность индекса
-      if (index < 0 || index >= regularItems.length) return;
+      if (index < 0 || index >= regularItems?.length) return;
 
       // Убираем активный класс у всех
-      items.forEach((item) => item.classList.remove("statistics__item-active"));
+      items.forEach((item) =>
+        item?.classList?.remove("statistics__item-active")
+      );
 
       // Добавляем активный класс выбранному элементу
       if (regularItems[index]) {
-        regularItems[index].classList.add("statistics__item-active");
+        regularItems[index]?.classList?.add("statistics__item-active");
       }
 
       // Показываем соответствующую картинку
@@ -581,7 +584,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function rotateItems() {
       // Увеличиваем индекс для следующего шага
-      currentIndex = (currentIndex + 1) % regularItems.length;
+      currentIndex = (currentIndex + 1) % regularItems?.length;
 
       // Переключаем на следующий элемент
       switchToIndex(currentIndex);
@@ -611,7 +614,9 @@ document.addEventListener("DOMContentLoaded", () => {
     startRotation();
   }
 
-  initStatisticsRotation();
+  if (container) {
+    initStatisticsRotation();
+  }
 
   const swiper = new Swiper(".statistics-swiper", {
     loop: true,
@@ -624,7 +629,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Mobile Header Dropdown =====
   (() => {
-    const arrows = document.querySelectorAll(".header-mobile-arrow");
+    const arrows = document?.querySelectorAll(".header-mobile-arrow");
 
     arrows.forEach((arrow) => {
       arrow.addEventListener("click", function (e) {
@@ -656,54 +661,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Copy Email to Clipboard =====
   (() => {
-    const row = document.querySelector(".header-mobile__under-row");
-    if (!row) return;
+    const rows = document.querySelectorAll(
+      ".header-desktop__under-row, .header-mobile__under-row"
+    );
 
-    const emailLink = row.querySelector("a[href^='mailto:']");
-    const copyButton = row.querySelector("a[href='#']");
+    if (rows.length === 0) return;
 
-    if (!emailLink || !copyButton) return;
+    rows.forEach((row) => {
+      const emailLink = row.querySelector("a[href^='mailto:']");
+      const copyButtons = row.querySelectorAll("a[href='#']");
 
-    // Обработчик для кнопки копирования
-    copyButton.addEventListener("click", async function (e) {
-      e.preventDefault();
+      if (!emailLink || copyButtons.length === 0) return;
 
       const email = emailLink.textContent.trim();
 
-      try {
-        // Используем современный Clipboard API
-        await navigator.clipboard.writeText(email);
+      copyButtons.forEach((button) => {
+        button.addEventListener("click", async function (e) {
+          e.preventDefault();
 
-        // Визуальная обратная связь
-        this.classList.add("copied");
-        setTimeout(() => {
-          this.classList.remove("copied");
-        }, 2000);
-      } catch (err) {
-        // Fallback для старых браузеров
-        const textArea = document.createElement("textarea");
-        textArea.value = email;
-        textArea.style.position = "fixed";
-        textArea.style.left = "-999999px";
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-          document.execCommand("copy");
-          this.classList.add("copied");
-          setTimeout(() => {
-            this.classList.remove("copied");
-          }, 2000);
-        } catch (err) {
-          console.error("Не удалось скопировать email:", err);
-        }
-        document.body.removeChild(textArea);
-      }
+          try {
+            await navigator.clipboard.writeText(email);
+
+            this.classList.add("copied");
+            setTimeout(() => {
+              this.classList.remove("copied");
+            }, 2000);
+          } catch (err) {
+            // Fallback для старых браузеров
+            const textArea = document.createElement("textarea");
+            textArea.value = email;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+              const success = document.execCommand("copy");
+              if (success) {
+                this.classList.add("copied");
+                setTimeout(() => {
+                  this.classList.remove("copied");
+                }, 2000);
+              } else {
+                console.warn("document.execCommand('copy') вернул false");
+              }
+            } catch (copyErr) {
+              console.error("Не удалось скопировать email:", copyErr);
+            }
+            document.body.removeChild(textArea);
+          }
+        });
+      });
     });
   })();
 
   // ===== Chronology Mobile Accordion =====
   (() => {
-    const accordionItems = document.querySelectorAll(
+    const accordionItems = document?.querySelectorAll(
       ".chronology-mobile__item"
     );
 

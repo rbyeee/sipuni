@@ -3,24 +3,66 @@
 <!--#include virtual="/parts/header.html" -->
 
 <main>
+  <picture class="header-picture">
+    <source srcset="./images/dist/ellipse2.png" media="(max-width: 600px)" />
+    <img src="/images/dist/ellipse.png" alt="ellipse" />
+  </picture>
   <div class="contacts contacts_offset">
     <div class="wrapper wrapper-contacts">
       <div class="contacts-middle">
         <div class="contacts-content">
           <h2 class="contacts-label">
             Поддержка Сипуни на связи 24/7. От вашего сообщения до нашего ответа
-            — 5 минут
+            — 5 минут
           </h2>
           <div class="contacts-title">
             <img src="./images/dist/txt-contacts.png" alt="" />
+            <p>
+              Свяжитесь с нами в телеграме. За голосовые сообщения не осуждаем.
+              Если удобнее голосом — да будет так
+            </p>
           </div>
           <div class="contacts__under">
             <img class="cont-under-img" src="./images/dist/cont3.svg" alt="" />
             <div class="contacts-box">
-              <img src="./images/dist/qr.svg" alt="" />
+              <img class="cont-qr" src="./images/dist/qr.svg" alt="" />
 
               <div class="contacts-button">
-                <a href="#" class="btn btn_white"> Написать в поддержку </a>
+                <a href="#" class="btn btn_white">
+                  <span class="btn-arrow">
+                    <span> Написать в поддержку</span>
+                    <svg
+                      width="11"
+                      height="12"
+                      viewBox="0 0 11 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+                        fill="#fff"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+
+              <div class="contacts-mobile">
+                <div class="header-mobile__under-line">
+                  <span>Или на почту</span>
+                  <div class="header-mobile__under-row">
+                    <a href="mailto:support@sipuni.ru"> support@sipuni.ru </a>
+
+                    <a href="#">
+                      <img src="./images/dist/copy.svg" alt="" />
+                      <img
+                        class="copy-accept"
+                        src="./images/dist/copy-accept.svg"
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -55,20 +97,28 @@
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer__main">
-          <a href="#" class="footer__logo">
-            <img src="./images/dist/logo.svg" alt="" />
+          <a href="/" class="footer__logo">
+            <img src="./images/dist/footer-logo.svg" alt="" />
           </a>
 
-          <div class="footer-label__list">
-            <div class="footer-label__label">
-              <span>ООО «Сипуни Рус»</span>
-              <img src="./images/dist/arrow-l.svg" alt="" />
+          <div class="footer__main-col">
+            <div class="footer-label__list">
+              <a href="#" class="footer-label__label">
+                <span>ООО «Сипуни Рус»</span>
+                <img src="./images/dist/arrow-l.svg" alt="" />
+              </a>
+              <div class="footer-label-content">
+                <p>данные юр.лица</p>
+              </div>
             </div>
-          </div>
-          <div class="footer-label__list">
-            <div class="footer-label__label">
-              <span>ООО «Бета Воип»</span>
-              <img src="./images/dist/arrow-l.svg" alt="" />
+            <div class="footer-label__list">
+              <a href="#" class="footer-label__label">
+                <span>ООО «Бета Воип»</span>
+                <img src="./images/dist/arrow-l.svg" alt="" />
+              </a>
+              <div class="footer-label-content">
+                <p>данные юр.лица</p>
+              </div>
             </div>
           </div>
         </div>
@@ -126,7 +176,23 @@
             С любыми вопросами приходите в нашу поддержку,
             <a href="#">ребята отвечают 24/7</a>
           </div>
-          <a href="#" class="btn btn_primary"> Написать в поддержку </a>
+          <a href="#" class="btn btn_primary">
+            <span class="btn-arrow">
+              <span> Написать в поддержку</span>
+              <svg
+                width="11"
+                height="12"
+                viewBox="0 0 11 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+                  fill="#fff"
+                />
+              </svg>
+            </span>
+          </a>
         </div>
       </div>
     </div>

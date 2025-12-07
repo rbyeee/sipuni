@@ -96,8 +96,8 @@
 
     svg {
       transition: all 0.3s ease;
-      opacity: 0;
       visibility: hidden;
+      animation: arrowAnimationEx 0.2s ease forwards;
     }
 
     &:hover {
@@ -105,11 +105,37 @@
       background: #f2f2f2;
 
       svg {
+        animation: arrowAnimation 0.2s ease forwards;
         opacity: 1;
         visibility: visible;
       }
     }
 
+  }
+}
+
+
+@keyframes arrowAnimation {
+  0% {
+    transform: translateX(-7px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes arrowAnimationEx {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-7px);
+    opacity: 0;
   }
 }
 
@@ -286,17 +312,6 @@
         transition: opacity 0.3s ease, transform 0.3s ease;
       }
 
-      &::after {
-        content: "✓";
-        position: absolute;
-        font-size: 18px;
-        color: #846df2;
-        font-weight: bold;
-        opacity: 0;
-        transform: scale(0);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-
       &.copied {
         img {
           opacity: 0.3;
@@ -311,6 +326,28 @@
     }
   }
 }
+
+.copy-accept {
+  display: none;
+}
+
+.header-mobile__under-line {
+  .copied {
+    img:first-child {
+      display: none;
+    }
+
+    .copy-accept {
+      width: 18px;
+      height: 18px;
+      opacity: 1 !important;
+      display: block;
+    }
+  }
+}
+
+
+
 
 
 @media (max-width: 1200px) {

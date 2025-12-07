@@ -1,9 +1,10 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../js/db/jq.js"></script>
-<script src="../js/db/jquery.matchHeight-min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
+<script src="./js/db/jq.js"></script>
+<script src="./js/db/jquery.matchHeight-min.js"></script>
+    <script src="./js/db/fancybox.umd.js"></script>
 
 <script>
   let swiperCount = null;
@@ -12,22 +13,48 @@
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: "auto",
     navigation: {
       nextEl: '.slider-container .swiper-button-next',
       prevEl: '.slider-container .swiper-button-prev',
     },
     coverflowEffect: {
-      rotate: 20,
+      rotate: 0,
       stretch: 0,
       depth: 350,
-      modifier: 1,
+      modifier: 3,
       slideShadows: false 
     },
+    keyboard: {
+      enabled: true
+    },
+    mousewheel: {
+      thresholdDelta: 70
+    },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    },
+    spaceBetween: 0,
+    breakpoints: {
+      640: {
+        slidesPerView: 2
+      },
+      768: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 2
+      },
+      1560: {
+        slidesPerView: 2
+      }
+    }
   });
 
+
   function initSwiper() {
-      const swiperElement = document.querySelector('.count-swiper');
+      const swiperElement = document?.querySelector('.count-swiper');
       if (swiperElement && !swiperElement.swiper) {
           swiperCount = new Swiper(".count-swiper", {
               slidesPerView: 3,
@@ -59,6 +86,24 @@
 
 
   $(document).ready(function() {
+  $('.footer-label__label').on('click', function(e) {
+    e.preventDefault();
+    const $label = $(this);
+    const $content = $label.next('.footer-label-content');
+
+    // Скрываем все остальные блоки и убираем у них класс active
+    $('.footer-label-content').not($content).slideUp(300);
+    $('.footer-label__label').not($label).removeClass('active');
+
+    // Переключаем текущий блок и класс active
+    if ($content.is(':visible')) {
+      $content.slideUp(300);
+      $label.removeClass('active');
+    } else {
+      $content.slideDown(300);
+      $label.addClass('active');
+    }
+  });
     initSwiper();
       if($(window).width() > 600) {
         $(".count__col").matchHeight();
@@ -122,6 +167,8 @@
               $section.find(`.tab[data-tab-content="${targetTab}"]`).addClass("active");
           });
       });
+    
+
   });
 </script>
 </body>

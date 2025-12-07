@@ -701,6 +701,7 @@
   display: flex;
   align-items: flex-start;
   gap: 5px;
+  font-weight: 300;
 
   svg {
     flex-shrink: 0;
@@ -826,8 +827,9 @@
 
 .client__list {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
+  font-weight: 300;
 }
 
 .client__bottom {
@@ -942,7 +944,7 @@
 
   position: relative;
   top: 17px;
-  max-width: 207px;
+  max-width: 206px;
 }
 
 .tariffs {
@@ -960,6 +962,7 @@
 
 .tariff-price {
   padding: 20px 0;
+  font-weight: 300;
 }
 
 .rate__container {
@@ -2149,32 +2152,38 @@
 
 .sw-sup {
   margin: 0 auto;
-  width: 500px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
+  &.swiper {
+    width: 100%;
+    padding-top: 3.125rem;
+  }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 320px;
-  overflow: hidden;
-  border-radius: 8px;
-}
+  .swiper-pagination-bullet,
+  .swiper-pagination-bullet-active {
+    background: #fff;
+  }
 
-.picture {
-  overflow: hidden;
+  .swiper-pagination {
+    bottom: 1.25rem !important;
+  }
 
-  img {
-    display: block;
+  .picture {
+    overflow: hidden;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
   }
 }
 
+
+
 #section6 {
-  padding-bottom: 0;
+  padding-bottom: 100px;
 }
 
 .swiper-button-next {
@@ -2215,13 +2224,19 @@
   }
 }
 
-.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
   opacity: 1 !important;
 }
 
 .swiper-button-disabled {
   opacity: 1;
+
   svg path:nth-child(2) {
     display: none;
   }
+}
+
+#section6.section-wrapper {
+  gap: 20px;
 }
