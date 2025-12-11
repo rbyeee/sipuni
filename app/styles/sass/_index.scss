@@ -18,8 +18,8 @@
 
   &__image-line {
     position: absolute;
-    right: -44px;
-    top: 33px;
+    right: 62px;
+    top: 31px;
   }
 
   &__title {
@@ -100,7 +100,7 @@
 
   &-content {
     margin-top: 79px;
-    background: #f9f9f9;
+    background: rgba(245, 245, 245, 1);
     border-radius: 800px;
     padding: 54px 79px;
     display: flex;
@@ -129,6 +129,12 @@
     a {
       color: #846df2;
     }
+  }
+}
+
+.header-mobile__drop-row.active {
+  .header-mobile-arrow {
+    transform: rotate(180deg);
   }
 }
 
@@ -414,7 +420,7 @@
 .cat-1-item {
   padding: 24px;
   border-radius: 16px;
-  background: #f9f9f9;
+  background: rgba(245, 245, 245, 1);
   display: flex;
   align-items: center;
   gap: 24px;
@@ -532,7 +538,7 @@
 // statistics
 .statistics__item {
   padding: 24px;
-  background: #f9f9f9;
+  background: rgba(245, 245, 245, 1);
   border-radius: 16px;
 
   img {
@@ -628,7 +634,7 @@
 }
 
 .count__item {
-  background: #f9f9f9;
+  background: rgba(245, 245, 245, 1);
   padding: 24px;
   border: 1.76px solid #e8e8ef;
   border-radius: 16px;
@@ -791,7 +797,7 @@
 }
 
 .client__item {
-  background: #f9f9f9;
+  background: rgba(245, 245, 245, 1);
   padding: 24px;
   border-radius: 16px;
 }
@@ -874,7 +880,7 @@
 }
 
 .rate__item {
-  background: #f9f9f9;
+  background: rgba(245, 245, 245, 1);
   border-radius: 16px;
   padding: 24px;
   border: 1px solid rgba(232, 232, 239, 1);
@@ -1384,12 +1390,14 @@
 .side-nav__item {
   img {
     display: none;
+    height: 16px;
+    width: 24px;
   }
 
   .side-nav__link {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
 
     span {
       max-width: 270px;
@@ -1881,6 +1889,10 @@
   }
 
   .statistics__item {
+    transition: all 0.4s ease;
+  }
+
+  .swiper-slide-active .statistics__item {
     background: #f4f2ff;
   }
 
@@ -2007,8 +2019,25 @@
     width: 100%;
   }
 
+
+
   .rate__width:first-child .rate__item {
     padding-bottom: 24px;
+  }
+
+  .contacts-button {
+    .btn_white {
+      background-color: $primary-color;
+      color: #fff;
+      svg {
+        path {
+          fill: #fff !important
+        }
+      }
+      &:hover {
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -2152,6 +2181,7 @@
 
 .sw-sup {
   margin: 0 auto;
+
   &.swiper {
     width: 100%;
     padding-top: 3.125rem;

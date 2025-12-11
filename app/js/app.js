@@ -1,11 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let lastScrollTop = 0;
+
   window.addEventListener("scroll", function () {
     const header = document.querySelector(".header");
-    if (window.scrollY > 50) {
+    const scrollPosition = window.scrollY;
+
+    // Определяем направление скролла
+    const isScrollingDown = scrollPosition > lastScrollTop;
+
+    if (scrollPosition > 240) {
+      // Если проскроллили больше 240px
+      if (isScrollingDown) {
+        // Скроллим вниз - добавляем header--hidden
+        header.classList.add("header--hidden");
+      } else {
+        // Скроллим вверх - убираем header--hidden
+        header.classList.remove("header--hidden");
+      }
+    } else if (scrollPosition > 50) {
+      // Если между 50px и 240px
       header.classList.add("header--active");
+
+      // Если возвращаемся в этот диапазон из зоны >240px, убираем header--hidden
+      if (lastScrollTop > 240) {
+        header.classList.remove("header--hidden");
+      }
     } else {
+      // Если выше 50px (включая самый верх)
       header.classList.remove("header--active");
+      header.classList.remove("header--hidden");
     }
+
+    // Обновляем последнюю позицию скролла
+    lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
   });
   // Инициализируем контроллер
   const controller = new ScrollMagic.Controller();
@@ -166,29 +193,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2) Клики по этапам для перехода к нужному этапу
   steps.forEach((step) => {
-    step.addEventListener("click", function () {
+    step.addEventListener("click", function (e) {
+      const initialSceneStart = chronologySection.offsetTop - HEADER_HEIGHT;
+      console.log("initialSceneStart ", initialSceneStart);
+
+      e.preventDefault();
+      e.stopPropagation();
+
       const stepNumber = Number(this.getAttribute("data-step"));
       const total = steps.length;
 
-      // Улучшенная логика расчета позиции скролла
       const lastElementThreshold = 0.7;
       const otherElementsRatio = lastElementThreshold / (total - 1);
 
       let targetProgress;
       if (stepNumber < total) {
-        // Для первых элементов
         targetProgress = otherElementsRatio * (stepNumber - 1);
       } else {
-        // Для последнего элемента
-        targetProgress = lastElementThreshold + 0.15; // Немного после порога
+        targetProgress = 1;
       }
 
-      // Вычисляем позицию скролла на основе прогресса
-      const sceneStart = chronologySection.offsetTop - HEADER_HEIGHT;
-      const targetTop = sceneStart + calcDurationPx() * targetProgress;
+      const duration = calcDurationPx();
+      const targetTop = Math.round(
+        initialSceneStart + duration * targetProgress
+      );
 
-      window.scrollTo({ top: targetTop, behavior: "smooth" });
-      activateStep(stepNumber);
+      activateStep(stepNumber, null, true);
+
+      window.scrollTo({
+        top: targetTop,
+        behavior: "smooth",
+      });
     });
   });
 
@@ -629,7 +664,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Mobile Header Dropdown =====
   (() => {
-    const arrows = document?.querySelectorAll(".header-mobile-arrow");
+    const arrows = document?.querySelectorAll(".header-mobile__drop-row");
 
     arrows.forEach((arrow) => {
       arrow.addEventListener("click", function (e) {
