@@ -86,16 +86,42 @@
 
 
   $(document).ready(function() {
+      $('.doc-card-trigger').on('click', function(e) {
+    e.preventDefault();
+    
+    const $label = $(this);
+    const $block = $label.next('.doc-card-trigger-content');
+    const $arrowImg = $label.find('.doc-card-arrow img');
+    
+    $block.slideToggle(300);
+    
+    const currentTransform = $arrowImg.css('transform');
+    if (currentTransform === 'matrix(-1, 0, 0, -1, 0, 0)' || 
+      currentTransform.includes('matrix') && currentTransform.includes('-1')) {
+      $label.removeClass('is-active');
+    } else {
+
+      $label.addClass('is-active');
+    }
+    
+    $label.toggleClass('active');
+  });
+  
+  $('.doc-card-trigger').on('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      $(this).trigger('click');
+    }
+  });
+
   $('.footer-label__label').on('click', function(e) {
     e.preventDefault();
     const $label = $(this);
     const $content = $label.next('.footer-label-content');
 
-    // Скрываем все остальные блоки и убираем у них класс active
     $('.footer-label-content').not($content).slideUp(300);
     $('.footer-label__label').not($label).removeClass('active');
 
-    // Переключаем текущий блок и класс active
     if ($content.is(':visible')) {
       $content.slideUp(300);
       $label.removeClass('active');

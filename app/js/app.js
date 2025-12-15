@@ -114,9 +114,19 @@ document.addEventListener("DOMContentLoaded", () => {
     previousActiveStep = stepNumber;
   }
 
-  // 1) Пин всей секции на фиксированные 100vh и переключение шагов по прогрессу
+  // 1) Пин всей секции на фиксированные 200vh и переключение шагов по прогрессу
   const SECTION_DURATION_VH = 200;
   const HEADER_HEIGHT = 90; // Высота фиксированной шапки
+  // Тонкая подстройка попадания по клику. Можно править цифры под макет.
+  const CLICK_OFFSET = -12; // общий сдвиг, если нужно выше/ниже
+  // Индивидуальные корректировки прогресса для шагов (номер шага -> добавка к прогрессу)
+  // Позволяет точно посадить 2 и 3 шаг на нужные координаты
+  const STEP_PROGRESS_TWEAKS = {
+    1: 0, // первый без сдвига
+    2: 0, // точная посадка за счёт середины сегмента
+    3: 0, // убран отрицательный сдвиг, чтобы не попадать в диапазон 2-го
+    4: 0, // последний обычно без сдвига
+  };
 
   function calcDurationPx() {
     // Учитываем высоту шапки при расчете доступной высоты
@@ -126,6 +136,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Добавляем дополнительное пространство, чтобы последний элемент не пропадал
     return baseDuration + baseDuration * 0.5;
   }
+
+  // Кэшируем реальную стартовую позицию сцены, чтобы клики по шагам работали корректно
+  let initialSceneStart = null;
+  function computeSceneStart() {
+    if (!chronologySection) return;
+    const rect = chronologySection.getBoundingClientRect();
+    initialSceneStart = rect.top + window.pageYOffset - HEADER_HEIGHT;
+  }
+
+  // После полной загрузки страницы вычисляем стартовую позицию
+  window.addEventListener("load", () => {
+    computeSceneStart();
+  });
 
   const pinScene = new ScrollMagic.Scene({
     triggerElement: "#chronology",
@@ -189,14 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", () => {
     pinScene.duration(calcDurationPx());
+    // Пересчитываем стартовую позицию при изменении размеров окна
+    computeSceneStart();
   });
 
   // 2) Клики по этапам для перехода к нужному этапу
   steps.forEach((step) => {
     step.addEventListener("click", function (e) {
-      const initialSceneStart = chronologySection.offsetTop - HEADER_HEIGHT;
-      console.log("initialSceneStart ", initialSceneStart);
-
       e.preventDefault();
       e.stopPropagation();
 
@@ -207,15 +229,38 @@ document.addEventListener("DOMContentLoaded", () => {
       const otherElementsRatio = lastElementThreshold / (total - 1);
 
       let targetProgress;
+      const segment = otherElementsRatio; // длина сегмента одного шага в прогрессе
       if (stepNumber < total) {
-        targetProgress = otherElementsRatio * (stepNumber - 1);
+        // целимся в середину соответствующего сегмента, чтобы не попасть на границу
+        targetProgress = segment * (stepNumber - 1 + 0.5);
       } else {
-        targetProgress = 1;
+        // для последнего шага целимся в середину его диапазона [0.7..1] => 0.85
+        targetProgress =
+          lastElementThreshold + (1 - lastElementThreshold) * 0.5;
+      }
+      // Применяем индивидуальные корректировки прогресса (тонкая настройка)
+      const tweak = STEP_PROGRESS_TWEAKS[stepNumber] || 0;
+      targetProgress = Math.min(1, Math.max(0, targetProgress + tweak));
+
+      // Используем реальные параметры сцены от библиотеки, это надёжнее
+      let sceneStart;
+      if (typeof pinScene.scrollOffset === "function") {
+        sceneStart = pinScene.scrollOffset();
+      } else {
+        // Фолбэк на случай отсутствия метода (не должен понадобиться)
+        if (initialSceneStart == null || Number.isNaN(initialSceneStart)) {
+          computeSceneStart();
+        }
+        sceneStart = initialSceneStart || 0;
       }
 
-      const duration = calcDurationPx();
+      const duration =
+        typeof pinScene.duration === "function"
+          ? pinScene.duration()
+          : calcDurationPx();
+
       const targetTop = Math.round(
-        initialSceneStart + duration * targetProgress
+        sceneStart + duration * targetProgress + CLICK_OFFSET
       );
 
       activateStep(stepNumber, null, true);
