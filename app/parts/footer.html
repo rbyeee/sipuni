@@ -27,14 +27,6 @@
     keyboard: {
       enabled: true
     },
-    mousewheel: {
-      thresholdDelta: 70
-    },
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
     spaceBetween: 0,
     breakpoints: {
       640: {
@@ -105,6 +97,172 @@
     }
     
     $label.toggleClass('active');
+  });
+  
+      const hash = window.location.hash;
+    
+    if (hash) {
+        // Ждем немного, чтобы страница полностью загрузилась
+        setTimeout(() => {
+            // Находим элемент с таким id
+            const $targetElement = $(hash);
+            
+            if ($targetElement.length) {
+                // Плавный скролл к элементу
+                $('html, body').animate({
+                    scrollTop: $targetElement.offset().top - 100 // -100 для отступа сверху
+                }, 800); // 800ms длительность анимации
+                
+                // Можно добавить подсветку элемента
+                $targetElement.addClass('highlighted');
+                setTimeout(() => {
+                    $targetElement.removeClass('highlighted');
+                }, 2000);
+            }
+        }, 300); // Задержка 300ms
+    }
+
+    const $copyButtons = $('a.doc-btn-link');
+    if($copyButtons.length !== 0) {
+
+    
+    // Для каждой кнопки находим ссылку для копирования
+    $copyButtons.each(function() {
+        const $button = $(this);
+        
+        // Ищем ссылку для копирования (примеры селекторов)
+        let $linkToCopy;
+        
+        // 1. Ищем ссылку в том же контейнере документа
+        $linkToCopy = $button.closest('.documents-under__box').find('a[href^="http"], a[href^="/"], a[href^="#"]').first();
+        
+        // 2. Если не нашли, ищем в родительском контейнере контента
+        if (!$linkToCopy || $linkToCopy.length === 0) {
+            $linkToCopy = $button.closest('.doc-card-trigger-content').find('a[href]').first();
+        }
+        
+        // 3. Если не нашли, ищем ближайшую ссылку в том же блоке
+        if (!$linkToCopy || $linkToCopy.length === 0) {
+            $linkToCopy = $button.siblings('a[href]').first();
+        }
+        
+        // 4. Если все еще не нашли, ищем любую ссылку в том же контейнере
+        if (!$linkToCopy || $linkToCopy.length === 0) {
+            $linkToCopy = $button.parent().find('a[href]').first();
+        }
+    });
+    
+    // Функция для копирования текста из data-атрибута
+    const copyFromDataAttribute = function($button) {
+        const textToCopy = $button.data('clipboard');
+        
+        if (!textToCopy) {
+            console.warn('No data to copy');
+            return;
+        }
+        
+        // Создаем временный textarea для копирования
+        const $tempTextarea = $('<textarea>')
+            .val(textToCopy)
+            .css({
+                position: 'fixed',
+                left: '-999999px',
+                top: '-999999px'
+            })
+            .appendTo('body');
+        
+        try {
+            // Пробуем использовать Clipboard API
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                showCopySuccess($button);
+            }).catch(function(err) {
+                // Fallback для старых браузеров
+                fallbackCopy($tempTextarea, $button);
+            });
+        } catch (err) {
+            // Если Clipboard API не поддерживается
+            fallbackCopy($tempTextarea, $button);
+        }
+        
+        // Удаляем временный textarea
+        setTimeout(function() {
+            $tempTextarea.remove();
+        }, 100);
+    };
+    
+    // Fallback функция для старых браузеров
+    const fallbackCopy = function($textarea, $button) {
+        $textarea.select();
+        
+        try {
+            const success = document.execCommand('copy');
+            if (success) {
+                showCopySuccess($button);
+            } else {
+                console.warn('Copy failed');
+                showCopyError($button, 'Ошибка!');
+            }
+        } catch (copyErr) {
+            console.error('Copy error:', copyErr);
+            showCopyError($button, 'Ошибка!');
+        }
+    };
+    
+    // Функция показа успешного копирования
+    const showCopySuccess = function($button) {
+        $button.addClass('copied');
+        
+        // Сохраняем оригинальный текст
+        const originalText = $button.find('span').text();
+        $button.data('original-text', originalText);
+        
+        // Возвращаем оригинальный текст через 2 секунды
+        setTimeout(function() {
+            $button.removeClass('copied');
+            $button.find('span').text(originalText);
+        }, 2000);
+    };
+    
+    // Функция показа ошибки
+    const showCopyError = function($button, errorText) {
+        const originalText = $button.find('span').text();
+        $button.find('span').text(errorText);
+        $button.addClass('error');
+        
+        setTimeout(function() {
+            $button.removeClass('error');
+            $button.find('span').text(originalText);
+        }, 2000);
+    };
+    
+    // Добавляем обработчик клика на все кнопки копирования
+    $copyButtons.on('click', function(e) {
+        e.preventDefault();
+        copyFromDataAttribute($(this));
+    });
+    }
+
+
+  if($(".doc-card-trigger-content-ac")) {
+    $('.doc-card-trigger-content-ac').hide();
+  }
+  
+  $('.doc-card-trigger-ac').on('click', function(e) {
+      e.preventDefault();
+      
+      var $box = $(this).closest('.documents-under__box');
+      var $content = $box.find('.doc-card-trigger-content-ac');
+      
+      if ($content.is(':visible')) {
+          $content.slideUp(300);
+          $box.removeClass('active');
+      } else {
+          $('.doc-card-trigger-content-ac:visible').slideUp(300);
+          $('.documents-under__box.active').removeClass('active');
+          
+          $content.slideDown(300);
+          $box.addClass('active');
+      }
   });
   
   $('.doc-card-trigger').on('keydown', function(e) {
@@ -193,8 +351,6 @@
               $section.find(`.tab[data-tab-content="${targetTab}"]`).addClass("active");
           });
       });
-    
-
   });
 </script>
 </body>
