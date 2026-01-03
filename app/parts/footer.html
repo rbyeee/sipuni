@@ -78,28 +78,114 @@
 
 
   $(document).ready(function() {
-      $('.doc-card-trigger').on('click', function(e) {
-    e.preventDefault();
-    
-    const $label = $(this);
-    const $block = $label.next('.doc-card-trigger-content');
-    const $arrowImg = $label.find('.doc-card-arrow img');
-    
-    $block.slideToggle(300);
-    
-    const currentTransform = $arrowImg.css('transform');
-    if (currentTransform === 'matrix(-1, 0, 0, -1, 0, 0)' || 
-      currentTransform.includes('matrix') && currentTransform.includes('-1')) {
-      $label.removeClass('is-active');
-    } else {
 
-      $label.addClass('is-active');
+ let longPressTimer = null;
+  const TOAST_DURATION = 2000;
+
+  if($(window).width() >= 650) {
+    $('.doc-table-copy').on('click', function (e) {
+      e.preventDefault();
+
+      const $row = $(this).closest('.doc-table-row');
+
+      const headText = $row.find('.doc-table-head').text().trim();
+      const bodyText = $row.find('.doc-table-body').text().trim();
+
+      const textToCopy = `${headText}: ${bodyText}`;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy).catch(err => {
+          console.error('Не удалось скопировать: ', err);
+        });
+      } else {
+        const $temp = $('<textarea>');
+        $('body').append($temp);
+        $temp.val(textToCopy).select();
+        document.execCommand('copy');
+        $temp.remove();
+      }
+
+      const $copyBtn = $(this);
+      $copyBtn.addClass('active');
+      $row.addClass("active");
+
+      setTimeout(() => {
+        $copyBtn.removeClass('active');
+        $row.removeClass("active");
+      }, 2000);
+    });
+  }
+
+  $(document).on('touchstart', '.doc-table-row', function (e) {
+    e.preventDefault();
+
+    const $row = $(this);
+
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
     }
-    
-    $label.toggleClass('active');
+
+    longPressTimer = setTimeout(function () {
+      const bodyText = $row.find('.doc-table-body').text().trim();
+      if (!bodyText) return;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bodyText).catch(console.error);
+      } else {
+        const $temp = $('<textarea>');
+        $('body').append($temp);
+        $temp.val(bodyText).select();
+        document.execCommand('copy');
+        $temp.remove();
+      }
+
+      // Подсветка
+      $row.addClass('highlighted');
+
+      // Тост
+      const $toast = $('#copy-toast');
+      $toast.addClass('show');
+
+      setTimeout(() => {
+        $toast.removeClass('show');
+        $row.removeClass('highlighted');
+      }, TOAST_DURATION);
+
+      longPressTimer = null; // сбрасываем после срабатывания
+    }, 600);
   });
-  
-      const hash = window.location.hash;
+
+  // Обработчик окончания касания (пользователь убрал палец)
+  $(document).on('touchend touchcancel', '.doc-table-row', function () {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
+  });
+
+    $('.doc-card-trigger').on('click', function(e) {
+      e.preventDefault();
+      
+      const $label = $(this);
+      const $block = $label.next('.doc-card-trigger-content');
+      const $arrowImg = $label.find('.doc-card-arrow img');
+      
+      $block.slideToggle(300);
+      
+      const currentTransform = $arrowImg.css('transform');
+      if (currentTransform === 'matrix(-1, 0, 0, -1, 0, 0)' || 
+        currentTransform.includes('matrix') && currentTransform.includes('-1')) {
+        $label.removeClass('is-active');
+      } else {
+
+        $label.addClass('is-active');
+      }
+      
+      $label.toggleClass('active');
+    });
+    
+    const hash = window.location.hash;
     
     if (hash) {
         // Ждем немного, чтобы страница полностью загрузилась
@@ -124,9 +210,7 @@
 
     const $copyButtons = $('a.doc-btn-link');
     if($copyButtons.length !== 0) {
-
     
-    // Для каждой кнопки находим ссылку для копирования
     $copyButtons.each(function() {
         const $button = $(this);
         
@@ -152,7 +236,6 @@
         }
     });
     
-    // Функция для копирования текста из data-атрибута
     const copyFromDataAttribute = function($button) {
         const textToCopy = $button.data('clipboard');
         
@@ -190,7 +273,6 @@
         }, 100);
     };
     
-    // Fallback функция для старых браузеров
     const fallbackCopy = function($textarea, $button) {
         $textarea.select();
         
@@ -208,7 +290,6 @@
         }
     };
     
-    // Функция показа успешного копирования
     const showCopySuccess = function($button) {
         $button.addClass('copied');
         
@@ -223,7 +304,6 @@
         }, 2000);
     };
     
-    // Функция показа ошибки
     const showCopyError = function($button, errorText) {
         const originalText = $button.find('span').text();
         $button.find('span').text(errorText);
@@ -235,7 +315,6 @@
         }, 2000);
     };
     
-    // Добавляем обработчик клика на все кнопки копирования
     $copyButtons.on('click', function(e) {
         e.preventDefault();
         copyFromDataAttribute($(this));

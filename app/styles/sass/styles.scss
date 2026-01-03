@@ -846,4 +846,9 @@ a {
   .contacts-title {
     margin-bottom: 40px;
   }
+
+  .footer__contacts .footer-box {
+    justify-content: space-between;
+    gap: 19px;
+  }
 }

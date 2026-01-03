@@ -772,9 +772,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			const emailLink = row.querySelector(".header-mobile__under-row span")
 			const copyButtons = row.querySelectorAll(".btn-copy")
 
-			console.log("emailLink", emailLink)
-			console.log("copyButtons", copyButtons)
-
 			if (!emailLink || copyButtons.length === 0) return
 
 			const email = emailLink.textContent.trim()
