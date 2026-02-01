@@ -1,6 +1,320 @@
-<!--#set var="title" value="OptimizedHTML 5" -->
-<!--#include virtual="/parts/head.html" -->
-<!--#include virtual="/parts/header.html" -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- <base href="/"> -->
+
+    <title>OptimizedHTML 5</title>
+    <meta name="description" content="Startup HTML template OptimizedHTML 5" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="icon" href="images/favicon.png" />
+    <meta property="og:image" content="images/dist/preview.jpg" />
+
+    <link rel="stylesheet" href="css/app.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="js/app.min.js" defer></script>
+  </head>
+
+  <body></body>
+</html>
+
+<header class="header">
+	<div class="wrapper wrapper-header">
+		<div class="header-wrapper">
+			<a href="#" class="header-logo">
+				<img src="./images/dist/logo.svg" alt="Логотип" />
+			</a>
+			<nav class="header-navbar">
+				<a href="#" class="header-navbar__link">Номера</a>
+				<div class="header-navbar-box">
+					<a href="#" class="header-navbar__link">Интеграции</a>
+
+					<div class="header-navbar__widget">
+						<div class="header-navbar__container">
+							<a href="#" class="header-navbar__link">
+								<span> Интеграция с amoCRM </span>
+								<svg
+									width="11"
+									height="12"
+									viewBox="0 0 11 12"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+										fill="#000"
+									/>
+								</svg>
+							</a>
+							<a href="#" class="header-navbar__link">
+								<span>Интеграция с Битрикс24</span>
+
+								<svg
+									width="11"
+									height="12"
+									viewBox="0 0 11 12"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+										fill="#000"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="header-navbar__link">Тарифы</a>
+				<a href="#" class="header-navbar__link">Партнерам</a>
+				<div class="header-navbar-box">
+					<a href="#" class="header-navbar__link">О компании</a>
+
+					<div class="header-navbar__widget">
+						<div class="header-navbar__container">
+							<a href="#" class="header-navbar__link">
+								<span>Поддержка</span>
+								<svg
+									width="11"
+									height="12"
+									viewBox="0 0 11 12"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+										fill="#000"
+									/>
+								</svg>
+							</a>
+							<a href="#" class="header-navbar__link">
+								<span>Документы</span>
+
+								<svg
+									width="11"
+									height="12"
+									viewBox="0 0 11 12"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+										fill="#000"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<div class="header__buttons">
+				<button class="btn btn_primary">
+					<span class="btn-arrow">
+						<span>Регистрация</span>
+						<svg
+							width="11"
+							height="12"
+							viewBox="0 0 11 12"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+								fill="#fff"
+							/>
+						</svg>
+					</span>
+				</button>
+				<button class="btn btn_transparent">
+					<span class="btn-arrow">
+						<span>Войти</span>
+						<svg
+							width="11"
+							height="12"
+							viewBox="0 0 11 12"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+								fill="#000"
+							/>
+						</svg>
+					</span>
+				</button>
+			</div>
+
+			<a href="#" class="header-burger">
+				<span
+					><svg
+						width="22"
+						height="4"
+						viewBox="0 0 22 4"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M0.75 2.82679C0.75 2.82679 14.0344 1.30419 20.5947 0.750046"
+							stroke="white"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</span>
+				<span>
+					<svg
+						width="13"
+						height="2"
+						viewBox="0 0 13 2"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M0.75 0.961975L11.8807 0.749955"
+							stroke="white"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</span>
+				<span>
+					<svg
+						width="23"
+						height="2"
+						viewBox="0 0 23 2"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M0.75 1.00535L21.3357 0.75"
+							stroke="white"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div class="header-mobile">
+	<div class="header-mobile__container">
+		<div class="header-mobile-close">
+			<a href="#">
+				<img src="./images/dist/close.svg" alt="" />
+			</a>
+		</div>
+		<div class="header-mobile-menu">
+			<a href="#" class="header-mobile__link"> Номера </a>
+
+			<div class="header-mobile__drop">
+				<div class="header-mobile__drop-row">
+					<a href="#" class="header-mobile__link"> Интеграции </a>
+					<a href="#" class="header-mobile-arrow">
+						<svg
+							width="12"
+							height="7"
+							viewBox="0 0 12 7"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M0.75 0.75L5.75 5.75L10.75 0.75"
+								stroke="#2E2E33"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</a>
+				</div>
+				<div class="header-mobile-collumn">
+					<a href="#" class="header-mobile__link-low"> Интеграция с amoCRM </a>
+					<a href="#" class="header-mobile__link-low">
+						Интеграция с Битрикс24
+					</a>
+				</div>
+			</div>
+			<a href="#" class="header-mobile__link"> Тарифы </a>
+			<a href="#" class="header-mobile__link"> Партнерам </a>
+
+			<div class="header-mobile__drop">
+				<div class="header-mobile__drop-row">
+					<a href="#" class="header-mobile__link"> О компании </a>
+					<a href="#" class="header-mobile-arrow">
+						<svg
+							width="12"
+							height="7"
+							viewBox="0 0 12 7"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M0.75 0.75L5.75 5.75L10.75 0.75"
+								stroke="#2E2E33"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</a>
+				</div>
+				<div class="header-mobile-collumn">
+					<a href="#" class="header-mobile__link-low"> Поддержка </a>
+					<a href="#" class="header-mobile__link-low"> Документы </a>
+				</div>
+			</div>
+		</div>
+
+		<div class="header-mobile__under">
+			<button class="btn btn_white">
+				<span class="btn-arrow">
+					<span>Написать в поддержку</span>
+					<svg
+						width="11"
+						height="12"
+						viewBox="0 0 11 12"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+							fill="#846df2"
+						/>
+					</svg>
+				</span>
+			</button>
+
+			<div class="header-mobile__under-line">
+				<span>Или на почту</span>
+				<div class="header-mobile__under-row">
+					<a href="#" class="btn-copy">
+						<span data-href="support@sipuni.ru"> support@sipuni.ru </span>
+
+						<img src="./images/dist/copy.svg" alt="" />
+						<img
+							class="copy-accept"
+							src="./images/dist/copy-accept.svg"
+							alt=""
+						/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <main class="main">
 	<picture class="header-picture">
@@ -24,7 +338,7 @@
 	</section>
 
 	<div class="main-container">
-		<aside class="side-menu side-menu-tariff">
+		<aside class="side-menu">
 			<nav class="side-nav">
 				<ul class="side-nav__list side-nav__list-reset-arrow">
 					<li class="side-nav__item">
@@ -279,7 +593,7 @@
 														<div class="atc-img">
 															<img src="./images/dist/atc-2.svg" alt="" />
 														</div>
-														<span> Интеграция с<br />CRM </span>
+														<span> Интеграция с CRM </span>
 													</div>
 												</div>
 												<div class="atc-width">
@@ -295,7 +609,7 @@
 														<div class="atc-img">
 															<img src="./images/dist/atc-3.svg" alt="" />
 														</div>
-														<span> Запись<br />звонков </span>
+														<span> Запись звонков </span>
 													</div>
 												</div>
 											</div>
@@ -356,10 +670,7 @@
 								</div>
 
 								<div class="article-button">
-									<a
-										href="https://t.me/SipuniHelpbot"
-										class="btn btn__default btn_primary"
-									>
+									<a href="#" class="btn btn__default btn_primary">
 										<span class="btn-arrow">
 											<span>Написать поддержке</span>
 											<svg
@@ -589,7 +900,7 @@
 
 											<div class="count-bottom-content">
 												<a
-													href="https://lk.sipuni.com/registration"
+													href="#"
 													class="btn btn_transparent btn_transparent-border"
 												>
 													<span class="btn-arrow">
@@ -880,10 +1191,7 @@
 											</div>
 
 											<div class="count-bottom-content">
-												<a
-													href="https://lk.sipuni.com/registration"
-													class="btn btn_white"
-												>
+												<a href="#" class="btn btn_white">
 													<span class="btn-arrow">
 														<span>Попробовать</span>
 														<svg
@@ -1255,7 +1563,7 @@
 
 											<div class="count-bottom-content">
 												<a
-													href="https://lk.sipuni.com/registration"
+													href="#"
 													class="btn btn_transparent btn_transparent-border"
 												>
 													<span class="btn-arrow">
@@ -1475,7 +1783,7 @@
 
 											<div class="count-bottom-content">
 												<a
-													href="https://lk.sipuni.com/registration"
+													href="#"
 													class="btn btn_transparent btn_transparent-border"
 												>
 													<span class="btn-arrow">
@@ -1768,10 +2076,7 @@
 											</div>
 
 											<div class="count-bottom-content">
-												<a
-													href="https://lk.sipuni.com/registration"
-													class="btn btn_white"
-												>
+												<a href="#" class="btn btn_white">
 													<span class="btn-arrow">
 														<span>Попробовать</span>
 														<svg
@@ -2145,7 +2450,7 @@
 
 											<div class="count-bottom-content">
 												<a
-													href="https://lk.sipuni.com/registration"
+													href="#"
 													class="btn btn_transparent btn_transparent-border"
 												>
 													<span class="btn-arrow">
@@ -2187,8 +2492,8 @@
 						<div class="section-col section-col-medium">
 							<h2 class="section__title">Цены на связь</h2>
 							<div class="section__description">
-								Мы продаем многоканальные номера. Это номера, с которых могут
-								звонить сколько угодно менеджеров. У нас есть: мобильные, 8 800
+								Мы продаем многоканальные номера. Это номера, с которых могут
+								звонить сколько угодно менеджеров. У нас есть: мобильные, 8 800
 								и 8 804, городские любых регионов
 							</div>
 						</div>
@@ -2227,11 +2532,7 @@
 										<div class="connection__label">Городские</div>
 										<div class="connection__descript">
 											Стоимость звонка зависит от того, куда вы звоните. Все
-											города и цены —
-											<a
-												href="https://drive.google.com/file/d/1AQ-H-AFj-tSvGrNeF_NHx6WsqbrFFA0s/view"
-												>в таблице.</a
-											>
+											города и цены — <a href="#">в таблице.</a>
 										</div>
 									</div>
 									<div class="connection__art">
@@ -2249,11 +2550,8 @@
 									<div class="connection__content">
 										<div class="connection__label">8 800 и 8 804</div>
 										<div class="connection__descript">
-											Стоимость исходящих для номера 8 804 —
-											<a
-												href="https://drive.google.com/file/d/1AQ-H-AFj-tSvGrNeF_NHx6WsqbrFFA0s/view"
-												>в таблице.</a
-											>
+											Стоимость звонка зависит от того, куда вы звоните. Все
+											города и цены — <a href="#">в таблице.</a>
 										</div>
 									</div>
 									<div class="connection__art">
@@ -2285,18 +2583,11 @@
 											промаркированы. Если подключаете наш номер — мы поможем
 											сделать маркировку.
 										</p>
-										<div class="connection__art connection__art-mob">
-											<div class="connection__art-item">
-												<strong>0,68 ₽ за каждый набор номера*</strong>
-											</div>
-										</div>
+
 										<span>
 											* Плата за маркировку списывается, даже если вы набрали
 											номер, но абонент не взял трубку или оказался недоступен.
-											Подробности о маркировке —
-											<a href="https://blog.sipuni.ru/mavimarkirovka"
-												>в блоге Сипуни.</a
-											>
+											Подробности о маркировке — <a href="#">в блоге Сипуни.</a>
 										</span>
 									</div>
 								</div>
@@ -2346,7 +2637,7 @@
 									<div class="tariff-sim__list">
 										<div class="tariff-sim__label">Пакетик 700</div>
 										<div class="tariff-sim__image">
-											<img src="/images/dist/tariff-sim-1.svg" alt="" />
+											<img src="./images/dist/tariff-sim-1.svg" alt="" />
 										</div>
 									</div>
 									<div class="tariff-sim__wrap">
@@ -2375,7 +2666,7 @@
 									<div class="tariff-sim__list">
 										<div class="tariff-sim__label">Пакет 1300</div>
 										<div class="tariff-sim__image">
-											<img src="/images/dist/tariff-sim-2.svg" alt="" />
+											<img src="./images/dist/tariff-sim-2.svg" alt="" />
 										</div>
 									</div>
 									<div class="tariff-sim__wrap">
@@ -2404,7 +2695,7 @@
 									<div class="tariff-sim__list">
 										<div class="tariff-sim__label">Пакетище 5000</div>
 										<div class="tariff-sim__image">
-											<img src="/images/dist/tariff-sim-3.svg" alt="" />
+											<img src="./images/dist/tariff-sim-3.svg" alt="" />
 										</div>
 									</div>
 									<div class="tariff-sim__wrap">
@@ -2425,7 +2716,7 @@
 							</div>
 							<div class="tariff-sim__width tariff-sim-gray">
 								<div class="section-right-item">
-									<img src="/images/dist/s1.svg" alt="" />
+									<img src="./images/dist/s1.svg" alt="" />
 
 									<div class="section-right-item__col">
 										<p>
@@ -2452,7 +2743,7 @@
 									<div class="tariff-sim__list">
 										<div class="tariff-sim__label">Интернет-пакет</div>
 										<div class="tariff-sim__image">
-											<img src="/images/dist/tariff-sim-4.svg" alt="" />
+											<img src="./images/dist/tariff-sim-4.svg" alt="" />
 										</div>
 									</div>
 									<div class="tariff-sim__wrap">
@@ -2481,7 +2772,7 @@
 									<div class="tariff-sim__list">
 										<div class="tariff-sim__label">Без пакета</div>
 										<div class="tariff-sim__image">
-											<img src="/images/dist/tariff-sim-5.svg" alt="" />
+											<img src="./images/dist/tariff-sim-5.svg" alt="" />
 										</div>
 									</div>
 									<div class="tariff-sim__wrap">
@@ -2722,10 +3013,7 @@
 									подскажет как все настроить и оплатить
 								</div>
 								<div class="banner-dark-button">
-									<a
-										href="https://lk.sipuni.com/registration"
-										class="btn btn__default btn_primary"
-									>
+									<a href="#" class="btn btn__default btn_primary">
 										<span class="btn-arrow">
 											<span>Подключить</span>
 											<svg
@@ -2761,5 +3049,593 @@
 	</div>
 </main>
 
-<!--#include virtual="/parts/footer-content.html" -->
-<!--#include virtual="/parts/footer.html" -->
+<footer class="footer footer_offset">
+	<div class="footer__wrapper footer_bg">
+		<div class="footer-container">
+			<div class="footer-top">
+				<div class="footer__main">
+					<a href="/" class="footer__logo">
+						<img src="./images/dist/footer-logo.svg" alt="" />
+					</a>
+
+					<div class="footer__main-col">
+						<div class="footer-label__list">
+							<a href="#" class="footer-label__label">
+								<span>ООО «Сипуни Рус»</span>
+								<img src="./images/dist/arrow-l.svg" alt="" />
+							</a>
+							<div class="footer-label-content">
+								<p>Разработчик программного обеспечения</p>
+								<p>
+									<strong>Юридический адрес:</strong> 123112, Москва,
+									Пресненская набережная, д. 12, 25 этаж, комната № а7
+								</p>
+								<p>
+									<strong>ОГРН/ИНН:</strong> 1087746620720 / 7727651336
+									<strong>Электронная почта:</strong>
+									<a href="mailto:buh@sipuni.com">buh@sipuni.com</a>
+								</p>
+							</div>
+						</div>
+						<div class="footer-label__list">
+							<a href="#" class="footer-label__label">
+								<span>ООО «Бета Воип»</span>
+								<img src="./images/dist/arrow-l.svg" alt="" />
+							</a>
+							<div class="footer-label-content">
+								<p>Оператор услуг связи</p>
+								<p>
+									<strong>Юридический адрес:</strong> 123112, Москва,
+									Пресненская набережная, д. 12, 25 этаж, комната № а7
+								</p>
+								<p>
+									<strong>ОГРН/ИНН:</strong> 1097746108503 / 7724701236
+									<strong>Электронная почта:</strong>
+									<a href="mailto:buh@sipuni.com">buh@sipuni.com</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer-right-side">
+					<div class="footer-col-list">
+						<div class="footer__col">
+							<div class="footer-lb">Продукт</div>
+
+							<div class="footer-box">
+								<a href="#" class="footer__link">
+									Интеграция Сипуни с amoCRM
+								</a>
+								<a href="#" class="footer__link">
+									Интеграция Сипуни с Битрикс24
+								</a>
+								<a href="#" class="footer__link"> Связь Сипуни </a>
+								<a href="#" class="footer__link"> Тарифы </a>
+								<a href="#" class="footer__link"> Партнерская программа </a>
+							</div>
+						</div>
+						<div class="footer__col">
+							<div class="footer-lb">Компания</div>
+
+							<div class="footer-box">
+								<a href="#" class="footer__link"> Поддержка </a>
+								<a href="#" class="footer__link"> Документы </a>
+								<a href="#" class="footer__link"> Блог </a>
+								<a href="#" class="footer__link"> База знаний </a>
+							</div>
+						</div>
+					</div>
+
+					<div class="footer__contacts">
+						<div class="footer-box">
+							<div class="footer-lb">Мы в соцсетях</div>
+							<div class="footer-box-list">
+								<a href="#">
+									<img src="./images/dist/tel.svg" alt="" />
+								</a>
+								<a href="#">
+									<img src="./images/dist/vk.svg" alt="" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-br"></div>
+			<div class="footer-under">
+				<div class="footer__art">© 2008-2025 «Сипуни Рус»</div>
+
+				<div class="footer-right">
+					<div class="footer-description">
+						С любыми вопросами приходите в нашу поддержку, ребята отвечают 24/7
+					</div>
+					<a href="#" class="btn btn_primary">
+						<span class="btn-arrow">
+							<span> Написать в поддержку</span>
+							<svg
+								width="11"
+								height="12"
+								viewBox="0 0 11 12"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+									fill="#fff"
+								/>
+							</svg>
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js'></script>
+<script src="./js/db/jq.js"></script>
+<script src="./js/db/jquery.matchHeight-min.js"></script>
+    <script src="./js/db/fancybox.umd.js"></script>
+
+<script>
+  let swiperCount = null;
+
+  var swiper = new Swiper(".sw-sup", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    navigation: {
+      nextEl: '.slider-container .swiper-button-next',
+      prevEl: '.slider-container .swiper-button-prev',
+    },
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 350,
+      modifier: 3,
+      slideShadows: false 
+    },
+    keyboard: {
+      enabled: true
+    },
+    spaceBetween: 0,
+    breakpoints: {
+      640: {
+        slidesPerView: 2
+      },
+      768: {
+        slidesPerView: 2
+      },
+      1024: {
+        slidesPerView: 2
+      },
+      1560: {
+        slidesPerView: 2
+      }
+    }
+  });
+
+
+  function initSwiper() {
+      const swiperElement = document?.querySelector('.count-swiper');
+      if (swiperElement && !swiperElement.swiper) {
+          swiperCount = new Swiper(".count-swiper", {
+              slidesPerView: 3,
+              spaceBetween: 24,
+              observer: true,
+              observeParents: true,
+              pagination: {
+                  el: ".swiper-pagination",
+              },
+              breakpoints: {
+                  1280: {
+                      slidesPerView: 3,
+                  },
+                  990: {
+                      slidesPerView: 2,
+                  },
+                  550: {
+                      slidesPerView: 2,
+                      autoHeight: true,
+                  },
+                  320: {
+                      slidesPerView: 1,
+                      autoHeight: true,
+                  },
+              },
+          });
+      }
+  }
+
+
+  $(document).ready(function() {
+
+ let longPressTimer = null;
+  const TOAST_DURATION = 2000;
+
+  if($(window).width() >= 650) {
+    $('.doc-table-copy').on('click', function (e) {
+      e.preventDefault();
+
+      const $row = $(this).closest('.doc-table-row');
+
+      const headText = $row.find('.doc-table-head').text().trim();
+      const bodyText = $row.find('.doc-table-body').text().trim();
+
+      const textToCopy = `${bodyText}`;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy).catch(err => {
+          console.error('Не удалось скопировать: ', err);
+        });
+      } else {
+        const $temp = $('<textarea>');
+        $('body').append($temp);
+        $temp.val(textToCopy).select();
+        document.execCommand('copy');
+        $temp.remove();
+      }
+
+      const $copyBtn = $(this);
+      $copyBtn.addClass('active');
+      $row.addClass("active");
+
+      setTimeout(() => {
+        $copyBtn.removeClass('active');
+        $row.removeClass("active");
+      }, 2000);
+    });
+  }
+
+  $(document).on('touchstart', '.doc-table-row', function (e) {
+    e.preventDefault();
+
+    const $row = $(this);
+
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
+
+    longPressTimer = setTimeout(function () {
+      const bodyText = $row.find('.doc-table-body').text().trim();
+      if (!bodyText) return;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(bodyText).catch(console.error);
+      } else {
+        const $temp = $('<textarea>');
+        $('body').append($temp);
+        $temp.val(bodyText).select();
+        document.execCommand('copy');
+        $temp.remove();
+      }
+
+      // Подсветка
+      $row.addClass('highlighted');
+
+      // Тост
+      const $toast = $('#copy-toast');
+      $toast.addClass('show');
+
+      setTimeout(() => {
+        $toast.removeClass('show');
+        $row.removeClass('highlighted');
+      }, TOAST_DURATION);
+
+      longPressTimer = null; // сбрасываем после срабатывания
+    }, 600);
+  });
+
+  // Обработчик окончания касания (пользователь убрал палец)
+  $(document).on('touchend touchcancel', '.doc-table-row', function () {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
+  });
+
+    $('.doc-card-trigger').on('click', function(e) {
+      e.preventDefault();
+      
+      const $label = $(this);
+      const $block = $label.next('.doc-card-trigger-content');
+      const $arrowImg = $label.find('.doc-card-arrow img');
+      
+      $block.slideToggle(300);
+      
+      const currentTransform = $arrowImg.css('transform');
+      if (currentTransform === 'matrix(-1, 0, 0, -1, 0, 0)' || 
+        currentTransform.includes('matrix') && currentTransform.includes('-1')) {
+        $label.removeClass('is-active');
+      } else {
+
+        $label.addClass('is-active');
+      }
+      
+      $label.toggleClass('active');
+    });
+    
+    const hash = window.location.hash;
+    
+    if (hash) {
+        // Ждем немного, чтобы страница полностью загрузилась
+        setTimeout(() => {
+            // Находим элемент с таким id
+            const $targetElement = $(hash);
+            
+            if ($targetElement.length) {
+                // Плавный скролл к элементу
+                $('html, body').animate({
+                    scrollTop: $targetElement.offset().top - 100 // -100 для отступа сверху
+                }, 800); // 800ms длительность анимации
+                
+                // Можно добавить подсветку элемента
+                $targetElement.addClass('highlighted');
+                setTimeout(() => {
+                    $targetElement.removeClass('highlighted');
+                }, 2000);
+            }
+        }, 300); // Задержка 300ms
+    }
+
+    const $copyButtons = $('a.doc-btn-link');
+    if($copyButtons.length !== 0) {
+    
+    $copyButtons.each(function() {
+        const $button = $(this);
+        
+        // Ищем ссылку для копирования (примеры селекторов)
+        let $linkToCopy;
+        
+        // 1. Ищем ссылку в том же контейнере документа
+        $linkToCopy = $button.closest('.documents-under__box').find('a[href^="http"], a[href^="/"], a[href^="#"]').first();
+        
+        // 2. Если не нашли, ищем в родительском контейнере контента
+        if (!$linkToCopy || $linkToCopy.length === 0) {
+            $linkToCopy = $button.closest('.doc-card-trigger-content').find('a[href]').first();
+        }
+        
+        // 3. Если не нашли, ищем ближайшую ссылку в том же блоке
+        if (!$linkToCopy || $linkToCopy.length === 0) {
+            $linkToCopy = $button.siblings('a[href]').first();
+        }
+        
+        // 4. Если все еще не нашли, ищем любую ссылку в том же контейнере
+        if (!$linkToCopy || $linkToCopy.length === 0) {
+            $linkToCopy = $button.parent().find('a[href]').first();
+        }
+    });
+    
+    const copyFromDataAttribute = function($button) {
+        const textToCopy = $button.data('clipboard');
+        
+        if (!textToCopy) {
+            console.warn('No data to copy');
+            return;
+        }
+        
+        // Создаем временный textarea для копирования
+        const $tempTextarea = $('<textarea>')
+            .val(textToCopy)
+            .css({
+                position: 'fixed',
+                left: '-999999px',
+                top: '-999999px'
+            })
+            .appendTo('body');
+        
+        try {
+            // Пробуем использовать Clipboard API
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                showCopySuccess($button);
+            }).catch(function(err) {
+                // Fallback для старых браузеров
+                fallbackCopy($tempTextarea, $button);
+            });
+        } catch (err) {
+            // Если Clipboard API не поддерживается
+            fallbackCopy($tempTextarea, $button);
+        }
+        
+        // Удаляем временный textarea
+        setTimeout(function() {
+            $tempTextarea.remove();
+        }, 100);
+    };
+    
+    const fallbackCopy = function($textarea, $button) {
+        $textarea.select();
+        
+        try {
+            const success = document.execCommand('copy');
+            if (success) {
+                showCopySuccess($button);
+            } else {
+                console.warn('Copy failed');
+                showCopyError($button, 'Ошибка!');
+            }
+        } catch (copyErr) {
+            console.error('Copy error:', copyErr);
+            showCopyError($button, 'Ошибка!');
+        }
+    };
+    
+    const showCopySuccess = function($button) {
+        $button.addClass('copied');
+        
+        // Сохраняем оригинальный текст
+        const originalText = $button.find('span').text();
+        $button.data('original-text', originalText);
+        
+        // Возвращаем оригинальный текст через 2 секунды
+        setTimeout(function() {
+            $button.removeClass('copied');
+            $button.find('span').text(originalText);
+        }, 2000);
+    };
+    
+    const showCopyError = function($button, errorText) {
+        const originalText = $button.find('span').text();
+        $button.find('span').text(errorText);
+        $button.addClass('error');
+        
+        setTimeout(function() {
+            $button.removeClass('error');
+            $button.find('span').text(originalText);
+        }, 2000);
+    };
+    
+    $copyButtons.on('click', function(e) {
+        e.preventDefault();
+        copyFromDataAttribute($(this));
+    });
+    }
+
+
+  if($(".doc-card-trigger-content-ac")) {
+    $('.doc-card-trigger-content-ac').not(':first').hide();
+  }
+
+  $('.doc-card-trigger-ac').on('click', function(e) {
+      e.preventDefault();
+      
+      var $box = $(this).closest('.documents-under__box');
+      var $content = $box.find('.doc-card-trigger-content-ac');
+      
+      if ($content.is(':visible')) {
+          $content.slideUp(300);
+          $box.removeClass('active');
+      } else {
+          $('.doc-card-trigger-content-ac:visible').slideUp(300);
+          $('.documents-under__box.active').removeClass('active');
+          
+          $content.slideDown(300);
+          $box.addClass('active');
+      }
+  });
+  
+  $('.doc-card-trigger').on('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      $(this).trigger('click');
+    }
+  });
+
+  $('.footer-label__label').on('click', function(e) {
+    e.preventDefault();
+    const $label = $(this);
+    const $content = $label.next('.footer-label-content');
+
+    $('.footer-label-content').not($content).slideUp(300);
+    $('.footer-label__label').not($label).removeClass('active');
+
+    if ($content.is(':visible')) {
+      $content.slideUp(300);
+      $label.removeClass('active');
+    } else {
+      $content.slideDown(300);
+      $label.addClass('active');
+    }
+  });
+    initSwiper();
+      if($(window).width() > 600) {
+        $(".count__col").matchHeight();
+      }
+      $(".rate__item").matchHeight();
+      if($(window).width() > 800) {
+        $(".statistics__item").matchHeight();
+      }
+
+      $(".tariff-sim__item-height").matchHeight();
+
+      if($(window).width() > 990) {
+        $(".atc-item_height").matchHeight();
+      }
+
+      if($(window).width() < 990) {
+        $(".atc-container-dropdown").hide()
+
+        $(".atc-container-dropdown-link span").text("Подробнее")
+
+        $(".atc-container-dropdown-link").on("click", function (e) {
+          e.preventDefault()
+
+          var $link = $(this)
+          var $dropdown = $link.closest(".atc-item").find(".atc-container-dropdown")
+          var $linkText = $link.find("span")
+
+          if ($dropdown.is(":visible")) {
+            $dropdown.slideUp(300, function () {
+              $linkText.text("Подробнее")
+            })
+          } else {
+            $dropdown.slideDown(300, function () {
+              $linkText.text("Скрыть")
+            })
+          }
+        })
+      }
+
+      $(".header-burger").on("click", function(e){
+        e.preventDefault();
+
+        $(".header-mobile").addClass("is-active")
+      })
+
+      $(".header-mobile-close").on("click", function(e) {
+        e.preventDefault();
+
+        $(".header-mobile").removeClass("is-active")
+      })
+
+
+      const $rate1 = $(".trigger-rate-1");
+      const $tabsContainers = $(".rate-tabs");
+
+      if (!$tabsContainers.length) return;
+
+      $tabsContainers.each(function() {
+          const $container = $(this);
+          const $tabLinks = $container.find(".rate-tabs__link");
+
+          const $section = $container.closest("section");
+          if (!$section.length) return;
+          $tabLinks.on("click", function(e) {
+              e.preventDefault();
+
+              const $link = $(this);
+              const targetTab = $link.attr("data-tab");
+              if (!targetTab) return;
+
+              setTimeout(() => {
+
+                initSwiper();
+
+                $(".count__col").matchHeight();
+                $(".rate__item ").matchHeight();
+              }, 100)
+              
+              if (targetTab === "sim") {
+                  $rate1.addClass("active");
+              } else if (targetTab === "numbers") {
+                  $rate1.removeClass("active");
+              }
+
+              $tabLinks.removeClass("active");
+
+              $section.find(".tab[data-tab-content]").removeClass("active");
+
+              $link.addClass("active");
+
+              $section.find(`.tab[data-tab-content="${targetTab}"]`).addClass("active");
+          });
+      });
+  });
+</script>
+</body>
+</html>

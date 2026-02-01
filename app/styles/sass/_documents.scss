@@ -171,6 +171,7 @@
   margin-bottom: 6px;
 
   a {
+    text-underline-offset: 3px;
     font-weight: 300;
     font-size: 16px;
     line-height: 1.2;
@@ -196,6 +197,52 @@
   }
 }
 
+.doc-card__subtitle {
+
+  a {
+    text-decoration: underline;
+    color: #846DF2;
+    transition: all 0.4s ease;
+
+    &:hover {
+      color: #846DF2;
+      text-decoration: none;
+    }
+
+    &:focus {
+      color: #846DF2CC
+    }
+
+    &:disabled {
+      color: #70748580;
+      pointer-events: none;
+    }
+  }
+}
+
+.documents-under__content {
+  a {
+    text-decoration: underline;
+    color: #846DF2;
+    transition: all 0.4s ease;
+
+    &:hover {
+      color: #846DF2;
+      text-decoration: none;
+    }
+
+    &:focus {
+      color: #846DF2CC
+    }
+
+    &:disabled {
+      color: #70748580;
+      pointer-events: none;
+    }
+  }
+}
+
+
 .doc-card-description {
   font-weight: 300;
   font-size: 14px;
@@ -210,12 +257,6 @@
     line-height: 1.2;
     color: #2e2e33;
     margin-bottom: 40px;
-
-    &:hover {
-      a {
-        color: $primary-color
-      }
-    }
   }
 
   &-table {
@@ -298,6 +339,12 @@
   padding: 16px 24px;
   background-color: #F5F5F5;
   border-radius: 16px;
+
+  &.active {
+    .documents-under__label {
+      font-weight: 500;
+    }
+  }
 }
 
 .documents-under__content {
@@ -313,10 +360,10 @@
 
 .documents-under__label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-
-  font-weight: 500;
+  gap: 10px;
+  font-weight: 400;
   font-size: 20px;
   line-height: 1.2;
   color: #2e2e33;
@@ -347,8 +394,6 @@
       font-size: 16px;
       line-height: 1.2;
       text-decoration: underline;
-      text-decoration-skip-ink: none;
-      color: #2e2e33;
     }
   }
 }
@@ -396,6 +441,8 @@
 
 .doc-table-title {
   padding-left: 47px;
+  padding-left: 47px;
+  margin-top: 14px;
 }
 
 .documents-under__box.active {
@@ -444,6 +491,7 @@
 
 .documents-under__content ul a {
   word-break: break-word;
+  text-underline-offset: 3px;
 }
 
 .doc-card__label .doc-card-arrow img {

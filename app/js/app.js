@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	function activateStep(stepNumber, isScrollingDown = null) {
 		// Находим элемент, который теряет is-active
 		const previousStepElement = document.querySelector(
-			`.step[data-step="${previousActiveStep}"]`
+			`.step[data-step="${previousActiveStep}"]`,
 		)
 
 		// Определяем, нужно ли добавлять класс step-down-active
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		// Если скроллим вверх, удаляем step-down-active у текущего активного шага
 		if (shouldRemoveStepDownActive) {
 			const currentStepElement = document.querySelector(
-				`.step[data-step="${stepNumber}"]`
+				`.step[data-step="${stepNumber}"]`,
 			)
 			if (currentStepElement) {
 				currentStepElement.classList.remove("step-down-active")
@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// Активируем текущий этап
 		const activeStep = document.querySelector(
-			`.step[data-step="${stepNumber}"]`
+			`.step[data-step="${stepNumber}"]`,
 		)
 		const activeImage = document.querySelector(
-			`.step-image[data-step="${stepNumber}"]`
+			`.step-image[data-step="${stepNumber}"]`,
 		)
 
 		if (activeStep) {
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					: calcDurationPx()
 
 			const targetTop = Math.round(
-				sceneStart + duration * targetProgress + CLICK_OFFSET
+				sceneStart + duration * targetProgress + CLICK_OFFSET,
 			)
 
 			activateStep(stepNumber, null, true)
@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		headings.forEach(h => {
 			if (!h.id) {
 				const generatedId = slugify(
-					h.getAttribute("data-side-title") || h.textContent || "section"
+					h.getAttribute("data-side-title") || h.textContent || "section",
 				)
 				h.id =
 					generatedId || `section-${Math.random().toString(36).slice(2, 8)}`
@@ -337,10 +337,10 @@ document.addEventListener("DOMContentLoaded", () => {
 					if (entry.isIntersecting) {
 						const id = entry.target.id
 						links.forEach(l =>
-							l.classList.remove("active", "active-dark", "active-trigger")
+							l.classList.remove("active", "active-dark", "active-trigger"),
 						)
 						const active = sideNavList.querySelector(
-							`.side-nav__link[href="#${id}"]`
+							`.side-nav__link[href="#${id}"]`,
 						)
 						if (active) {
 							active.classList.add("active")
@@ -357,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				root: null,
 				rootMargin: "0% 0px -55% 0px",
 				threshold: 0,
-			}
+			},
 		)
 
 		headings.forEach(h => observer.observe(h))
@@ -397,10 +397,10 @@ document.addEventListener("DOMContentLoaded", () => {
 						const id = entry.target.id
 						if (!id) return
 						menuLinks.forEach(l =>
-							l.classList.remove("active", "active-dark", "active-trigger")
+							l.classList.remove("active", "active-dark", "active-trigger"),
 						)
 						const active = document.querySelector(
-							`.side-nav__link[href="#${id}"]`
+							`.side-nav__link[href="#${id}"]`,
 						)
 						if (active) {
 							active.classList.add("active")
@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						}
 					})
 				},
-				{ root: null, rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+				{ root: null, rootMargin: "-35% 0px -55% 0px", threshold: 0 },
 			)
 			targets.forEach(t => io.observe(t))
 		}
@@ -515,7 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					"slider-card-back-right",
 					"slider-card-exit-left",
 					"slider-card-exit-right",
-					"slider-card-enter-right"
+					"slider-card-enter-right",
 				)
 
 				// Убираем инлайн стили
@@ -547,10 +547,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			isAnimating = true
 			const activeCard = cards.find(
-				card => parseInt(card.getAttribute("data-index")) === currentIndex
+				card => parseInt(card.getAttribute("data-index")) === currentIndex,
 			)
 			const nextCard = cards.find(
-				card => parseInt(card.getAttribute("data-index")) === currentIndex + 1
+				card => parseInt(card.getAttribute("data-index")) === currentIndex + 1,
 			)
 
 			if (activeCard && nextCard) {
@@ -588,10 +588,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			isAnimating = true
 			const activeCard = cards.find(
-				card => parseInt(card.getAttribute("data-index")) === currentIndex
+				card => parseInt(card.getAttribute("data-index")) === currentIndex,
 			)
 			const prevCard = cards.find(
-				card => parseInt(card.getAttribute("data-index")) === currentIndex - 1
+				card => parseInt(card.getAttribute("data-index")) === currentIndex - 1,
 			)
 
 			if (activeCard && prevCard) {
@@ -646,7 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// Получаем только элементы без video (фильтруем массив)
 		const regularItems = Array?.from(items)?.filter(
-			item => !item?.classList?.contains("statistics__item-video")
+			item => !item?.classList?.contains("statistics__item-video"),
 		)
 
 		let currentIndex = 0
@@ -763,7 +763,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== Copy Email to Clipboard =====
 	;(() => {
 		const rows = document.querySelectorAll(
-			".header-desktop__under-row, .header-mobile__under-row"
+			".header-desktop__under-row, .header-mobile__under-row",
 		)
 
 		if (rows.length === 0) return
@@ -819,7 +819,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// ===== Chronology Mobile Accordion =====
 	;(() => {
 		const accordionItems = document?.querySelectorAll(
-			".chronology-mobile__item"
+			".chronology-mobile__item",
 		)
 
 		accordionItems.forEach(item => {
@@ -837,10 +837,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				accordionItems.forEach(otherItem => {
 					if (otherItem !== item) {
 						const otherContent = otherItem.querySelector(
-							".chronology-mobile__content"
+							".chronology-mobile__content",
 						)
 						const otherLabel = otherItem.querySelector(
-							".chronology-mobile__label"
+							".chronology-mobile__label",
 						)
 						if (otherContent) {
 							otherContent.classList.remove("is-open")

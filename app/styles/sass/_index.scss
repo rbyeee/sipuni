@@ -164,7 +164,13 @@
 }
 
 .side-nav__link.active {
-  color: $dark-color;
+  color: $primary-color;
+
+  svg {
+    path {
+      stroke: $primary-color;
+    }
+  }
 
   &:hover {
     color: $primary-color;
@@ -190,6 +196,7 @@
   padding-top: 0;
   font-weight: 600;
   font-size: 32px;
+  margin-bottom: 7px;
 }
 
 // 
@@ -459,7 +466,7 @@
 
 .section__description {
   font-weight: 400;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.2;
   color: $dark-color;
 }
@@ -833,10 +840,20 @@
 
 .client__label {
   font-weight: 400;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.2;
   color: $dark-color;
   margin-bottom: 16px;
+}
+
+#section6 {
+  .section__description {
+    max-width: 710px;
+  }
+
+  .section-button {
+    margin-top: 8px;
+  }
 }
 
 .client__description {
@@ -1431,7 +1448,10 @@
   pointer-events: none;
   position: absolute;
   bottom: 0;
+  left: 0;
   right: 0;
+  object-fit: cover;
+  width: 100%;
 
   @media (max-width: 1110px) {
     object-fit: cover;
@@ -1656,7 +1676,7 @@
 
 .count {
   .section__description {
-    max-width: 600px;
+    max-width: 640px;
     width: 100%;
   }
 }
@@ -1666,7 +1686,7 @@
 }
 
 .side-nav__link.active-dark {
-  color: $dark-color
+  color: rgba(117, 117, 117, 1);
 }
 
 @media (max-width: 1410px) {
@@ -2326,10 +2346,6 @@
 }
 
 @media (max-width: 450px) {
-  .rate-tabs {
-    width: 100%;
-  }
-
   .rate-tabs__link {
     flex: 1;
     text-align: center;
@@ -2353,15 +2369,6 @@
   &.swiper {
     width: 100%;
     padding-top: 3.125rem;
-  }
-
-  .swiper-slide {
-    opacity: 0.6;
-    transition: all 0.4s ease;
-
-    &.swiper-slide-active {
-      opacity: 1;
-    }
   }
 
   .swiper-pagination-bullet,

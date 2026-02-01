@@ -219,9 +219,65 @@ a {
 
 .tab {
   display: none;
+  transition: all 0.4s ease;
+  opacity: 0;
 
   &.active {
+    opacity: 1;
     display: block;
+    animation: 1s forwards alternate tabInit;
+  }
+}
+
+.rate-tabs {
+  gap: 8px
+}
+
+.rate-tabs__link {
+  font-weight: 300;
+  &:hover {
+    background-color: #f2f2f2;
+    font-weight: 300;
+  }
+  &.active {
+    font-weight: 500;
+  }
+}
+
+@keyframes tabInit {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s ease;
+  }
+}
+
+@keyframes tabOut {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s ease;
+  }
+
+  100% {
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+}
+
+.count__col {
+  .count__list {
+    svg {
+      top: 0;
+    }
   }
 }
 
@@ -462,7 +518,18 @@ a {
 
 .section-right-item {
   a {
-    color: #707485;
+    color: $primary-color;
+
+    &:hover {
+      text-decoration: none;
+      color: #674AF1;
+    }
+
+    &:focus {
+      text-decoration: none;
+
+      color: #846DF2CC
+    }
   }
 }
 
@@ -486,7 +553,8 @@ a {
 
 .link-gray-light {
   text-decoration: underline;
-  color: #707485;
+  transition: all 0.4s ease;
+  color: $primary-color
 }
 
 .footer-right {
@@ -802,6 +870,35 @@ a {
   }
 }
 
+.section-right-item__col {
+  ul {
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style-type: none;
+
+    li {
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: -15px;
+        top: 5px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #70748580;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 990px) {
   .contacts .section-right {
     display: block;
@@ -809,6 +906,16 @@ a {
 
   .contacts-content {
     padding-right: 10px;
+  }
+
+  .footer-label__label {
+    &:hover {
+      color: #2e2e33
+    }
+  }
+
+  .footer-label__label.active {
+    color: #846df2
   }
 }
 

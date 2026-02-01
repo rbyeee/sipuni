@@ -397,10 +397,7 @@
 				<div class="section-right-item">
 					<img src="./images/dist/s1.svg" alt="" />
 					<div class="section-right-item__col">
-						<p>
-							Для старой гвардии почта:
-							<a href="mailto:support@sipuni.ru">support@sipuni.ru</a>
-						</p>
+						<p>Для старой гвардии почта: support@sipuni.ru</p>
 					</div>
 				</div>
 			</div>
@@ -626,7 +623,7 @@
       const headText = $row.find('.doc-table-head').text().trim();
       const bodyText = $row.find('.doc-table-body').text().trim();
 
-      const textToCopy = `${headText}: ${bodyText}`;
+      const textToCopy = `${bodyText}`;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(textToCopy).catch(err => {
@@ -858,9 +855,9 @@
 
 
   if($(".doc-card-trigger-content-ac")) {
-    $('.doc-card-trigger-content-ac').hide();
+    $('.doc-card-trigger-content-ac').not(':first').hide();
   }
-  
+
   $('.doc-card-trigger-ac').on('click', function(e) {
       e.preventDefault();
       
@@ -909,6 +906,36 @@
       $(".rate__item").matchHeight();
       if($(window).width() > 800) {
         $(".statistics__item").matchHeight();
+      }
+
+      $(".tariff-sim__item-height").matchHeight();
+
+      if($(window).width() > 990) {
+        $(".atc-item_height").matchHeight();
+      }
+
+      if($(window).width() < 990) {
+        $(".atc-container-dropdown").hide()
+
+        $(".atc-container-dropdown-link span").text("Подробнее")
+
+        $(".atc-container-dropdown-link").on("click", function (e) {
+          e.preventDefault()
+
+          var $link = $(this)
+          var $dropdown = $link.closest(".atc-item").find(".atc-container-dropdown")
+          var $linkText = $link.find("span")
+
+          if ($dropdown.is(":visible")) {
+            $dropdown.slideUp(300, function () {
+              $linkText.text("Подробнее")
+            })
+          } else {
+            $dropdown.slideDown(300, function () {
+              $linkText.text("Скрыть")
+            })
+          }
+        })
       }
 
       $(".header-burger").on("click", function(e){

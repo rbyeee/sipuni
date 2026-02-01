@@ -354,8 +354,14 @@
 									<img src="./images/dist/s1.svg" alt="" />
 									<div class="section-right-item__col">
 										<p>
-											ПО Сипуни в реестре российского ПО → реестровая запись
-											№12081 (от 22.11.2021)
+											ПО Сипуни в реестре российского ПО →
+											<a
+												class="link-gray-light"
+												href="https://reestr.digital.gov.ru/reestr/464490/?sphrase_id=9569361"
+												target="_blank"
+												>реестровая запись №12081</a
+											>
+											(от 22.11.2021)
 										</p>
 									</div>
 								</div>
@@ -363,8 +369,15 @@
 									<img src="./images/dist/s1.svg" alt="" />
 									<div class="section-right-item__col">
 										<p>
-											ПО Сипуни в реестре программ для ЭВМ → свидетельство
-											о государственной регистрации №2013611341 (от 09.01.2013)
+											ПО Сипуни в реестре программ для ЭВМ →
+											<a
+												href="https://sipuni.com/wp-content/uploads/2023/07/svidetelstvo-po-sipuni-ot-09.01.2013g.-№2013611341.pdf"
+												target="_blank"
+												class="link-gray-light"
+												>свидетельство о государственной регистрации
+												№2013611341</a
+											>
+											(от 09.01.2013)
 										</p>
 									</div>
 								</div>
@@ -383,7 +396,7 @@
 						<div class="doc-card__section">
 							<div class="doc-card-content">
 								<a href="#" class="doc-card__label doc-card-trigger">
-									<span> Карточка сведений о компании </span>
+									<span> Карточка сведений «Сипуни Рус» </span>
 
 									<span class="doc-card-arrow">
 										<img src="./images/dist/shape-arrow-d.svg" alt="" />
@@ -904,7 +917,7 @@
 
 						<div class="doc-card__links">
 							<a href="#" class="doc-card__label doc-card-trigger">
-								<span> Карточка сведений о компании </span>
+								<span> Политики и оферта </span>
 
 								<span class="doc-card-arrow">
 									<img src="./images/dist/shape-arrow-d.svg" alt="" />
@@ -986,11 +999,29 @@
 								абонентскую плату за номера.
 							</p>
 						</div>
-
+						<div class="doc-card-mob">
+							<div class="section-right">
+								<div class="section-right-item">
+									<img src="./images/dist/s1.svg" alt="" />
+									<div class="section-right-item__col">
+										<p>
+											Лицензии оператора связи ООО «Бета Воип» →
+											<a
+												href="https://rkn.gov.ru/activity/connection/register/license/"
+												target="_blank"
+												class="link-gray-light"
+												>в реестре лицензий Роскомнадзора</a
+											>
+										</p>
+										<p>Номера наших лицензий: 129356, 129354, 129353</p>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="doc-card__section">
 							<div class="doc-card-content">
 								<a href="#" class="doc-card__label doc-card-trigger">
-									<span> Карточка сведений о компании </span>
+									<span> Карточка сведений «Бета Воип» </span>
 
 									<span class="doc-card-arrow">
 										<img src="./images/dist/shape-arrow-d.svg" alt="" />
@@ -1488,12 +1519,23 @@
 						</div>
 
 						<div class="doc-card__links">
-							<ul class="doc-links">
-								<li><a href="#">Договор на оказание услуг связи</a></li>
-								<li><a href="#">Условия оказания услуг связи</a></li>
-								<li><a href="#">Политика обработки персональных данных</a></li>
-								<li><a href="#">Политика конфиденциальности</a></li>
-							</ul>
+							<a href="#" class="doc-card__label doc-card-trigger">
+								<span> Договор и политики </span>
+
+								<span class="doc-card-arrow">
+									<img src="./images/dist/shape-arrow-d.svg" alt="" />
+								</span>
+							</a>
+							<div class="doc-card-trigger-content">
+								<ul class="doc-links">
+									<li><a href="#">Договор на оказание услуг связи</a></li>
+									<li><a href="#">Условия оказания услуг связи</a></li>
+									<li>
+										<a href="#">Политика обработки персональных данных</a>
+									</li>
+									<li><a href="#">Политика конфиденциальности</a></li>
+								</ul>
+							</div>
 						</div>
 					</article>
 
@@ -2050,7 +2092,7 @@
 	</section>
 
 	<div id="copy-toast" class="copy-toast">
-		<img src="./images/dist/accept-message.svg" alt="">
+		<img src="./images/dist/accept-message.svg" alt="" />
 		<span>Текст скопирован</span>
 	</div>
 </main>
@@ -2273,7 +2315,7 @@
       const headText = $row.find('.doc-table-head').text().trim();
       const bodyText = $row.find('.doc-table-body').text().trim();
 
-      const textToCopy = `${headText}: ${bodyText}`;
+      const textToCopy = `${bodyText}`;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(textToCopy).catch(err => {
@@ -2505,9 +2547,9 @@
 
 
   if($(".doc-card-trigger-content-ac")) {
-    $('.doc-card-trigger-content-ac').hide();
+    $('.doc-card-trigger-content-ac').not(':first').hide();
   }
-  
+
   $('.doc-card-trigger-ac').on('click', function(e) {
       e.preventDefault();
       
@@ -2556,6 +2598,36 @@
       $(".rate__item").matchHeight();
       if($(window).width() > 800) {
         $(".statistics__item").matchHeight();
+      }
+
+      $(".tariff-sim__item-height").matchHeight();
+
+      if($(window).width() > 990) {
+        $(".atc-item_height").matchHeight();
+      }
+
+      if($(window).width() < 990) {
+        $(".atc-container-dropdown").hide()
+
+        $(".atc-container-dropdown-link span").text("Подробнее")
+
+        $(".atc-container-dropdown-link").on("click", function (e) {
+          e.preventDefault()
+
+          var $link = $(this)
+          var $dropdown = $link.closest(".atc-item").find(".atc-container-dropdown")
+          var $linkText = $link.find("span")
+
+          if ($dropdown.is(":visible")) {
+            $dropdown.slideUp(300, function () {
+              $linkText.text("Подробнее")
+            })
+          } else {
+            $dropdown.slideDown(300, function () {
+              $linkText.text("Скрыть")
+            })
+          }
+        })
       }
 
       $(".header-burger").on("click", function(e){

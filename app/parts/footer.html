@@ -12,6 +12,8 @@
   var swiper = new Swiper(".sw-sup", {
     effect: "coverflow",
     grabCursor: true,
+    initialSlide: 3,
+    // loop: true,
     centeredSlides: true,
     navigation: {
       nextEl: '.slider-container .swiper-button-next',
@@ -20,7 +22,7 @@
     coverflowEffect: {
       rotate: 0,
       stretch: 0,
-      depth: 350,
+      depth: 550,
       modifier: 3,
       slideShadows: false 
     },
@@ -51,6 +53,7 @@
           swiperCount = new Swiper(".count-swiper", {
               slidesPerView: 3,
               spaceBetween: 24,
+              initialSlide: 1,
               observer: true,
               observeParents: true,
               pagination: {
@@ -91,7 +94,7 @@
       const headText = $row.find('.doc-table-head').text().trim();
       const bodyText = $row.find('.doc-table-body').text().trim();
 
-      const textToCopy = `${headText}: ${bodyText}`;
+      const textToCopy = `${bodyText}`;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(textToCopy).catch(err => {
@@ -155,6 +158,13 @@
       longPressTimer = null; // сбрасываем после срабатывания
     }, 600);
   });
+
+  if($(window).width() <= 990) {
+    $('.doc-card-trigger-content').css("display", "none")
+    $(".doc-card__label").each(function() {
+      $(this).removeClass("active");
+    });
+  }
 
   // Обработчик окончания касания (пользователь убрал палец)
   $(document).on('touchend touchcancel', '.doc-table-row', function () {
@@ -323,9 +333,9 @@
 
 
   if($(".doc-card-trigger-content-ac")) {
-    $('.doc-card-trigger-content-ac').hide();
+    $('.doc-card-trigger-content-ac').not(':first').hide();
   }
-  
+
   $('.doc-card-trigger-ac').on('click', function(e) {
       e.preventDefault();
       
@@ -376,6 +386,36 @@
         $(".statistics__item").matchHeight();
       }
 
+      $(".tariff-sim__item-height").matchHeight();
+
+      if($(window).width() > 990) {
+        $(".atc-item_height").matchHeight();
+      }
+
+      if($(window).width() < 990) {
+        $(".atc-container-dropdown").hide()
+
+        $(".atc-container-dropdown-link span").text("Подробнее")
+
+        $(".atc-container-dropdown-link").on("click", function (e) {
+          e.preventDefault()
+
+          var $link = $(this)
+          var $dropdown = $link.closest(".atc-item").find(".atc-container-dropdown")
+          var $linkText = $link.find("span")
+
+          if ($dropdown.is(":visible")) {
+            $dropdown.slideUp(300, function () {
+              $linkText.text("Подробнее")
+            })
+          } else {
+            $dropdown.slideDown(300, function () {
+              $linkText.text("Скрыть")
+            })
+          }
+        })
+      }
+
       $(".header-burger").on("click", function(e){
         e.preventDefault();
 
@@ -411,8 +451,10 @@
 
                 initSwiper();
 
-                $(".count__col").matchHeight();
-                $(".rate__item ").matchHeight();
+                if($(window).width() >= 650) {
+                  $(".count__col").matchHeight();
+                  $(".rate__item ").matchHeight();
+                }
               }, 100)
               
               if (targetTab === "sim") {
