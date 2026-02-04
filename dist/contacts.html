@@ -7,6 +7,7 @@
 
     <title>OptimizedHTML 5</title>
     <meta name="description" content="Startup HTML template OptimizedHTML 5" />
+    <meta name="color-scheme" content="light">
 
     <meta
       name="viewport"
@@ -342,7 +343,7 @@
 							<img class="cont-qr" src="./images/dist/qr.svg" alt="" />
 
 							<div class="contacts-button">
-								<a href="#" class="btn btn_white">
+								<a href="https://t.me/SipuniHelpbot" target="_blank" class="btn btn_white">
 									<span class="btn-arrow">
 										<span> Написать в мессенджер</span>
 										<svg
@@ -544,6 +545,8 @@
   var swiper = new Swiper(".sw-sup", {
     effect: "coverflow",
     grabCursor: true,
+    initialSlide: 3,
+    // loop: true,
     centeredSlides: true,
     navigation: {
       nextEl: '.slider-container .swiper-button-next',
@@ -552,7 +555,7 @@
     coverflowEffect: {
       rotate: 0,
       stretch: 0,
-      depth: 350,
+      depth: 550,
       modifier: 3,
       slideShadows: false 
     },
@@ -583,6 +586,7 @@
           swiperCount = new Swiper(".count-swiper", {
               slidesPerView: 3,
               spaceBetween: 24,
+              initialSlide: 1,
               observer: true,
               observeParents: true,
               pagination: {
@@ -687,6 +691,13 @@
       longPressTimer = null; // сбрасываем после срабатывания
     }, 600);
   });
+
+  if($(window).width() <= 990) {
+    $('.doc-card-trigger-content').css("display", "none")
+    $(".doc-card__label").each(function() {
+      $(this).removeClass("active");
+    });
+  }
 
   // Обработчик окончания касания (пользователь убрал палец)
   $(document).on('touchend touchcancel', '.doc-table-row', function () {
@@ -973,8 +984,10 @@
 
                 initSwiper();
 
-                $(".count__col").matchHeight();
-                $(".rate__item ").matchHeight();
+                if($(window).width() >= 650) {
+                  $(".count__col").matchHeight();
+                  $(".rate__item ").matchHeight();
+                }
               }, 100)
               
               if (targetTab === "sim") {

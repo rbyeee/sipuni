@@ -7,6 +7,7 @@
 
     <title>OptimizedHTML 5</title>
     <meta name="description" content="Startup HTML template OptimizedHTML 5" />
+    <meta name="color-scheme" content="light">
 
     <meta
       name="viewport"
@@ -492,13 +493,13 @@
 										</div>
 										<div class="doc-table-row">
 											<div class="doc-table-cell">
-												<div class="doc-table-head">Юридический Адрес</div>
+												<div class="doc-table-head">Юридический адрес</div>
 											</div>
 											<div class="doc-table-cell">
 												<div class="doc-table-wrap">
 													<div class="doc-table-body">
-														115114, г. Москва, вн.тер.г. муниципальный округ
-														Даниловский, наб. Павелецкая, д. 8Б, помещение 71Н
+														115114, г. Москва, вн.тер. г. муниципальный округ
+														Даниловский, наб. Павелецкая, д. 8Б, помещение 71Н
 													</div>
 
 													<a href="#" class="doc-table-copy">
@@ -1020,7 +1021,7 @@
 						</div>
 						<div class="doc-card__section">
 							<div class="doc-card-content">
-								<a href="#" class="doc-card__label doc-card-trigger">
+								<a href="#" class="doc-card__label doc-card-trigger active">
 									<span> Карточка сведений «Бета Воип» </span>
 
 									<span class="doc-card-arrow">
@@ -1113,13 +1114,13 @@
 										</div>
 										<div class="doc-table-row">
 											<div class="doc-table-cell">
-												<div class="doc-table-head">Юридический Адрес</div>
+												<div class="doc-table-head">Юридический адрес</div>
 											</div>
 											<div class="doc-table-cell">
 												<div class="doc-table-wrap">
 													<div class="doc-table-body">
-														115114, г. Москва, вн.тер.г. муниципальный округ
-														Даниловский, наб. Павелецкая, д. 8Б, помещение 71Н
+														115114, г. Москва, вн.тер. г. муниципальный округ
+														Даниловский, наб. Павелецкая, д. 8Б, помещение 71Н
 													</div>
 													<a href="#" class="doc-table-copy">
 														<img src="./images/dist/copy-cell.svg" alt="" />
@@ -1611,7 +1612,7 @@
 						</div>
 						<div class="documents-under__box">
 							<a href="#" class="documents-under__label doc-card-trigger-ac">
-								<span>ООО "Бета Воип"</span>
+								<span>ООО «Бета Воип»</span>
 								<span class="doc-card-arrow">
 									<img src="./images/dist/shape-arrow-d.svg" alt="" />
 								</span>
@@ -1623,7 +1624,7 @@
 											target="_blank"
 											href="https://sipuni.com/wp-content/uploads/2025/10/dogovor-na-okazanie-uslug-svyazi-s-ooo-beta-voip.pdf"
 										>
-											Договор на оказание услуг связи с ООО "Бета Воип"
+											Договор на оказание услуг связи с ООО «Бета Воип»
 										</a>
 									</li>
 									<li>
@@ -1631,7 +1632,7 @@
 											target="_blank"
 											href="https://sipuni.com/wp-content/uploads/2025/10/usloviya-okazaniya-uslug-svyazi-ooo-beta-voip.pdf"
 										>
-											Условия оказания услуг связи ООО "Бета Воип"
+											Условия оказания услуг связи ООО «Бета Воип»
 										</a>
 									</li>
 									<li>
@@ -1639,7 +1640,7 @@
 											target="_blank"
 											href="https://sipuni.com/wp-content/uploads/2025/10/politika-obrabotki-personalnyh-dannyh-beta-voip-1.pdf"
 										>
-											Политика обработки персональных данных в ООО "Бета Воип"
+											Политика обработки персональных данных в ООО «Бета Воип»
 										</a>
 									</li>
 									<li>
@@ -1647,7 +1648,7 @@
 											target="_blank"
 											href="https://sipuni.com/wp-content/uploads/2025/10/politika_konfidencialnosti_beta_voip.pdf"
 										>
-											Политика конфиденциальности ООО "Бета Воип"
+											Политика конфиденциальности ООО «Бета Воип»
 										</a>
 									</li>
 								</ul>
@@ -1655,7 +1656,7 @@
 						</div>
 						<div class="documents-under__box">
 							<a href="#" class="documents-under__label doc-card-trigger-ac">
-								<span>ПАО "ВымпелКом" ("билайн")</span>
+								<span>ПАО «ВымпелКом» («билайн»)</span>
 								<span class="doc-card-arrow">
 									<img src="./images/dist/shape-arrow-d.svg" alt="" />
 								</span>
@@ -1680,8 +1681,7 @@
 									</li>
 									<li>
 										<p>
-											Условия оказания услуг связи "билайн" корпоративным
-											клиентам опубликованы на сайте:
+											Делаем текстовую ссылку "Условия оказания услуг"
 										</p>
 										<a
 											href="https://moskva.beeline.ru/business/help/documents/usloviya-i-prilozheniya/okazanie-uslug/"
@@ -2236,6 +2236,8 @@
   var swiper = new Swiper(".sw-sup", {
     effect: "coverflow",
     grabCursor: true,
+    initialSlide: 3,
+    // loop: true,
     centeredSlides: true,
     navigation: {
       nextEl: '.slider-container .swiper-button-next',
@@ -2244,7 +2246,7 @@
     coverflowEffect: {
       rotate: 0,
       stretch: 0,
-      depth: 350,
+      depth: 550,
       modifier: 3,
       slideShadows: false 
     },
@@ -2275,6 +2277,7 @@
           swiperCount = new Swiper(".count-swiper", {
               slidesPerView: 3,
               spaceBetween: 24,
+              initialSlide: 1,
               observer: true,
               observeParents: true,
               pagination: {
@@ -2379,6 +2382,13 @@
       longPressTimer = null; // сбрасываем после срабатывания
     }, 600);
   });
+
+  if($(window).width() <= 990) {
+    $('.doc-card-trigger-content').css("display", "none")
+    $(".doc-card__label").each(function() {
+      $(this).removeClass("active");
+    });
+  }
 
   // Обработчик окончания касания (пользователь убрал палец)
   $(document).on('touchend touchcancel', '.doc-table-row', function () {
@@ -2665,8 +2675,10 @@
 
                 initSwiper();
 
-                $(".count__col").matchHeight();
-                $(".rate__item ").matchHeight();
+                if($(window).width() >= 650) {
+                  $(".count__col").matchHeight();
+                  $(".rate__item ").matchHeight();
+                }
               }, 100)
               
               if (targetTab === "sim") {
