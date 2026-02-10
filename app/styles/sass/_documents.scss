@@ -177,9 +177,19 @@
     line-height: 1.2;
     text-decoration: underline;
     text-decoration-skip-ink: none;
-    // color: #2e2e33;
+    text-decoration-thickness: 1px;
     color: #846DF2;
     transition: all 0.4s ease;
+    // position: relative;
+    // &:before {
+    //   content: "";
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0px;
+    //   height: 1px;
+    //   background-color: #846DF2;
+    // }
 
     &:hover {
       color: #846DF2;
@@ -380,6 +390,9 @@
   display: flex;
   gap: 90px;
   align-items: flex-start;
+  .documents-under__label {
+    
+  }
 }
 
 .documents-under__content {

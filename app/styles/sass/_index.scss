@@ -2408,6 +2408,13 @@
   .swiper-button-prev svg {
     width: 51px !important;
   }
+
+  @media (max-width: 400px) {
+    .sw-arrows .swiper-button-prev {
+      left: auto;
+      width: 72px;
+    }
+  }
 }
 
 

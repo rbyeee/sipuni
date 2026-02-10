@@ -150,8 +150,10 @@
   .atc-width {
     width: 50%;
     padding: 8px;
+
     @media (max-width: 650px) {
       width: 100%;
+
       br {
         display: none;
       }
@@ -370,8 +372,9 @@
   .side-nav__list {
     gap: 4px;
   }
+
   .side-nav__link span {
-  font-size: 20px;
+    font-size: 20px;
   }
 }
 
@@ -382,7 +385,7 @@
 }
 
 .connection__content {
-  max-width: 330px;
+  max-width: 356px;
 }
 
 .connection {
@@ -553,7 +556,7 @@
 .banner-dark-image {
   position: absolute;
   right: -1px;
-  top: -39px;
+  top: -61px;
 }
 
 .count-tariff {
@@ -721,11 +724,13 @@
       .connection__art {
         display: none;
       }
+
       .connection__art-mob {
         display: block;
         margin-bottom: 16px;
         width: 100%;
         max-width: 100%;
+
         .connection__art-item {
           width: 100%;
           text-align: center;
@@ -766,15 +771,23 @@
 
   .banner-dark-image {
     position: absolute;
-    right: -1px;
-    top: -59px;
+    right: 39px;
+    top: -67px;
   }
 }
 
 @media (max-width: 650px) {
   .index-tariff__image img {
     position: relative;
-    left: -39px;
+    left: -0;
+  }
+
+  .connection__content div:last-child {
+    margin-bottom: 0;
+  }
+
+  .atc-offset {
+    margin-top: 40px;
   }
 
   .banner-dark-col {
@@ -785,9 +798,18 @@
     width: 100%;
   }
 
+  .atc-collumn {
+    padding-left: 0;
+  }
+
+  .atc-collumn-wrap .atc-width {
+    padding: 4px 0;
+  }
+
   .tariff-sim__width {
     padding: 0;
     padding-bottom: 20px;
+
     &:last-child {
       .section-right-item {
         p {

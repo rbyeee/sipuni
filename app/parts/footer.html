@@ -40,11 +40,55 @@
       1024: {
         slidesPerView: 2
       },
+      1350: {
+        slidesPerView: 2,
+      },
       1560: {
         slidesPerView: 2
       }
     }
   });
+
+
+  function updateCoverflowSettings() {
+
+          const swiperElementSw = document?.querySelector('.sw-sup');
+      if (swiperElementSw && !swiperElementSw.swiper) {
+
+    const width = window.innerWidth;
+
+    if (width >= 1350) {
+      swiper.params.coverflowEffect.stretch = 360;
+      swiper.params.coverflowEffect.depth = 340;
+      swiper.params.coverflowEffect.modifier = 1.5;
+    } else if (width > 1300 && width < 1350) {
+      swiper.params.coverflowEffect.stretch = 340;
+      swiper.params.coverflowEffect.depth = 340;
+      swiper.params.coverflowEffect.modifier = 1.5;
+    } else if(width > 1250 && width < 1290) {
+      swiper.params.coverflowEffect.stretch = 320;
+      swiper.params.coverflowEffect.depth = 400;
+      swiper.params.coverflowEffect.modifier = 1.5;
+    } else if(width > 990 && width < 1249) {
+      swiper.params.coverflowEffect.stretch = 320;
+      swiper.params.coverflowEffect.depth = 600;
+      swiper.params.coverflowEffect.modifier = 1.5;
+    } else if(width > 639 && width < 990) {
+      swiper.params.coverflowEffect.stretch = 120;
+      swiper.params.coverflowEffect.depth = 400;
+      swiper.params.coverflowEffect.modifier = 1.5;
+    } else {
+      swiper.params.coverflowEffect.stretch = 400;
+      swiper.params.coverflowEffect.depth = 260;
+      swiper.params.coverflowEffect.modifier = 1.4;
+    }
+
+    swiper.update();
+  }
+  }
+
+  window.addEventListener('resize', updateCoverflowSettings);
+  updateCoverflowSettings();
 
 
   function initSwiper() {
@@ -68,11 +112,9 @@
                   },
                   550: {
                       slidesPerView: 2,
-                      autoHeight: true,
                   },
                   320: {
                       slidesPerView: 1,
-                      autoHeight: true,
                   },
               },
           });
@@ -94,7 +136,12 @@
       const headText = $row.find('.doc-table-head').text().trim();
       const bodyText = $row.find('.doc-table-body').text().trim();
 
-      const textToCopy = `${bodyText}`;
+      const textToCopy = bodyText
+        .replace(/&nbsp;/g, ' ') 
+        .replace(/<\/?[^>]+(>|$)/g, '')
+        .replace(/\s\s+/g, ' ')
+        .replace(/\n/g, ' ')
+        .trim()
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(textToCopy).catch(err => {
@@ -218,7 +265,7 @@
         }, 300); // Задержка 300ms
     }
 
-    const $copyButtons = $('a.doc-btn-link');
+    const $copyButtons = $('a.doc-btn-link-cop');
     if($copyButtons.length !== 0) {
     
     $copyButtons.each(function() {
@@ -378,9 +425,7 @@
     }
   });
     initSwiper();
-      if($(window).width() > 600) {
-        $(".count__col").matchHeight();
-      }
+      $(".count__col").matchHeight();
       $(".rate__item").matchHeight();
       if($(window).width() > 800) {
         $(".statistics__item").matchHeight();
@@ -450,9 +495,9 @@
               setTimeout(() => {
 
                 initSwiper();
+                  $(".count__col").matchHeight();
 
                 if($(window).width() >= 650) {
-                  $(".count__col").matchHeight();
                   $(".rate__item ").matchHeight();
                 }
               }, 100)
