@@ -3497,7 +3497,7 @@
 							<div class="footer-lb">Компания</div>
 
 							<div class="footer-box">
-								<a href="#" class="footer__link"> Поддержка </a>
+								<a href="#" class="footer__link"> Контакты </a>
 								<a href="#" class="footer__link"> Документы </a>
 								<a href="#" class="footer__link"> Блог </a>
 								<a href="#" class="footer__link"> База знаний </a>
@@ -3666,11 +3666,9 @@
                   },
                   550: {
                       slidesPerView: 2,
-                      autoHeight: true,
                   },
                   320: {
                       slidesPerView: 1,
-                      autoHeight: true,
                   },
               },
           });
@@ -3981,9 +3979,7 @@
     }
   });
     initSwiper();
-      if($(window).width() > 600) {
-        $(".count__col").matchHeight();
-      }
+      $(".count__col").matchHeight();
       $(".rate__item").matchHeight();
       if($(window).width() > 800) {
         $(".statistics__item").matchHeight();
@@ -4053,9 +4049,9 @@
               setTimeout(() => {
 
                 initSwiper();
+                  $(".count__col").matchHeight();
 
                 if($(window).width() >= 650) {
-                  $(".count__col").matchHeight();
                   $(".rate__item ").matchHeight();
                 }
               }, 100)

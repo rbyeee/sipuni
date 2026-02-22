@@ -902,7 +902,7 @@
 							</div>
 
 							<div class="doc-card__actions">
-								<a class="doc-btn-link" href="./pdf.pdf" download="card1.pdf">
+								<a class="doc-btn-link" href="./pdf.pdf" download="Сипуни Рус (карточка)">
 									<span>Скачать карточку</span>
 									<img src="./images/dist/download.svg" alt="" />
 								</a>
@@ -923,7 +923,7 @@
 						</div>
 
 						<div class="doc-card__links">
-							<a href="download="./pdf.pdf""  class="doc-card__label doc-card-trigger">
+							<a href="#" download="./pdf.pdf" class="doc-card__label doc-card-trigger">
 								<span> Политики и оферта </span>
 
 								<span class="doc-card-arrow">
@@ -1505,7 +1505,7 @@
 							</div>
 
 							<div class="doc-card__actions">
-								<a class="doc-btn-link" href="./pdf2.pdf" download="card.pdf">
+								<a class="doc-btn-link" href="./pdf2.pdf" download="Бета Воип (карточка)">
 									<span>Скачать карточку</span>
 									<img src="./images/dist/download.svg" alt="" />
 								</a>
@@ -2170,7 +2170,7 @@
 							<div class="footer-lb">Компания</div>
 
 							<div class="footer-box">
-								<a href="#" class="footer__link"> Поддержка </a>
+								<a href="#" class="footer__link"> Контакты </a>
 								<a href="#" class="footer__link"> Документы </a>
 								<a href="#" class="footer__link"> Блог </a>
 								<a href="#" class="footer__link"> База знаний </a>
@@ -2339,11 +2339,9 @@
                   },
                   550: {
                       slidesPerView: 2,
-                      autoHeight: true,
                   },
                   320: {
                       slidesPerView: 1,
-                      autoHeight: true,
                   },
               },
           });
@@ -2654,9 +2652,7 @@
     }
   });
     initSwiper();
-      if($(window).width() > 600) {
-        $(".count__col").matchHeight();
-      }
+      $(".count__col").matchHeight();
       $(".rate__item").matchHeight();
       if($(window).width() > 800) {
         $(".statistics__item").matchHeight();
@@ -2726,9 +2722,9 @@
               setTimeout(() => {
 
                 initSwiper();
+                  $(".count__col").matchHeight();
 
                 if($(window).width() >= 650) {
-                  $(".count__col").matchHeight();
                   $(".rate__item ").matchHeight();
                 }
               }, 100)

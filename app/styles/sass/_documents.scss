@@ -370,7 +370,7 @@
 
 .documents-under__label {
   display: flex;
-  align-items: flex-start;
+  align-items: anchor-center;
   justify-content: space-between;
   gap: 10px;
   font-weight: 400;
@@ -390,9 +390,8 @@
   display: flex;
   gap: 90px;
   align-items: flex-start;
-  .documents-under__label {
-    
-  }
+
+  .documents-under__label {}
 }
 
 .documents-under__content {
