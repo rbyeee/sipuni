@@ -111,3 +111,144 @@
     display: block;
   }
 }
+
+.section-work__container {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}
+
+.section-work__item {
+  border: 1px solid #e8e8ef;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 328px;
+  background-color: #fafafa;
+
+  .section-work__image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+
+  .section-work__image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+}
+
+.section-work__col {
+  max-width: 310px;
+  width: 100%;
+  gap: 8px;
+}
+
+.section-work__label {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #2e2e33;
+  max-width: 305px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.section-work__description {
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-work-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.blog__width {
+  &:first-child {
+    width: 66.6%;
+  }
+
+  padding: 10px;
+  width: 33.3%;
+}
+
+.blog__item {
+  display: block;
+}
+
+.blog-image {
+  display: inline-block;
+  margin-bottom: 16px;
+  position: relative;
+
+  img {
+    border-radius: 16px;
+  }
+}
+
+.blog__label {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #222b37;
+}
+
+.blog-container {
+  margin: -10px;
+}
+
+.blog-art {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  backdrop-filter: blur(20px);
+  background: rgba(23, 23, 51, 0.26);
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 125%;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.blog__clean {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+  align-items: flex-end;
+  padding-bottom: 71px;
+}
+
+.blog__descript {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 114%;
+  text-align: right;
+  color: #757575;
+  max-width: 207px;
+  width: 100%;
+  margin-bottom: 22px;
+}
