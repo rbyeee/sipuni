@@ -6,9 +6,32 @@
 .amo-index__col {
   max-width: 328px;
   width: 100%;
-  gap: 130px;
+  gap: 137px;
   display: flex;
   flex-direction: column;
+
+  position: relative;
+  top: -51px;
+  left: 61px;
+}
+
+.amo-index__button {
+  .btn--left {
+    padding: 11px 28px;
+    font-size: 14px;
+
+    &-box {
+      gap: 1px;
+    }
+
+    span {
+      font-size: 16px;
+
+      &.color-gray {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 .amo-index__title {
@@ -34,11 +57,24 @@
 }
 
 .amo-index_offset {
-  padding-top: 160px;
+  padding-top: 127px;
+  margin-bottom: -140px;
+}
+
+.main-container-amocrm {
+  margin-top: 122px;
 }
 
 .amo-index__image {
+  right: -33px;
+  top: -4px;
   position: relative;
+}
+
+.tab-amo-widget {
+  position: relative;
+  top: -11px;
+  left: 5px;
 }
 
 .ami-txt-anim {
@@ -50,23 +86,23 @@
   position: absolute;
 
   &.txt-1 {
-    top: 20px;
+    top: 11px;
     left: 310px;
     max-width: 164px;
     width: 100%;
   }
 
   &.txt-2 {
-    bottom: 190px;
-    left: 210px;
+    bottom: 245px;
+    left: 123px;
     max-width: 134px;
     width: 100%;
   }
 
   &.txt-3 {
-    bottom: 230px;
-    right: 0;
+    bottom: 231px;
     max-width: 129px;
+    right: -10px;
     width: 100%;
   }
 }
@@ -78,10 +114,13 @@
 
 .tab-amo-images {
   width: calc(100% - 302px);
+  padding-right: 42px;
+  top: 4px;
 }
 
 .tab-amo-col {
   width: 302px;
+  gap: 12px;
 }
 
 .tab-amo__title {
@@ -100,16 +139,111 @@
   display: none;
 }
 
+.tab-amo-lamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 48px;
+  gap: 8px;
+}
+
 .tab-amo-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  // gap: 16px;
+}
+
+.tab-amo-lamp-images {
+  img {
+    &:first-child {
+      display: none;
+    }
+
+    &:last-child {
+      display: block;
+    }
+  }
+}
+
+.tab-amo-lamp-line {
+  img {
+    &:first-child {
+      display: none;
+    }
+
+    &:last-child {
+      display: block;
+    }
+  }
+}
+
+.tab-amo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tab-amo-images {
+  top: 11px;
+
+  img {
+    display: none;
+  }
+
+  img.is-active {
+    display: block;
+  }
+}
+
+#section2.section-offset.tab-amo {
+  padding-bottom: 80px;
+}
+
+.tab-amo {
+  .section-col {
+    margin-bottom: 41px;
+  }
 }
 
 .tab-amo-item.active {
   .tab-amo__description {
     display: block;
   }
+
+  .tab-amo-lamp-images {
+    img {
+      &:first-child {
+        display: block;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  .tab-amo-lamp-line {
+    img {
+      &:first-child {
+        display: block;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.section-work {
+  .section__description {
+    max-width: 600px;
+  }
+}
+
+.section-work-wrap {
+  width: 100%;
 }
 
 .section-work__container {
@@ -117,6 +251,12 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 48px;
+}
+
+.section-work-list {
+  display: flex;
+  align-items: center;
+  gap: 17px;
 }
 
 .section-work__item {
@@ -149,6 +289,8 @@
 .section-work__col {
   max-width: 310px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
@@ -164,7 +306,6 @@
 
 .section-work__description {
   line-height: 1.2;
-  margin-bottom: 12px;
 }
 
 .section-work-right {
@@ -181,6 +322,14 @@
 .blog__width {
   &:first-child {
     width: 66.6%;
+  }
+
+  &:nth-child(2) {
+    .blog-art {
+      position: absolute;
+      right: auto;
+      left: 8px;
+    }
   }
 
   padding: 10px;
@@ -240,6 +389,10 @@
   text-align: right;
   align-items: flex-end;
   padding-bottom: 71px;
+
+  .btn {
+    width: 100%;
+  }
 }
 
 .blog__descript {
@@ -251,4 +404,230 @@
   max-width: 207px;
   width: 100%;
   margin-bottom: 22px;
+}
+
+.connect_offset {
+  padding-top: 70px;
+
+  .section-col {
+    margin-bottom: 0;
+  }
+
+  .count-box-right {
+    position: relative;
+    top: 6px;
+    right: -9px;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.section-work-wrap {
+  .section-col {
+    margin-bottom: 59px;
+  }
+}
+
+.connect-column {
+  gap: 48px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.connect-list {
+  display: flex;
+  align-items: center;
+  gap: 104px;
+}
+
+.connect-list-rev {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.connect {
+  .count-wrap {
+    margin-bottom: 44px;
+  }
+}
+
+.connect__image {
+  max-width: 286px;
+  width: 100%;
+}
+
+.connect__txt {
+  max-width: 286px;
+  width: 100%;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #2e2e33;
+  text-align: left;
+}
+
+.connect-list-rev {
+  .connect__txt {
+    text-align: right;
+  }
+}
+
+.connect-container {
+  max-width: 662px;
+  width: 100%;
+  position: relative;
+}
+
+.connect-counts {
+  position: absolute;
+  top: 59px;
+  left: 50%;
+  transform: translateX(-38%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tab-amo_offset {
+  padding-top: 0;
+}
+
+/* Анимация для текста */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация для появления картинки */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Скрываем все описания по умолчанию */
+.tab-amo__description {
+  display: none;
+}
+
+/* Когда пункт активен — запускаем анимацию для описания */
+.tab-amo-item.active .tab-amo__description {
+  display: block;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Стили для контейнера картинок */
+.tab-amo-images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-amo-images img {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  /* Для плавного исчезновения */
+}
+
+/* Когда картинка активна — запускаем Keyframe */
+.tab-amo-images img.is-active {
+  opacity: 1;
+  position: relative;
+  /* Чтобы резервировать место */
+  animation: imageScale 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.tab-amo-lamp-images img[src*="active"],
+.tab-amo-lamp-line img[src*="active"] {
+  display: none;
+  opacity: 0;
+}
+
+.tab-amo-item.active .tab-amo-lamp-images img[src*="active"],
+.tab-amo-item.active .tab-amo-lamp-line img[src*="active"] {
+  display: block;
+  opacity: 1;
+  animation: imageScale 0.4s ease-out forwards;
+}
+
+.tab-amo-item.active .tab-amo-lamp-images img:not([src*="active"]),
+.tab-amo-item.active .tab-amo-lamp-line img:not([src*="active"]) {
+  display: none;
+}
+
+.section-offset.section-work {
+  padding-bottom: 0;
+}
+
+.section-offset.slider-amo {
+  .section-col {
+    margin-bottom: 17px;
+  }
+
+  .section-right {
+    bottom: auto;
+    top: -380px;
+    right: -10px;
+
+    .section-right-item__col {
+      max-width: 211px;
+
+      p {
+        margin-bottom: 21px;
+      }
+    }
+  }
+}
+
+.blog-offset {
+  padding-top: 34px;
+
+  .section__description {
+    max-width: 550px;
+  }
+}
+
+.quest-offset {
+  .documents-title-middle {
+    margin-bottom: 49px;
+  }
+
+  .documents-under__content {
+    p {
+      margin-bottom: 18px;
+      line-height: 1.2;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.count.section-offset {
+  margin: 0 -15px;
+
+  .count-wrap {
+    padding: 0 15px;
+  }
 }

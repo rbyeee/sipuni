@@ -2406,7 +2406,7 @@
 
   .swiper-button-next svg,
   .swiper-button-prev svg {
-    width: 51px !important;
+    width: 60px !important;
   }
 
   @media (max-width: 400px) {
@@ -2457,11 +2457,13 @@
   width: 100%;
 
   .swiper-button-next {
-    width: 72px;
+    width: 84px;
+    height: 52px;
   }
 
   .swiper-button-prev {
-    width: 72px;
+    width: 84px;
+    height: 52px;
     left: -38px;
   }
 }

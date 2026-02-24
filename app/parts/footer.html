@@ -53,39 +53,39 @@
 
   function updateCoverflowSettings() {
 
-          const swiperElementSw = document?.querySelector('.sw-sup');
-      if (swiperElementSw && !swiperElementSw.swiper) {
+    const swiperElementSw = document?.querySelector('.sw-sup');
+    if (swiperElementSw && !swiperElementSw.swiper) {
 
-    const width = window.innerWidth;
+      const width = window.innerWidth;
 
-    if (width >= 1350) {
-      swiper.params.coverflowEffect.stretch = 360;
-      swiper.params.coverflowEffect.depth = 340;
-      swiper.params.coverflowEffect.modifier = 1.5;
-    } else if (width > 1300 && width < 1350) {
-      swiper.params.coverflowEffect.stretch = 340;
-      swiper.params.coverflowEffect.depth = 340;
-      swiper.params.coverflowEffect.modifier = 1.5;
-    } else if(width > 1250 && width < 1290) {
-      swiper.params.coverflowEffect.stretch = 320;
-      swiper.params.coverflowEffect.depth = 400;
-      swiper.params.coverflowEffect.modifier = 1.5;
-    } else if(width > 990 && width < 1249) {
-      swiper.params.coverflowEffect.stretch = 320;
-      swiper.params.coverflowEffect.depth = 600;
-      swiper.params.coverflowEffect.modifier = 1.5;
-    } else if(width > 639 && width < 990) {
-      swiper.params.coverflowEffect.stretch = 120;
-      swiper.params.coverflowEffect.depth = 400;
-      swiper.params.coverflowEffect.modifier = 1.5;
-    } else {
-      swiper.params.coverflowEffect.stretch = 400;
-      swiper.params.coverflowEffect.depth = 260;
-      swiper.params.coverflowEffect.modifier = 1.4;
+      if (width >= 1350) {
+        swiper.params.coverflowEffect.stretch = 360;
+        swiper.params.coverflowEffect.depth = 340;
+        swiper.params.coverflowEffect.modifier = 1.5;
+      } else if (width > 1300 && width < 1350) {
+        swiper.params.coverflowEffect.stretch = 340;
+        swiper.params.coverflowEffect.depth = 340;
+        swiper.params.coverflowEffect.modifier = 1.5;
+      } else if(width > 1250 && width < 1290) {
+        swiper.params.coverflowEffect.stretch = 320;
+        swiper.params.coverflowEffect.depth = 400;
+        swiper.params.coverflowEffect.modifier = 1.5;
+      } else if(width > 990 && width < 1249) {
+        swiper.params.coverflowEffect.stretch = 320;
+        swiper.params.coverflowEffect.depth = 600;
+        swiper.params.coverflowEffect.modifier = 1.5;
+      } else if(width > 639 && width < 990) {
+        swiper.params.coverflowEffect.stretch = 120;
+        swiper.params.coverflowEffect.depth = 400;
+        swiper.params.coverflowEffect.modifier = 1.5;
+      } else {
+        swiper.params.coverflowEffect.stretch = 400;
+        swiper.params.coverflowEffect.depth = 260;
+        swiper.params.coverflowEffect.modifier = 1.4;
+      }
+
+      swiper.update();
     }
-
-    swiper.update();
-  }
   }
 
   window.addEventListener('resize', updateCoverflowSettings);
@@ -109,13 +109,17 @@
                       slidesPerView: 3,
                   },
                   990: {
-                      slidesPerView: 2,
+                      slidesPerView: 2.1,
+                      centeredSlides: true
                   },
                   550: {
-                      slidesPerView: 2,
+                      slidesPerView: 2.1,
+                      centeredSlides: true
                   },
                   320: {
-                      slidesPerView: 1,
+                      slidesPerView: 1.1,
+                      centeredSlides: true,
+                      spaceBetween: 5
                   },
               },
           });
