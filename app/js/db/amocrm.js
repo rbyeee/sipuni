@@ -18,4 +18,30 @@ $(document).ready(function () {
 			.eq(index)
 			.addClass("is-active")
 	})
+
+	new WOW({
+		callback: function (box) {
+			box.addEventListener(
+				"animationend",
+				function () {
+					this.classList.add("animated-done")
+				},
+				{ once: true },
+			)
+		},
+	}).init()
+
+	new Swiper(".blog-swiper", {
+		grabCursor: true,
+		// loop: true,
+		keyboard: {
+			enabled: true,
+		},
+		slidesPerView: 1.1,
+		pagination: {
+			el: ".swiper-pagination",
+		},
+		spaceBetween: 5,
+		slidesPerView: "auto",
+	})
 })

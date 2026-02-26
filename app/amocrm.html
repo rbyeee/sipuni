@@ -2,7 +2,7 @@
 <!--#include virtual="/parts/head.html" -->
 <!--#include virtual="/parts/header.html" -->
 
-<main class="main">
+<main class="main main-amo">
 	<picture class="header-picture">
 		<source srcset="./images/dist/ellipse2.png" media="(max-width: 600px)" />
 		<img src="./images/dist/ellipse.png" alt="ellipse" />
@@ -47,10 +47,37 @@
 					</div>
 					<div class="ami-txt-anim txt-2">Звоните прямо из amoCRM</div>
 					<div class="ami-txt-anim txt-3">Храните записи разговоров</div>
+					<div class="ami-txt-anim txt-1-mob">
+						Принимайте звонки и переходите в сделку в один клик
+					</div>
 					<picture>
-						<source srcset="mdn-logo-wide" media="(max-width: 600px)" />
+						<source
+							srcset="./images/dist/amo-index-mob.png"
+							media="(max-width: 600px)"
+						/>
 						<img src="./images/dist/amo-index.png" alt="index" />
 					</picture>
+				</div>
+
+				<div class="amo-index__button-mob">
+					<a href="#" class="btn btn_primary btn--left">
+						<span class="btn--left-box">
+							Попробовать бесплатно
+							<span class="color-gray">Три дня на тест</span>
+						</span>
+						<svg
+							width="11"
+							height="12"
+							viewBox="0 0 11 12"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+								fill="#fff"
+							/>
+						</svg>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -365,9 +392,78 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="chronology-mobile-container">
+						<div class="chronology-mobile__item">
+							<a href="#" class="chronology-mobile__label">
+								<span> Распределим звонки по менеджерам </span>
+								<img src="./images/dist/arrow-d.svg" alt="arrow" />
+							</a>
+							<div class="chronology-mobile__content">
+								<p>
+									Задайте сценарии. Когда вам позвонят, мы сверимся
+									с вашим сценарием и данными из amoCRM. Звонок попадет
+									к нужному менеджеру.
+								</p>
+							</div>
+						</div>
+						<div class="chronology-mobile__item">
+							<a href="#" class="chronology-mobile__label">
+								<span> Переведем звонок на ответственного </span>
+								<img src="./images/dist/arrow-d.svg" alt="arrow" />
+							</a>
+							<div class="chronology-mobile__content">
+								<p>
+									Если уже есть сделка, мы проверяем ответственного и переводим
+									звонок на него. Даже если клиент звонит на единый номер.
+								</p>
+							</div>
+						</div>
+						<div class="chronology-mobile__item">
+							<a href="#" class="chronology-mobile__label">
+								<span> Сохраним запись звонков в amoCRM </span>
+								<img src="./images/dist/arrow-d.svg" alt="arrow" />
+							</a>
+							<div class="chronology-mobile__content">
+								<p>
+									Если сменится ответственный, он сможет прямо в сделке
+									прослушать записи звонков и узнать, что было в предыдущих
+									сериях.
+								</p>
+							</div>
+						</div>
+						<div class="chronology-mobile__item">
+							<a href="#" class="chronology-mobile__label">
+								<span> Создадим по звонку контакт/сделку </span>
+								<img src="./images/dist/arrow-d.svg" alt="arrow" />
+							</a>
+							<div class="chronology-mobile__content">
+								<p>
+									Если звонит новый контакт, создадим сделку и направим звонок
+									согласно вашим настройкам. Тот, кто ответит, станет
+									ответственным.
+								</p>
+							</div>
+						</div>
+						<div class="chronology-mobile__item">
+							<a href="#" class="chronology-mobile__label">
+								<span> Примем меры, если клиент не дозвонился </span>
+								<img src="./images/dist/arrow-d.svg" alt="arrow" />
+							</a>
+							<div class="chronology-mobile__content">
+								<p>
+									По умолчанию оставим запись о пропущенном и поставим задачу
+									на перезвон. Если контакта нет в CRM — еще и сделку создадим.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<section id="section3" class="section section-offset section-wrapper">
+				<section
+					id="section3"
+					class="section section-offset section-wrapper amocrm-cat-1"
+				>
 					<div class="section-middle">
 						<div class="section-col">
 							<h2 class="section__title">
@@ -387,7 +483,7 @@
 								</picture>
 								<div class="cat-1-content">
 									<h3 class="cat-1-title">
-										Если клиенты звонят в нерабочее время
+										Если клиенты звонят в нерабочее<br />время
 									</h3>
 									<div class="cat-1-description">
 										Программа минимум: проиграем от вас аудиосообщение. Если
@@ -456,13 +552,13 @@
 							В Сипуни работать со звонками — удобно
 						</h2>
 						<div class="section__description">
-							Звоните прямо из amoCRM. Принимайте звонки через виджет в amoCRM
-							или приложение Сипуни для компьютера
+							Звоните прямо из amoCRM. Принимайте звонки через виджет в amoCRM
+							или приложение Сипуни для компьютера
 						</div>
 					</div>
 
 					<div class="section-work__container">
-						<div class="section-work__item section-work__item-1">
+						<div class="section-work__item section-work__item-1 wow">
 							<div class="section-work__col">
 								<div class="section-work__label">
 									Кнопка, чтобы звонить прямо из amoCRM
@@ -473,10 +569,16 @@
 								</div>
 							</div>
 							<div class="section-work__image">
-								<img src="./images/dist/work-1.svg" alt="work-1" />
+								<picture>
+									<source
+										srcset="./images/dist/work-1-mob.svg"
+										media="(max-width: 700px)"
+									/>
+									<img src="./images/dist/work-1.svg" alt="work-1" />
+								</picture>
 							</div>
 						</div>
-						<div class="section-work__item section-work__item-2">
+						<div class="section-work__item section-work__item-2 wow">
 							<div class="section-work__col">
 								<div class="section-work__label">
 									Приложение Сипуни, чтобы работать с компьютера
@@ -491,10 +593,16 @@
 								</div>
 							</div>
 							<div class="section-work__image">
-								<img src="./images/dist/work-2.png" alt="work-2" />
+								<picture>
+									<source
+										srcset="./images/dist/work-2-mob.svg"
+										media="(max-width: 700px)"
+									/>
+									<img src="./images/dist/work-2.png" alt="work-2" />
+								</picture>
 							</div>
 						</div>
-						<div class="section-work__item section-work__item-3">
+						<div class="section-work__item section-work__item-3 wow">
 							<div class="section-work__col">
 								<div class="section-work__label">
 									Виджет Сипуни для amoCRM —<br />и никакого расфокуса
@@ -505,13 +613,19 @@
 								</div>
 							</div>
 							<div class="section-work__image">
-								<img src="./images/dist/work-3.png" alt="work-3" />
+								<picture>
+									<source
+										srcset="./images/dist/work-3-mob.svg"
+										media="(max-width: 700px)"
+									/>
+									<img src="./images/dist/work-3.png" alt="work-3" />
+								</picture>
 							</div>
 						</div>
 					</div>
 					<div class="section-work-right">
 						<div class="section-right">
-							<div class="section-right-item">
+							<div class="section-right-item wow">
 								<img src="./images/dist/s1.svg" alt="" />
 								<div class="section-right-item__col">
 									<p>
@@ -530,11 +644,11 @@
 					<div class="count-col">
 						<div class="section-col section-col-medium">
 							<h2 class="section__title">
-								Тарифы на телефонию Сипуни и интеграцию с amoCRM
+								Тарифы на телефонию Сипуни и интеграцию с amoCRM
 							</h2>
 							<div class="section__description">
-								Мы не берем доплат за интеграцию с amoCRM. Если вы купили
-								телефонию — интеграция уже у вас в кармане
+								Мы не берем доплат за интеграцию с amoCRM. Если вы купили
+								телефонию — интеграция уже у вас в кармане
 							</div>
 						</div>
 						<div class="rate-tabs">
@@ -2462,13 +2576,13 @@
 					<h2 class="section__title">amoCRM и Сипуни: опыт наших клиентов</h2>
 					<div class="section__description">
 						Делимся кейсами компаний, которые сделали интеграцию телефонии с
-						amoCRM и кайфуют
+						amoCRM и кайфуют
 					</div>
 				</div>
 
 				<div class="blog-container">
 					<div class="blog__width blog__height">
-						<a href="#" class="blog__item">
+						<a href="#" target="_blank" class="blog__item">
 							<span class="blog-image">
 								<img src="./images/dist/blog-1.jpg" alt="blog-1" />
 								<span class="blog-art"> Номера </span>
@@ -2480,7 +2594,7 @@
 						</a>
 					</div>
 					<div class="blog__width blog__height">
-						<a href="#" class="blog__item">
+						<a href="#" target="_blank" class="blog__item">
 							<span class="blog-image">
 								<img src="./images/dist/blog-2.jpg" alt="blog-1" />
 								<span class="blog-art"> Сим-карты </span>
@@ -2489,7 +2603,7 @@
 						</a>
 					</div>
 					<div class="blog__width blog__height">
-						<a href="#" class="blog__item">
+						<a href="#" target="_blank" class="blog__item">
 							<span class="blog-image">
 								<img src="./images/dist/blog-3.jpg" alt="blog-1" />
 								<span class="blog-art"> Номера </span>
@@ -2498,7 +2612,7 @@
 						</a>
 					</div>
 					<div class="blog__width blog__height">
-						<a href="#" class="blog__item">
+						<a href="#" target="_blank" class="blog__item">
 							<span class="blog-image">
 								<img src="./images/dist/blog-4.jpg" alt="blog-1" />
 								<span class="blog-art"> Номера </span>
@@ -2516,7 +2630,7 @@
 									блоге Сипуни
 								</div>
 								<div class="blog__button">
-									<a href="#" class="btn btn_white">
+									<a href="#" target="_blank" class="btn btn_white">
 										<span class="btn-arrow">
 											<span>Перейти в блог</span>
 											<svg
@@ -2538,6 +2652,83 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="blog-swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="#" target="_blank" class="blog__item">
+								<span class="blog-image">
+									<img src="./images/dist/blog-1.jpg" alt="blog-1" />
+									<span class="blog-art"> Номера </span>
+								</span>
+								<span class="blog__label">
+									Как подключить номер без SIM-карты, быстро масштабировать
+									связь и не терять клиентов
+								</span>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#" target="_blank" class="blog__item">
+								<span class="blog-image">
+									<img src="./images/dist/blog-2.jpg" alt="blog-1" />
+									<span class="blog-art"> Сим-карты </span>
+								</span>
+								<span class="blog__label"> SIM-карты: что нужно знать? </span>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#" target="_blank" class="blog__item">
+								<span class="blog-image">
+									<img src="./images/dist/blog-3.jpg" alt="blog-1" />
+									<span class="blog-art"> Номера </span>
+								</span>
+								<span class="blog__label"> SIM-карты: что нужно знать? </span>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#" target="_blank" class="blog__item">
+								<span class="blog-image">
+									<img src="./images/dist/blog-4.jpg" alt="blog-1" />
+									<span class="blog-art"> Номера </span>
+								</span>
+								<span class="blog__label">
+									Виртуальные номера и SIM-карты: что лучше для бизнеса?
+								</span>
+							</a>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+
+				<div class="blog-item-mobile">
+					<div class="blog__clean">
+						<div class="blog-under">
+							<div class="blog__descript">
+								Больше статей о том, как компании используют телефонию, — в
+								блоге Сипуни
+							</div>
+							<div class="blog__button">
+								<a href="#" target="_blank" class="btn btn_white">
+									<span class="btn-arrow">
+										<span>Перейти в блог</span>
+										<svg
+											width="11"
+											height="12"
+											viewBox="0 0 11 12"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M11 5.99991C11 6.13242 10.9472 6.2597 10.8535 6.35342L5.35352 11.8534C5.15832 12.0486 4.84176 12.0485 4.64648 11.8534C4.45124 11.6582 4.45123 11.3416 4.64648 11.1464L9.29297 6.49991L0.5 6.49991C0.223929 6.49987 6.97e-05 6.27597 -2.62268e-07 5.99991C2.47405e-05 5.72381 0.223901 5.49994 0.5 5.49991L9.29297 5.49991L4.64648 0.853424C4.45122 0.658162 4.45122 0.341655 4.64648 0.146393C4.84176 -0.0487585 5.15829 -0.0488322 5.35352 0.146393L10.8535 5.64639C10.9471 5.74013 11 5.86742 11 5.99991Z"
+												fill="#846df2"
+											></path>
+										</svg>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<section
@@ -2549,7 +2740,7 @@
 						<div class="section-col section-col-medium">
 							<h2 class="section__title">Как подключить Сипуни к amoCRM</h2>
 							<div class="section__description">
-								Помощь разработчика не потребуется. У нас — готовая интеграция.
+								Помощь разработчика не потребуется. У нас — готовая интеграция.
 								Сможете подключить самостоятельно за 20 минут
 							</div>
 						</div>
@@ -2572,27 +2763,42 @@
 				</div>
 
 				<div class="section-middle">
-					<div class="connect-container">
+					<div class="connect-container wow">
 						<div class="connect-column">
 							<div class="connect-list">
 								<div class="connect__image">
 									<img src="./images/dist/amo-1.png" alt="con-1" />
 								</div>
+								<div class="connect-counts-item-mob">
+									<img src="./images/dist/con-1.svg" alt="amo-1" />
+								</div>
 								<div class="connect__txt">
 									Установите приложение Сипуни в маркете amoCRM
+								</div>
+								<div class="connect-arrow-down-mob">
+									<img src="./images/dist/arrow-down-con-mob.svg" alt="" />
 								</div>
 							</div>
 							<div class="connect-list connect-list-rev">
 								<div class="connect__image">
 									<img src="./images/dist/amo-2.png" alt="con-1" />
 								</div>
+								<div class="connect-counts-item-mob">
+									<img src="./images/dist/con-2.svg" alt="amo-2" />
+								</div>
 								<div class="connect__txt">
 									Добавьте сотрудников в личном кабинете Сипуни
+								</div>
+								<div class="connect-arrow-down-mob">
+									<img src="./images/dist/arrow-down-con-mob.svg" alt="" />
 								</div>
 							</div>
 							<div class="connect-list">
 								<div class="connect__image">
 									<img src="./images/dist/amo-3.png" alt="con-1" />
+								</div>
+								<div class="connect-counts-item-mob">
+									<img src="./images/dist/con-3.svg" alt="amo-2" />
 								</div>
 								<div class="connect__txt">
 									Выберите схемы звонков для интеграции с amoCRM
@@ -2603,11 +2809,19 @@
 							<div class="connect-counts-item">
 								<img src="./images/dist/con-1.svg" alt="amo-1" />
 							</div>
-							<img src="./images/dist/arrow-down-con.svg" alt="" />
+							<img
+								class="counts-line-1"
+								src="./images/dist/arrow-down-con.svg"
+								alt=""
+							/>
 							<div class="connect-counts-item">
 								<img src="./images/dist/con-2.svg" alt="amo-2" />
 							</div>
-							<img src="./images/dist/arrow-down-con.svg" alt="" />
+							<img
+								class="counts-line-2"
+								src="./images/dist/arrow-down-con.svg"
+								alt=""
+							/>
 							<div class="connect-counts-item">
 								<img src="./images/dist/con-3.svg" alt="amo-3" />
 							</div>
