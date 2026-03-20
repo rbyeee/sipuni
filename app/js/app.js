@@ -9,68 +9,52 @@ document.addEventListener("DOMContentLoaded", () => {
 		const isScrollingDown = scrollPosition > lastScrollTop
 
 		if (scrollPosition > 240) {
-			// Если проскроллили больше 240px
 			if (isScrollingDown) {
-				// Скроллим вниз - добавляем header--hidden
 				header.classList.add("header--hidden")
 			} else {
-				// Скроллим вверх - убираем header--hidden
 				header.classList.remove("header--hidden")
 			}
 		} else if (scrollPosition > 50) {
-			// Если между 50px и 240px
 			header.classList.add("header--active")
 
-			// Если возвращаемся в этот диапазон из зоны >240px, убираем header--hidden
 			if (lastScrollTop > 240) {
 				header.classList.remove("header--hidden")
 			}
 		} else {
-			// Если выше 50px (включая самый верх)
 			header.classList.remove("header--active")
 			header.classList.remove("header--hidden")
 		}
 
-		// Обновляем последнюю позицию скролла
 		lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition
 	})
-	// Инициализируем контроллер
 	const controller = new ScrollMagic.Controller()
 
 	const steps = document?.querySelectorAll(".step")
 	const images = document?.querySelectorAll(".step-image")
 	const chronologySection = document.querySelector("#chronology")
 
-	let previousActiveStep = 1 // Отслеживаем предыдущий активный этап
-	let previousProgress = -1 // Отслеживаем предыдущий прогресс для определения направления скролла (-1 для первого вызова)
+	let previousActiveStep = 1
+	let previousProgress = -1
 
 	// Функция активации этапа
 	function activateStep(stepNumber, isScrollingDown = null) {
-		// Находим элемент, который теряет is-active
 		const previousStepElement = document.querySelector(
 			`.step[data-step="${previousActiveStep}"]`,
 		)
 
-		// Определяем, нужно ли добавлять класс step-down-active
-		// Добавляем только при скролле сверху вниз
 		const shouldAddStepDownActive =
 			previousActiveStep !== stepNumber &&
 			previousActiveStep > 0 &&
 			isScrollingDown === true &&
 			previousStepElement
 
-		// Определяем, нужно ли удалять класс step-down-active
-		// Удаляем при скролле снизу вверх
 		const shouldRemoveStepDownActive =
 			previousActiveStep !== stepNumber && isScrollingDown === false
 
-		// Сначала добавляем класс step-down-active предыдущему элементу, если нужно
-		// ДО того как удалим is-active
 		if (shouldAddStepDownActive) {
 			previousStepElement.classList.add("step-down-active")
 		}
 
-		// Убираем классы is-active и active-hidden у всех этапов
 		steps.forEach(step => {
 			step.classList.remove("is-active", "active-hidden")
 		})
@@ -78,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			img.classList.remove("is-active")
 		})
 
-		// Если скроллим вверх, удаляем step-down-active у текущего активного шага
 		if (shouldRemoveStepDownActive) {
 			const currentStepElement = document.querySelector(
 				`.step[data-step="${stepNumber}"]`,
@@ -88,14 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 
-		// Если переходим на другой этап, предыдущий получает класс active-hidden
 		if (previousActiveStep !== stepNumber && previousActiveStep > 0) {
 			if (previousStepElement) {
 				previousStepElement.classList.add("active-hidden")
 			}
 		}
 
-		// Активируем текущий этап
 		const activeStep = document.querySelector(
 			`.step[data-step="${stepNumber}"]`,
 		)
@@ -106,38 +87,30 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (activeStep) {
 			activeStep.classList.add("is-active")
 
-			activeStep.classList.remove("active-hidden") // Убираем active-hidden если был
+			activeStep.classList.remove("active-hidden")
 		}
 		if (activeImage) activeImage.classList.add("is-active")
 
-		// Обновляем предыдущий активный этап
 		previousActiveStep = stepNumber
 	}
 
-	// 1) Пин всей секции на фиксированные 200vh и переключение шагов по прогрессу
+	// Пин всей секции на фиксированные 200vh и переключение шагов по прогрессу
 	const SECTION_DURATION_VH = 200
-	const HEADER_HEIGHT = 90 // Высота фиксированной шапки
-	// Тонкая подстройка попадания по клику. Можно править цифры под макет.
-	const CLICK_OFFSET = -12 // общий сдвиг, если нужно выше/ниже
-	// Индивидуальные корректировки прогресса для шагов (номер шага -> добавка к прогрессу)
-	// Позволяет точно посадить 2 и 3 шаг на нужные координаты
+	const HEADER_HEIGHT = 90
+	const CLICK_OFFSET = -12
 	const STEP_PROGRESS_TWEAKS = {
-		1: 0, // первый без сдвига
-		2: 0, // точная посадка за счёт середины сегмента
-		3: 0, // убран отрицательный сдвиг, чтобы не попадать в диапазон 2-го
-		4: 0, // последний обычно без сдвига
+		1: 0,
+		2: 0,
+		3: 0,
+		4: 0,
 	}
 
 	function calcDurationPx() {
-		// Учитываем высоту шапки при расчете доступной высоты
-		// Добавляем дополнительное пространство для последнего элемента (примерно 50% от базовой длительности)
 		const baseDuration =
 			((window.innerHeight - HEADER_HEIGHT) * SECTION_DURATION_VH) / 100
-		// Добавляем дополнительное пространство, чтобы последний элемент не пропадал
 		return baseDuration + baseDuration * 0.5
 	}
 
-	// Кэшируем реальную стартовую позицию сцены, чтобы клики по шагам работали корректно
 	let initialSceneStart = null
 	function computeSceneStart() {
 		if (!chronologySection) return
@@ -145,23 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		initialSceneStart = rect.top + window.pageYOffset - HEADER_HEIGHT
 	}
 
-	// После полной загрузки страницы вычисляем стартовую позицию
 	window.addEventListener("load", () => {
 		computeSceneStart()
 	})
 
 	const pinScene = new ScrollMagic.Scene({
 		triggerElement: "#chronology",
-		triggerHook: 0, // Триггер срабатывает когда элемент достигает верха viewport
-		// Отрицательный offset: триггер сработает когда секция будет на HEADER_HEIGHT от верха
-		// Это позволит секции начать закрепляться сразу после предыдущей секции
+		triggerHook: 0,
 		offset: -HEADER_HEIGHT,
 		duration: calcDurationPx(),
 	})
 		.setPin(chronologySection, { pushFollowers: true })
 		.addTo(controller)
 		.on("enter", () => {
-			// При закреплении устанавливаем top равный высоте шапки
 			requestAnimationFrame(() => {
 				if (chronologySection) {
 					chronologySection.style.top = HEADER_HEIGHT + "px"
@@ -169,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			})
 		})
 		.on("update", () => {
-			// Постоянно обновляем позицию при закреплении, чтобы она всегда была на HEADER_HEIGHT
 			if (
 				chronologySection &&
 				window.getComputedStyle(chronologySection).position === "fixed"
@@ -181,30 +149,23 @@ document.addEventListener("DOMContentLoaded", () => {
 			const total = steps.length
 			if (!total) return
 
-			// Определяем направление скролла
-			// Если previousProgress === -1, это первый вызов, считаем что скролл вниз
 			const isScrollingDown =
 				previousProgress === -1 ? true : e.progress > previousProgress
 			previousProgress = e.progress
 
-			// Улучшенная логика: последний элемент получает больше времени
-			// Делим прогресс: первые 70% для первых элементов, последние 30% для последнего
 			const lastElementThreshold = 0.7
 
 			let index
 			if (e.progress < lastElementThreshold) {
-				// Для первых (total - 1) элементов равномерно распределяем время
 				const segment = lastElementThreshold / (total - 1)
 				index = Math.min(total - 2, Math.floor(e.progress / segment))
 			} else {
-				// Последний элемент остается активным на оставшиеся 30% прогресса
 				index = total - 1
 			}
 
 			activateStep(index + 1, isScrollingDown)
 		})
 		.on("leave", () => {
-			// При откреплении убираем top
 			if (chronologySection) {
 				chronologySection.style.removeProperty("top")
 			}
@@ -212,11 +173,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	window.addEventListener("resize", () => {
 		pinScene.duration(calcDurationPx())
-		// Пересчитываем стартовую позицию при изменении размеров окна
 		computeSceneStart()
 	})
 
-	// 2) Клики по этапам для перехода к нужному этапу
+	// Клики по этапам для перехода к нужному этапу
 	steps.forEach(step => {
 		step.addEventListener("click", function (e) {
 			e.preventDefault()
@@ -229,24 +189,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			const otherElementsRatio = lastElementThreshold / (total - 1)
 
 			let targetProgress
-			const segment = otherElementsRatio // длина сегмента одного шага в прогрессе
+			const segment = otherElementsRatio
 			if (stepNumber < total) {
-				// целимся в середину соответствующего сегмента, чтобы не попасть на границу
 				targetProgress = segment * (stepNumber - 1 + 0.5)
 			} else {
-				// для последнего шага целимся в середину его диапазона [0.7..1] => 0.85
 				targetProgress = lastElementThreshold + (1 - lastElementThreshold) * 0.5
 			}
-			// Применяем индивидуальные корректировки прогресса (тонкая настройка)
 			const tweak = STEP_PROGRESS_TWEAKS[stepNumber] || 0
 			targetProgress = Math.min(1, Math.max(0, targetProgress + tweak))
 
-			// Используем реальные параметры сцены от библиотеки, это надёжнее
 			let sceneStart
 			if (typeof pinScene.scrollOffset === "function") {
 				sceneStart = pinScene.scrollOffset()
 			} else {
-				// Фолбэк на случай отсутствия метода (не должен понадобиться)
 				if (initialSceneStart == null || Number.isNaN(initialSceneStart)) {
 					computeSceneStart()
 				}
@@ -271,9 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		})
 	})
 
-	// Индикаторы отключены по умолчанию
-
-	// Инициализация первого этапа
 	activateStep(1)
 
 	// ===== Side Menu (auto from headings with data-side-title) =====
@@ -316,7 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		links.forEach(link => {
 			link.addEventListener("click", e => {
 				e.preventDefault()
-				// mark clicked link with active-trigger
 				links.forEach(l => l.classList.remove("active-trigger"))
 				link.classList.add("active-trigger")
 
@@ -362,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		headings.forEach(h => observer.observe(h))
 	} else {
-		// Fallback: use existing static menu links
 		const menuLinks = Array.from(document?.querySelectorAll(".side-nav__link"))
 		if (menuLinks && menuLinks?.length) {
 			const targets = menuLinks
@@ -376,7 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					const href = link.getAttribute("href") || ""
 					if (href.startsWith("#")) {
 						e.preventDefault()
-						// mark clicked link with active-trigger
 						menuLinks.forEach(l => l.classList.remove("active-trigger"))
 						link.classList.add("active-trigger")
 
@@ -442,7 +391,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			for (const el of items) {
 				const rect = el.getBoundingClientRect()
-				// Рассматриваем элементы, которые хотя бы частично видимы (+ небольшой запас)
 				const margin = 48
 				if (rect.bottom < -margin || rect.top > viewportHeight + margin)
 					continue
@@ -467,14 +415,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			})
 		}
 
-		// Слушатели с passive для плавности
 		window.addEventListener("scroll", onScrollOrResize, { passive: true })
 		window.addEventListener("resize", onScrollOrResize, { passive: true })
 
-		// Начальная активация
 		computeClosestToCenter()
 
-		// уважение настройки "уменьшить анимацию"
 		if (
 			window.matchMedia &&
 			window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -492,21 +437,18 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (!sliderWrapper || !prevButton || !nextButton) return
 
 		const cards = Array.from(sliderWrapper.querySelectorAll(".slider-card"))
-		let currentIndex = 1 // Индекс активной карточки (data-index="1")
+		let currentIndex = 1 
 		let isAnimating = false
 
-		// Находим минимальный и максимальный индекс
 		const indices = cards.map(card => parseInt(card.getAttribute("data-index")))
 		const minIndex = Math.min(...indices)
 		const maxIndex = Math.max(...indices)
 
-		// Функция для обновления классов карточек
 		function updateCards() {
 			cards.forEach(card => {
 				const cardIndex = parseInt(card.getAttribute("data-index"))
 				const diff = cardIndex - currentIndex
 
-				// Удаляем все классы состояний
 				card.classList.remove(
 					"slider-card-active",
 					"slider-card-prev",
@@ -518,11 +460,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					"slider-card-enter-right",
 				)
 
-				// Убираем инлайн стили
 				card.style.transform = ""
 				card.style.opacity = ""
 
-				// Добавляем соответствующий класс в зависимости от позиции
 				if (diff === 0) {
 					card.classList.add("slider-card-active")
 				} else if (diff === -1) {
@@ -536,12 +476,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 			})
 
-			// Обновляем состояние кнопок
 			prevButton.disabled = currentIndex <= minIndex
 			nextButton.disabled = currentIndex >= maxIndex
 		}
 
-		// Функция для перехода к следующей карточке
 		function nextSlide() {
 			if (isAnimating || currentIndex >= maxIndex) return
 
@@ -554,35 +492,28 @@ document.addEventListener("DOMContentLoaded", () => {
 			)
 
 			if (activeCard && nextCard) {
-				// Сначала убираем класс active у текущей карточки
 				activeCard.classList.remove("slider-card-active")
 
-				// Небольшая задержка для плавности
 				requestAnimationFrame(() => {
-					// Добавляем класс ухода
 					activeCard.classList.add("slider-card-exit-left")
 
-					// Убираем класс next у следующей карточки
 					nextCard.classList.remove("slider-card-next")
 
-					// Добавляем класс active с небольшой задержкой для плавности
 					requestAnimationFrame(() => {
 						nextCard.classList.add("slider-card-active")
 					})
 				})
 
-				// После завершения анимации обновляем все позиции
 				setTimeout(() => {
 					currentIndex++
 					updateCards()
 					isAnimating = false
-				}, 1000) // Время анимации из CSS
+				}, 1000)
 			} else {
 				isAnimating = false
 			}
 		}
 
-		// Функция для перехода к предыдущей карточке
 		function prevSlide() {
 			if (isAnimating || currentIndex <= minIndex) return
 
@@ -595,18 +526,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			)
 
 			if (activeCard && prevCard) {
-				// Сначала убираем класс active у текущей карточки
 				activeCard.classList.remove("slider-card-active")
 
-				// Небольшая задержка для плавности
 				requestAnimationFrame(() => {
-					// Добавляем класс ухода
 					activeCard.classList.add("slider-card-exit-right")
 
-					// Убираем класс prev у предыдущей карточки
 					prevCard.classList.remove("slider-card-prev")
 
-					// Добавляем класс active с небольшой задержкой для плавности
 					requestAnimationFrame(() => {
 						prevCard.classList.add("slider-card-active")
 					})
@@ -622,7 +548,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		}
 
-		// Обработчики событий
 		nextButton.addEventListener("click", e => {
 			e.preventDefault()
 			nextSlide()
@@ -633,7 +558,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			prevSlide()
 		})
 
-		// Инициализация
 		updateCards()
 	})()
 
@@ -665,51 +589,39 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		function switchToIndex(index) {
-			// Проверяем валидность индекса
 			if (index < 0 || index >= regularItems?.length) return
 
-			// Убираем активный класс у всех
 			items.forEach(item => item?.classList?.remove("statistics__item-active"))
 
-			// Добавляем активный класс выбранному элементу
 			if (regularItems[index]) {
 				regularItems[index]?.classList?.add("statistics__item-active")
 			}
 
-			// Показываем соответствующую картинку
 			showImage(index)
 
-			// Обновляем текущий индекс
 			currentIndex = index
 		}
 
 		function rotateItems() {
-			// Увеличиваем индекс для следующего шага
 			currentIndex = (currentIndex + 1) % regularItems?.length
 
-			// Переключаем на следующий элемент
 			switchToIndex(currentIndex)
 		}
 
 		function startRotation() {
-			// Очищаем предыдущий интервал, если есть
 			if (rotationInterval) {
 				clearInterval(rotationInterval)
 			}
-			// Запускаем ротацию каждые 5 секунд
 			rotationInterval = setInterval(rotateItems, 5000)
 		}
 
-		// Добавляем обработчики кликов на каждую карточку
 		regularItems.forEach((item, index) => {
 			item.addEventListener("click", () => {
 				switchToIndex(index)
-				// Перезапускаем автоматическую ротацию после клика
 				startRotation()
 			})
 		})
 
-		// Инициализация
 		showImage(0)
 		switchToIndex(0)
 		startRotation()
@@ -736,23 +648,18 @@ document.addEventListener("DOMContentLoaded", () => {
 			arrow.addEventListener("click", function (e) {
 				e.preventDefault()
 
-				// Находим родительский элемент header-mobile__drop
 				const dropContainer = this.closest(".header-mobile__drop")
 				if (!dropContainer) return
 
-				// Находим колонку внутри этого контейнера
 				const column = dropContainer.querySelector(".header-mobile-collumn")
 				if (!column) return
 
-				// Переключаем состояние
 				const isOpen = column.classList.contains("is-open")
 
 				if (isOpen) {
-					// Закрываем
 					column.classList.remove("is-open")
 					this.classList.remove("active")
 				} else {
-					// Открываем
 					column.classList.add("is-open")
 					this.classList.add("active")
 				}
@@ -788,7 +695,6 @@ document.addEventListener("DOMContentLoaded", () => {
 							this.classList.remove("copied")
 						}, 2000)
 					} catch (err) {
-						// Fallback для старых браузеров
 						const textArea = document.createElement("textarea")
 						textArea.value = email
 						textArea.style.position = "fixed"
@@ -833,7 +739,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				const isOpen = content.classList.contains("is-open")
 
-				// Закрываем все остальные элементы
 				accordionItems.forEach(otherItem => {
 					if (otherItem !== item) {
 						const otherContent = otherItem.querySelector(
@@ -852,7 +757,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 				})
 
-				// Переключаем текущий элемент
 				if (isOpen) {
 					content.classList.remove("is-open")
 					label.classList.remove("is-active")
