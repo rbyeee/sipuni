@@ -368,6 +368,8 @@
 }
 
 .side-menu-tariff {
+  margin-top: -9px;
+
   .side-nav__list {
     gap: 4px;
   }
@@ -752,7 +754,7 @@
 
       strong {
         display: block;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 16px;
         line-height: 125%;
         color: #2e2e33;
@@ -830,7 +832,7 @@
 }
 
 .count__col {
-  gap: 15px;
+  gap: 12px;
 }
 
 .connection_offset {
@@ -870,6 +872,18 @@
 
 .tariff-sim-gray {
   display: none;
+
+  .section-right-item {
+    &:first-child {
+      .section-right-item__col {
+        max-width: 100%;
+
+        p {
+          max-width: 212px;
+        }
+      }
+    }
+  }
 }
 
 .connection__art-mob {
@@ -1162,6 +1176,73 @@
   .tariff-sim__width {
     padding: 0 0 10px;
   }
+
+  .tariff-sim__width:first-child:hover .tariff-sim__image {
+    animation: none;
+  }
+
+  .tariff-sim__width {
+    &:nth-child(1) {
+      &:hover {
+        .tariff-sim__image {
+          animation: none;
+        }
+      }
+
+      .tariff-sim__image {
+        animation: none;
+      }
+    }
+
+    &:nth-child(2) {
+      &:hover {
+        .tariff-sim__image {
+          animation: none;
+        }
+      }
+
+      .tariff-sim__image {
+        animation: none;
+      }
+    }
+
+    &:nth-child(3) {
+      &:hover {
+        .tariff-sim__image {
+          animation: none;
+        }
+      }
+
+      .tariff-sim__image {
+        animation: none;
+      }
+    }
+
+    &:nth-child(4) {
+      &:hover {
+        .tariff-sim__image {
+          animation: none;
+        }
+      }
+
+      .tariff-sim__image {
+        animation: none;
+      }
+    }
+
+    &:nth-child(5) {
+      &:hover {
+        .tariff-sim__image {
+          animation: none;
+        }
+      }
+
+      .tariff-sim__image {
+        animation: none;
+      }
+    }
+  }
+
 }
 
 @media (max-width: 450px) {

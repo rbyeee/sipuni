@@ -41,7 +41,8 @@ $(document).ready(function () {
 		pagination: {
 			el: ".swiper-pagination",
 		},
-		spaceBetween: 5,
+		spaceBetween: 8,
 		slidesPerView: "auto",
 	})
+	var sticky = new Sticky(".side-menu")
 })

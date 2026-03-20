@@ -1,5 +1,10 @@
 @import 'variables';
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 .btn {
   outline: none;
   border: none;
@@ -54,7 +59,7 @@
     svg {
       position: absolute;
       right: 15px;
-      bottom: 17px;
+      bottom: 22px;
       opacity: 0;
       visibility: hidden;
       transition: all 0.2s ease;
@@ -192,7 +197,7 @@
   position: relative;
 
   svg {
-    top: 9px;
+    top: 7px;
     right: -15px;
   }
 }
@@ -235,10 +240,13 @@ a {
 
 .rate-tabs__link {
   font-weight: 300;
+
   &:hover {
     background-color: #f2f2f2;
-    font-weight: 300;
+    font-weight: 300 !important;
+    color: #757575;
   }
+
   &.active {
     font-weight: 500;
   }
