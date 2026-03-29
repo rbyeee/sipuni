@@ -910,6 +910,7 @@
   border: 1px solid rgba(208, 208, 229, 1);
   border-radius: 12px;
   display: inline-flex;
+  margin-bottom: 56px;
 
   &__link {
     font-weight: 500;
@@ -2521,11 +2522,20 @@
   gap: 4px;
 }
 
+.client__bottom .btn {
+  height: 48px;
+}
+
+.client__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .side-nav__list {
   .side-nav__item:nth-child(3) {
     svg {
       position: relative;
-      top: -13px;
       left: -20px;
     }
 
