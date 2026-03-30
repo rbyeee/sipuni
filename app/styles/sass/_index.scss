@@ -870,6 +870,10 @@
   line-height: 1.2;
   color: $dark-color;
   margin-bottom: 16px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .client__col {
@@ -2197,6 +2201,24 @@
     width: 100%;
   }
 
+  .client__description {
+    margin-bottom: 0;
+  }
+
+  #chronology-sec {
+    #chronology-heading {
+      max-width: 100%;
+    }
+  }
+
+  .rate-tabs {
+    margin-bottom: 0;
+  }
+
+  .rate-tabs {
+    width: 100%;
+  }
+
   .section-button {
     margin-top: 40px;
     display: flex;
@@ -2259,6 +2281,10 @@
         color: #fff;
       }
     }
+  }
+
+  .index-content {
+    margin-top: 52px;
   }
 }
 
