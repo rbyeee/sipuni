@@ -1,0 +1,279 @@
+.bitrix24-index {
+  margin-top: 0;
+  padding-top: 156px;
+
+  @media (max-width: 700px) {
+    padding-top: 112px;
+  }
+
+  &__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    padding: 0 0 0 116px;
+
+    @media (max-width: 1440px) {
+      padding: 0 0 0 8.055555555555556vw;
+    }
+
+    @media (max-width: 1060px) {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      padding: 0;
+    }
+  }
+
+  &__col, &__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+  }
+
+  &__col {
+    position: relative;
+    max-width: 328px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: 1440px) {
+      max-width: 22.77777777777778vw;
+    }
+
+    @media (max-width: 1060px) {
+      max-width: 100%;
+      gap: 24px;
+    }
+  }
+
+  &__button .btn--left {
+    font-size: 14px;
+    padding: 11px 28px
+  }
+  &__button .btn--left-box {
+    gap: 1px
+  }
+  &__button .btn--left span {
+    font-size: 16px;
+    line-height: 120%;
+  }
+  &__button .btn--left span.color-gray {
+    font-size: 14px
+  }
+
+  &__title {
+    color: #2e2e33;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 120%;
+    margin-bottom: 24px
+  }
+  &__title span {
+    color: #846df2
+  }
+  &__description {
+    color: #2e2e33;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 140%;
+    max-width: 330px;
+    width: 100%
+  }
+  &__image {
+    position: relative;
+  }
+  &__image picture img {
+    position: relative;
+    width: 100%;
+  }
+  &__button-mob {
+    display: none;
+  }
+}
+
+.bitrix24-txt-anim {
+  color: #674af1;
+  font-family: Caveat;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 100%;
+  position: absolute;
+  z-index: 2
+}
+.bitrix24-txt-anim.txt-1 {
+  -webkit-animation: animationFadeIn .5s ease .2s forwards;
+  animation: animationFadeIn .5s ease .2s forwards;
+  left: 50px;
+  max-width: 135px;
+  opacity: 0;
+  top: 20px;
+  width: 100%
+}
+.bitrix24-txt-anim.txt-2 {
+  -webkit-animation: animationFadeIn .5s ease .6s forwards;
+  animation: animationFadeIn .5s ease .6s forwards;
+  bottom: 179px;
+  max-width: 176px;
+  opacity: 0;
+  right: 50px;
+  width: 100%
+}
+@media (max-width: 1440px) {
+  .bitrix24-txt-anim.txt-2 {
+    bottom: 12.43055555555556vw;
+    right: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .bitrix24-index__button {
+    display: none;
+  }
+  .bitrix24-txt-anim.txt-1 {
+    display: none;
+  }
+  .bitrix24-txt-anim.txt-2 {
+    display: none;
+  }
+  .bitrix24-txt-anim.txt-1-mob {
+    animation: animationFadeIn .5s ease .2s forwards;
+    display: block;
+    font-size: 21px;
+    left: 19px;
+    max-width: 146px;
+    opacity: 0;
+    top: 30px;
+    width: 100%;
+  }
+  .bitrix24-index__button-mob {
+    display: block;
+    margin-top: 14px
+  }
+  .bitrix24-index__button-mob .btn--left {
+    width: 100%;
+    align-items: center;
+    padding: 10px 64px
+  }
+  .bitrix24-index__button-mob .btn--left span {
+    font-size: 16px
+  }
+}
+
+.main-container-bitrix24 {
+  gap: 20px;
+  margin-top: 120px
+}
+.tab-bitrix24_offset {
+  padding-top: 0;
+}
+#section2.tab-bitrix24_offset {
+  padding-bottom: 60px;
+}
+.tab-bitrix24 .section-col {
+  max-width: 676px;
+}
+.tab-bitrix24 .tab-amo-wrap {
+  gap: 46px;
+}
+.tab-bitrix24 .tab-amo-images {
+  top: 0;
+  padding-right: 0;
+}
+.tab-bitrix24 .chronology-mobile-container {
+  display: none;
+}
+@media (max-width: 750px) {
+  .tab-bitrix24 .tab-amo-wrap {
+    display: none;
+  }
+  .tab-bitrix24 .chronology-mobile-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.bitrix24-work__item-2 .section-work__col {
+  max-width: 302px;
+}
+.bitrix24-work__item-2 .section-work-list a svg path {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.bitrix24-work__item-2 .section-work-list a:hover svg path {
+  fill: #846DF2;
+}
+.bitrix24-work__item-2 .bitrix24-work__image-wrapper {
+  position: relative;
+}
+.bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__text {
+  position: absolute;
+  top: 20px;
+  left: 48px;
+  z-index: 3;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__arrow {
+  position: absolute;
+  top: 64px;
+  right: 240px;
+  z-index: 3;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+@media (max-width: 1320px) {
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__arrow {
+    right: 256px;
+  }
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__text {
+    left: 62px;
+  }
+}
+@media (max-width: 990px) {
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__arrow {
+    right: 240px;
+  }
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__text {
+    left: 52px;
+  }
+}
+@media (max-width: 700px) {
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__text {
+    top: 4.571428571428571vw;
+    left: 6.857142857142857vw;
+  }
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__text img {
+    width: 20.85714285714286vw;
+  }
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__arrow {
+    top: 28.57142857142857vw;
+    left: 11.42857142857143vw;
+    right: unset;
+  }
+  .bitrix24-work__item-2 .bitrix24-work__image-wrapper .bitrix24-work__arrow img {
+    width: 28.57142857142857vw;
+    height: 42.85714285714286vw;
+  }
+}
+.main-bitrix24 .blog .section__description,
+.main-bitrix24 .blog .section-col {
+  max-width: 676px;
+}
+@media (max-width: 650px) {
+  .blog-swiper .swiper-slide .blog-image img {
+    height: unset;
+    aspect-ratio: 1 / 1;
+  }
+}
