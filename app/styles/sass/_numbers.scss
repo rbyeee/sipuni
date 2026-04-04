@@ -1297,6 +1297,12 @@
     }
   }
 
+  &__cat {
+    .cat-1-image {
+      max-width: 230px;
+    }
+  }
+
   &__prices {
     h2 {
       margin: 0;
@@ -1306,7 +1312,6 @@
       display: flex;
       align-items: start;
       gap: 78px;
-      margin-top: 24px;
       
       @media (max-width: 1350px) {
         gap: 20px;
@@ -1314,6 +1319,7 @@
     }
 
     .rate-tabs {
+      margin-bottom: 24px;
       @media (max-width: 450px) {
         width: 100%;
         gap: 4px;
@@ -1349,7 +1355,7 @@
     }
 
     &-offset {
-      padding-bottom: 0;
+      padding-bottom: 56px;
 
       @media (max-width: 700px) {
         padding-top: 80px;

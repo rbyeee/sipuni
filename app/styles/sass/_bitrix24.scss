@@ -277,3 +277,15 @@
     aspect-ratio: 1 / 1;
   }
 }
+
+.bitrix24__count-content {
+  .swiper-slide {
+    height: auto;
+  }
+  .count__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
