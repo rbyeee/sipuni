@@ -1,3 +1,34 @@
+const header = document.querySelector(".header")
+let lastScrollTop = window.scrollY
+
+function updateHeader() {
+	const scrollPosition = window.scrollY
+	const isScrollingDown = scrollPosition > lastScrollTop
+
+	// 1. Управление фоновой подложкой (header--active)
+	if (scrollPosition > 50) {
+		header.classList.add("header--active")
+	} else {
+		header.classList.remove("header--active")
+	}
+
+	// 2. Управление скрытием/показом (header--hidden)
+	if (scrollPosition > 240) {
+		if (isScrollingDown) {
+			header.classList.add("header--hidden")
+		} else {
+			header.classList.remove("header--hidden")
+		}
+	} else {
+		header.classList.remove("header--hidden")
+	}
+
+	lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition
+}
+
+// Вызываем при загрузке и при скролле
+updateHeader()
+window.addEventListener("scroll", updateHeader)
 let swiper
 
 function createSwiper() {

@@ -1,32 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-	let lastScrollTop = 0
-
-	window.addEventListener("scroll", function () {
-		const header = document.querySelector(".header")
-		const scrollPosition = window.scrollY
-
-		// Определяем направление скролла
-		const isScrollingDown = scrollPosition > lastScrollTop
-
-		if (scrollPosition > 240) {
-			if (isScrollingDown) {
-				header.classList.add("header--hidden")
-			} else {
-				header.classList.remove("header--hidden")
-			}
-		} else if (scrollPosition > 50) {
-			header.classList.add("header--active")
-
-			if (lastScrollTop > 240) {
-				header.classList.remove("header--hidden")
-			}
-		} else {
-			header.classList.remove("header--active")
-			header.classList.remove("header--hidden")
-		}
-
-		lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition
-	})
 	const controller = new ScrollMagic.Controller()
 
 	const steps = document?.querySelectorAll(".step")
@@ -437,7 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (!sliderWrapper || !prevButton || !nextButton) return
 
 		const cards = Array.from(sliderWrapper.querySelectorAll(".slider-card"))
-		let currentIndex = 1 
+		let currentIndex = 1
 		let isAnimating = false
 
 		const indices = cards.map(card => parseInt(card.getAttribute("data-index")))
@@ -633,7 +605,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const swiper = new Swiper(".statistics-swiper", {
 		loop: true,
-		spaceBetween: 24,
+		spaceBetween: 8,
+		slidesPerView: 1.1,
 
 		pagination: {
 			el: ".swiper-pagination",
