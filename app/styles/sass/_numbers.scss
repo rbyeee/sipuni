@@ -293,10 +293,14 @@
   }
 }
 
-@media (max-width: 700px) {
-  .main-container-numbers {
+.main-container-numbers {
+  @media (max-width: 700px) {
     margin-top: 80px;
     padding: 0 20px;
+  }
+
+  .side-menu-tariff {
+    margin-top: 0;
   }
 }
 
