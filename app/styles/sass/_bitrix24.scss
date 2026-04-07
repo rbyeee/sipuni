@@ -51,17 +51,20 @@
       gap: 24px;
     }
   }
-
+  &__button {
+    margin-bottom: 24px;
+  }
   &__button .btn--left {
     font-size: 14px;
-    padding: 11px 28px
+    padding: 7px 28px
   }
   &__button .btn--left-box {
     gap: 1px
   }
   &__button .btn--left span {
     font-size: 16px;
-    line-height: 120%;
+    line-height: 1;
+    gap: 1px;
   }
   &__button .btn--left span.color-gray {
     font-size: 14px
@@ -91,6 +94,7 @@
   &__image picture img {
     position: relative;
     width: 100%;
+    pointer-events: none;
   }
   &__button-mob {
     display: none;
@@ -158,22 +162,47 @@
   .bitrix24-index__button-mob .btn--left {
     width: 100%;
     align-items: center;
-    padding: 10px 64px
+    padding: 7px 64px
   }
   .bitrix24-index__button-mob .btn--left span {
-    font-size: 16px
+    font-size: 16px;
+    line-height: 1;
+    gap: 1px;
   }
 }
 
 .main-container-bitrix24 {
   gap: 20px;
-  margin-top: 120px
+  margin-top: 120px;
+
+  .side-menu-tariff {
+    margin-top: 0;
+
+    .side-nav__link {
+      @media (max-width: 1150px) {
+        align-items: start;
+      }
+      span {
+        @media (max-width: 1150px) {
+          line-height: 130%;
+        }
+      }
+      svg {
+        @media (max-width: 1150px) {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
 }
 .tab-bitrix24_offset {
   padding-top: 0;
 }
 #section2.tab-bitrix24_offset {
   padding-bottom: 60px;
+  @media (max-width: 650px) {
+    padding-bottom: 40px;
+  }
 }
 .tab-bitrix24 .section-col {
   max-width: 676px;
@@ -204,8 +233,14 @@
   }
 }
 
-.bitrix24-work__item-2 .section-work__col {
-  max-width: 302px;
+.bitrix24-work__item-2 {
+  .section-work__col {
+    max-width: 302px;
+
+    @media (max-width: 700px) {
+      max-width: 100%;
+    }
+  }
 }
 .bitrix24-work__item-2 .section-work-list a svg path {
   -webkit-transition: all .3s ease;
@@ -267,10 +302,25 @@
     height: 42.85714285714286vw;
   }
 }
-.main-bitrix24 .blog .section__description,
-.main-bitrix24 .blog .section-col {
-  max-width: 676px;
+.main-bitrix24 {
+  .blog {
+    .blog-container {
+      row-gap: 12px;
+    }
+
+    .section__title {
+      @media(max-width: 600px) {
+        max-width: 100%;
+      }
+    }
+
+    .section__description,
+    .section-col {
+      max-width: 676px;
+    }
+  }
 }
+
 @media (max-width: 650px) {
   .blog-swiper .swiper-slide .blog-image img {
     height: unset;

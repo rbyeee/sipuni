@@ -657,6 +657,9 @@
 .quest-offset {
   .documents-title-middle {
     margin-bottom: 49px;
+    @media (max-width: 650px) {
+      margin-bottom: 32px;
+    }
   }
 
   .documents-under__content {
@@ -1200,6 +1203,7 @@
 
   .section-work__container {
     gap: 0;
+    margin-bottom: 40px;
   }
 
   .section-work-list {
