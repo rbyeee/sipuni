@@ -604,10 +604,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	const swiper = new Swiper(".statistics-swiper", {
-		loop: true,
 		spaceBetween: 8,
 		slidesPerView: 1.1,
-
+		centeredSlides: true,
 		pagination: {
 			el: ".swiper-pagination",
 		},

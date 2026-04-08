@@ -17,8 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-
+  min-height: 48px;
 
   &_white {
     color: #846df2;
@@ -979,5 +978,31 @@ a {
   .footer__contacts .footer-box {
     justify-content: space-between;
     gap: 19px;
+  }
+}
+
+.side-nav__list {
+  line-height: 28px;
+}
+
+@media (max-width:1110px) {
+  .side-nav__list-reset-arrow .side-nav__item:last-child {
+    max-width: 169px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .rate-tabs__link:hover {
+    font-weight: 500 !important;
+    color: #2e2e33 !important;
+  }
+
+  .rate-tabs__link {
+    flex-shrink: 0;
+  }
+
+  .rate-tabs {
+    gap: 0;
   }
 }
