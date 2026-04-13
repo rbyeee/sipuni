@@ -145,12 +145,19 @@
             font-size: 16px
           }
         }
+
+        svg {
+          @media(max-width: 700px) {
+            top: 23px;
+            right: 40px;
+          }
+        }
       }
     }
 
     .btn--left {
       font-size: 14px;
-      padding: 11px 28px;
+      padding: 7px 28px;
 
       &-box {
         gap: 1px
@@ -158,7 +165,8 @@
 
       span {
         font-size: 16px;
-        line-height: 120%;
+        line-height: 1;
+        gap: 1px;
 
         &.color-gray {
           font-size: 14px
@@ -171,9 +179,27 @@
 .main-numbers {
   .index-content {
     margin-top: 60px;
+    padding: 54px 60px 54px 100px;
 
-    @media (max-width: 700px) {
+    @media (max-width: 1200px) {
+      padding: 34px 49px 34px 69px;
+    }
+    @media (max-width: 990px) {
       margin-top: 80px;
+      padding: 0;
+    }
+    
+    .index-posititon {
+      width: 100%;
+      left: unset;
+      justify-content: space-between;
+
+      @media (max-width: 1280px) and (min-width: 1231px) {
+        gap: 6.25vw;
+      }
+      @media (max-width: 990px) {
+        justify-content: center;
+      }
     }
   }
 
@@ -1116,13 +1142,18 @@
       gap: 32px;
 
       .btn {
-        padding: 14px 28px;
+        padding: 7px 28px;
         @media (max-width: 1440px) and (min-width: 990px) {
           padding: 0.9722222222222222vw 1.944444444444444vw;
         }
 
         span {
+          line-height: 100%;
           white-space: nowrap;
+        }
+
+        svg {
+          top: 2px;
         }
       }
     }
@@ -1265,9 +1296,10 @@
       }
 
       .btn {
-        padding: 14px 28px;
+        padding: 7px 28px;
 
         span {
+          line-height: 100%;
           white-space: nowrap;
         }
       }
@@ -1319,6 +1351,12 @@
       
       @media (max-width: 1350px) {
         gap: 20px;
+      }
+    }
+
+    .tariff-sim__container {
+      @media (max-width: 650px) {
+        margin-top: 0 !important;
       }
     }
 
@@ -1387,10 +1425,15 @@
 
     .btn {
       width: fit-content;
-      padding: 14px 28px;
+      padding: 7px 28px;
 
       span {
+        line-height: 100%;
         white-space: nowrap;
+      }
+      
+      svg {
+        top: 2px;
       }
     }
 
@@ -1476,6 +1519,8 @@
   }
 
   &__faq {
+    padding-bottom: 0;
+
     .documents-under__label {
       @media (max-width: 650px) {
         align-items: start;
@@ -1521,6 +1566,12 @@
           }
         }
       }
+    }
+  }
+
+  &__tabs {
+    .rate-tabs {
+      margin-bottom: 0;
     }
   }
 }

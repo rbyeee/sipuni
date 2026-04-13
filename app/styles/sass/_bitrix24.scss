@@ -96,8 +96,33 @@
     width: 100%;
     pointer-events: none;
   }
+
   &__button-mob {
     display: none;
+
+    @media (max-width: 700px) {
+      display: block;
+      margin-top: 14px;
+    }
+
+    .btn--left {
+      width: 100%;
+      align-items: center;
+      padding: 7px 64px;
+
+      span {
+        font-size: 16px;
+        line-height: 1;
+        gap: 1px;
+      }
+
+      svg {
+        @media (max-width: 700px) {
+          top: 18px;
+          right: 44px;
+        }
+      }
+    }
   }
 }
 
@@ -154,20 +179,6 @@
     opacity: 0;
     top: 30px;
     width: 100%;
-  }
-  .bitrix24-index__button-mob {
-    display: block;
-    margin-top: 14px
-  }
-  .bitrix24-index__button-mob .btn--left {
-    width: 100%;
-    align-items: center;
-    padding: 7px 64px
-  }
-  .bitrix24-index__button-mob .btn--left span {
-    font-size: 16px;
-    line-height: 1;
-    gap: 1px;
   }
 }
 
@@ -329,6 +340,10 @@
 }
 
 .bitrix24__count-content {
+  @media (max-width: 700px) {
+    margin-top: 16px;
+  }
+
   .swiper-slide {
     height: auto;
   }
@@ -337,5 +352,11 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+  }
+}
+
+.bitrix24__tabs {
+  .rate-tabs {
+    margin-bottom: 0;
   }
 }
