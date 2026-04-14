@@ -1915,7 +1915,32 @@
   }
 }
 
+.tariff-sim .connection-container {
+  margin-top: 20px;
+}
+
 @media (max-width: 1150px) {
+  li.side-nav__item {
+    max-width: 185px;
+  }
+
+  .side-nav__list-reset-arrow .side-nav__item:last-child {
+    svg {
+      top: -12px;
+      position: relative;
+
+    }
+  }
+
+  .side-nav__list-reset-arrow .side-nav__item:nth-child(4) {
+    svg {
+      top: -12px;
+      position: relative;
+
+    }
+  }
+
+
   .side-menu {
     width: 235px;
   }
@@ -2500,7 +2525,7 @@
 }
 
 #section6 {
-  padding-bottom: 100px;
+  padding-bottom: 120px;
 }
 
 .swiper-button-next {
@@ -2596,4 +2621,14 @@
 
 .contacts-title {
   text-align: center;
+}
+
+.side-nav__list .side-nav__item:nth-child(3) svg {
+  top: -14px;
+}
+
+@media (max-width: 650px) {
+  .index__button {
+    left: 0;
+  }
 }
