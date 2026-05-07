@@ -16,6 +16,13 @@ function initTeamSwiper() {
     } else {
         destroyTeamSlider();
     }
+
+    const advantageSlider = document.getElementById('partners-advantages-mobile');
+    let advantageSwiper = new Swiper(advantageSlider, {
+        slidesPerView: 1,
+        spaceBetween: 8,
+        loop: false,
+    });
 }
 
 function destroyTeamSlider() {

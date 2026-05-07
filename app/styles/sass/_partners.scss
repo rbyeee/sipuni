@@ -87,15 +87,18 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      right: -100px;
+      right: -346px;
       bottom: 4px;
 
-      @media (max-width: 1060px) {
-        right: 0;
-      }
-      @media (max-width: 600px) {
+      @media (max-width: 880px) {
         flex-direction: column;
-        right: -8px;
+        align-items: start;
+        right: -190px;
+        bottom: -40px;
+      }
+
+      @media (max-width: 700px) {
+        right: -190px;
         bottom: -48px;
       }
     }
@@ -106,6 +109,7 @@
       line-height: 16px;
       font-weight: 550;
       border-radius: 6px;
+      white-space: nowrap;
       transform: skewX(-15deg);
 
       span {
@@ -137,9 +141,39 @@
       font-size: 30px;
       line-height: 125%;
     }
+    
+    br {
+      display: none;
+      
+      @media (max-width: 1060px) {
+        display: block;
+      }
+      @media (max-width: 890px) {
+        display: none;
+      }
+      @media (max-width: 800px) {
+        display: block;
+      }
+      @media (max-width: 375px) {
+        display: none;
+      }
+    }
 
     span {
-      color: #846df2
+      position: relative;
+
+      br {
+        @media (max-width: 1060px) {
+          display: none;
+        }
+        @media (max-width: 540px) {
+          display: block;
+        }
+      }
+    }
+    b {
+      color: #846df2;
+      font-weight: 500;
     }
   }
 
@@ -169,6 +203,7 @@
       .btn--left {
         @media (max-width: 700px) {
           width: 100%;
+          flex-direction: row;
           align-items: center;
           padding: 10px 55px
         }
@@ -181,6 +216,7 @@
 
         svg {
           @media(max-width: 700px) {
+            position: unset;
             right: 40px;
             bottom: 16px;
           }
@@ -318,8 +354,18 @@
       }
 
       @media (max-width: 700px) {
+        display: none;
         grid-template-columns: 1fr;
         gap: 12px;
+      }
+      
+      &.mobile {
+        display: none;
+        @media (max-width: 700px) {
+          display: block;
+          position: relative;
+          overflow: hidden;
+        }
       }
 
       &-item {
@@ -438,13 +484,13 @@
       .btn {
         padding: 7px 28px;
 
+        &:hover span {
+          transform: translateX(0);
+        }
+
         span {
           line-height: 100%;
           white-space: nowrap;
-        }
-
-        svg {
-          top: 2px;
         }
       }
     }
@@ -475,6 +521,79 @@
         max-width: 120px;
       }
     }
+
+    &-btn {
+      &-wrapper {
+        position: relative;
+
+        &:hover > .partners__callback-btn-toggle {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &-toggle {
+        position: absolute;
+        bottom: 56px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 4px 25px 0 #2E2E3326;
+        border-radius: 12px;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 3;
+        transition: 400ms all ease;
+        padding: 8px;
+
+        &-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
+          line-height: 125%;
+          font-weight: 400;
+          color: #2E2E33;
+          background-color: #fff;
+          border-radius: 8px;
+          transition: 400ms all ease;
+          padding: 8px 12px;
+
+          &-icon {
+            position: relative;
+            width: 24px;
+            height: 24px;
+
+            .icon-hover,
+            .icon-default {
+              position: absolute;
+              transition: 400ms all ease;
+            }
+
+            .icon-hover {
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
+
+          &:hover {
+            background-color: #1717330A;
+          }
+
+          &:hover .icon-hover {
+            opacity: 1;
+            visibility: visible;
+          }
+          &:hover .icon-default {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+      }
+    }
   }
 
   &__cards {
@@ -492,6 +611,17 @@
         align-items: end;
         justify-content: space-between;
         gap: 32px;
+        background: #F1F5F9;
+
+        @media (max-width: 1200px) {
+          flex-direction: row;
+          align-items: unset;
+          gap: 24px;
+        }
+
+        @media (max-width: 700px) {
+          flex-direction: column;
+        }
       }
 
       &-container {
@@ -501,8 +631,20 @@
       &-image {
         max-width: 100%;
 
+        @media (max-width: 991px) {
+          max-width: 50%;
+        }
+
+        @media (max-width: 700px) {
+          max-width: 100%;
+        }
+
         img {
           width: auto;
+
+          @media (max-width: 1350px) {
+            max-width: 100%;
+          }
         }
       }
 
@@ -606,12 +748,40 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        transition: 400ms all ease;
         padding: 12px;
         
         @media (max-width: 700px) {
           height: auto;
-          background-color: #F1F5F9;
           border-radius: 30px;
+        }
+
+        &:hover {
+          background-color: #F1F5F9;
+
+          .partners__team-slider-wrapper {
+            transform: rotate(2deg);
+          }
+
+          .partners__team-slider-img-hover {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        &.swiper-slide-active {
+          @media (max-width: 700px) {
+            background-color: #F1F5F9;
+          }
+
+          .partners__team-slider-wrapper {
+            transform: rotate(2deg);
+          }
+
+          .partners__team-slider-img-hover {
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
 
@@ -629,15 +799,6 @@
 
         @media (max-width: 700px) {
           height: 324px;
-        }
-
-        &:hover {
-          transform: rotate(2deg);
-
-          .partners__team-slider-img-hover {
-            opacity: 1;
-            visibility: visible;
-          }
         }
       }
 
@@ -774,6 +935,9 @@
 
         .btn {
           align-items: center;
+          @media (max-width: 700px) {
+            flex-direction: row;
+          }
 
           span {
             font-size: 16px;
@@ -782,6 +946,10 @@
 
           svg {
             bottom: 16px;
+            
+            @media (max-width: 700px) {
+              position: unset;
+            }
           }
         }
 

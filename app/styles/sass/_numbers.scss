@@ -1135,6 +1135,103 @@
       }
     }
 
+    &-btn {
+      &-wrapper {
+        position: relative;
+
+        .btn {
+          @media (max-width: 700px) {
+            display: none;
+          }
+        }
+
+        &.mobile {
+          display: none;
+          
+          .btn {
+            display: block;
+          }
+          
+          @media (max-width: 700px) {
+            display: block;
+          }
+        }
+
+        &:hover > .numbers__support-btn-toggle {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &-toggle {
+        position: absolute;
+        bottom: 0;
+        right: -124px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        background: #FFFFFF;
+        box-shadow: 0 4px 25px 0 #2E2E3326;
+        border-radius: 12px;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 3;
+        transition: 400ms all ease;
+        padding: 8px;
+
+        @media (max-width: 700px) {
+          right: unset;
+          left: 0;
+          bottom: 56px;
+          width: 100%;
+        }
+
+        &-link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
+          line-height: 125%;
+          font-weight: 400;
+          color: #2E2E33;
+          background-color: #fff;
+          border-radius: 8px;
+          transition: 400ms all ease;
+          padding: 8px 12px;
+
+          &-icon {
+            position: relative;
+            width: 24px;
+            height: 24px;
+
+            .icon-hover,
+            .icon-default {
+              position: absolute;
+              transition: 400ms all ease;
+            }
+
+            .icon-hover {
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
+
+          &:hover {
+            background-color: #1717330A;
+          }
+
+          &:hover .icon-hover {
+            opacity: 1;
+            visibility: visible;
+          }
+          &:hover .icon-default {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+      }
+    }
+
     &-col {
       display: flex;
       flex-direction: column;
@@ -1234,18 +1331,6 @@
         }
       }
     }
-    
-    .btn {
-      @media (max-width: 700px) {
-        display: none;
-      }
-    }
-    .btn.mobile {
-      display: none;
-      @media (max-width: 700px) {
-        display: inline-flex;
-      }
-    }
   }
 
   &__callback {
@@ -1297,6 +1382,10 @@
 
       .btn {
         padding: 7px 28px;
+
+        &:hover span {
+          transform: translateX(0);
+        }
 
         span {
           line-height: 100%;
@@ -1365,10 +1454,11 @@
     }
 
     .rate-tabs {
-      margin-bottom: 24px;
+      margin-bottom: 56px;
       @media (max-width: 450px) {
         width: 100%;
         gap: 4px;
+        margin-bottom: 24px;
         padding: 8px;
       }
     }
