@@ -741,4 +741,24 @@ document.addEventListener("DOMContentLoaded", () => {
 			})
 		})
 	})()
+
+	const cookie = document.getElementById('cookie');
+	function showCookie() {
+		if (cookie) {
+			cookie.classList.add('show');
+		}
+	}
+	function applyCookie() {
+		if (cookie) {
+			cookie.classList.remove('show');
+		}
+		//$.post('/ajax/cookie_apply.php', {}, function(data){}); //добавить ссылку на AJAX-обработчик куки
+	}
+
+	if (cookie) {
+		const closeCookie = document.getElementById('close-cookie');
+		closeCookie.addEventListener('click', applyCookie);
+	}
+
+	setTimeout(showCookie, 3000);
 })
