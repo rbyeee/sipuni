@@ -94,7 +94,7 @@
     &-toggle {
       position: absolute;
       left: 0;
-      top: 56px;
+      bottom: 56px;
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -109,7 +109,8 @@
       padding: 8px;
 
       @media (max-width: 700px) {
-
+        top: 56px;
+        bottom: unset;
       }
 
       &-link {

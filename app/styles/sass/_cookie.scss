@@ -66,10 +66,6 @@
         padding: 9px 0;
       }
 
-      &:hover span {
-        transform: translateX(0);
-      }
-
       span {
         line-height: 100%;
         @media (max-width: 700px) {
@@ -77,6 +73,10 @@
           line-height: 16px;
           font-weight: 400;
         }
+      }
+
+      svg {
+        top: 2px;
       }
     }
   }

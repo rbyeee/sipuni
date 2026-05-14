@@ -364,7 +364,6 @@
         @media (max-width: 700px) {
           display: block;
           position: relative;
-          overflow: hidden;
         }
       }
 
@@ -378,7 +377,9 @@
         padding: 24px;
 
         @media (max-width: 700px) {
-          gap: 76px;
+          height: auto;
+          justify-content: space-between;
+          gap: 28px;
         }
 
         img {
@@ -484,13 +485,13 @@
       .btn {
         padding: 7px 28px;
 
-        &:hover span {
-          transform: translateX(0);
-        }
-
         span {
           line-height: 100%;
           white-space: nowrap;
+        }
+
+        svg {
+          bottom: 16px;
         }
       }
     }
@@ -525,6 +526,19 @@
     &-btn {
       &-wrapper {
         position: relative;
+
+        .btn {
+          padding: 7px 28px;
+
+          span {
+            line-height: 100%;
+            white-space: nowrap;
+          }
+
+          svg {
+            bottom: 16px;
+          }
+        }
 
         &:hover > .partners__callback-btn-toggle {
           opacity: 1;
@@ -748,6 +762,7 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        border-radius: 24px;
         transition: 400ms all ease;
         padding: 12px;
         
@@ -760,7 +775,7 @@
           background-color: #F1F5F9;
 
           .partners__team-slider-wrapper {
-            transform: rotate(2deg);
+            /*transform: rotate(2deg);*/
           }
 
           .partners__team-slider-img-hover {
@@ -775,12 +790,7 @@
           }
 
           .partners__team-slider-wrapper {
-            transform: rotate(2deg);
-          }
-
-          .partners__team-slider-img-hover {
-            opacity: 1;
-            visibility: visible;
+            /*transform: rotate(2deg);*/
           }
         }
       }
@@ -810,13 +820,14 @@
         &-hover {
           position: absolute;
           top: 0;
-          left: 12px;
+          left: 0;
           width: 100%;
-          height: auto;
+          height: 100%;
+          object-fit: cover;
           opacity: 0;
           visibility: hidden;
           z-index: 3;
-          transform: rotate(2deg);
+          /*transform: rotate(2deg);*/
           transition: 400ms all ease;
         }
       }

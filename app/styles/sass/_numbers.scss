@@ -1383,17 +1383,13 @@
       .btn {
         padding: 7px 28px;
 
-        &:hover span {
-          transform: translateX(0);
-        }
-
         span {
           line-height: 100%;
           white-space: nowrap;
         }
         
         svg {
-          top: 2px;
+          bottom: 16px;
         }
       }
     }
