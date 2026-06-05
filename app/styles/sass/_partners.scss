@@ -775,7 +775,7 @@
           background-color: #F1F5F9;
 
           .partners__team-slider-wrapper {
-            /*transform: rotate(2deg);*/
+            transform: rotate(2deg);
           }
 
           .partners__team-slider-img-hover {
@@ -790,7 +790,12 @@
           }
 
           .partners__team-slider-wrapper {
-            /*transform: rotate(2deg);*/
+            transform: rotate(2deg);
+          }
+
+          .partners__team-slider-img-hover {
+            opacity: 1;
+            visibility: visible;
           }
         }
       }
